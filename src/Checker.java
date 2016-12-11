@@ -25,7 +25,7 @@ public class Checker {
 	public static boolean isFull(Puzzle p) {
 		return isFull(p.getBoard());
 	}
-	private static boolean isFull(int[][] doneBoard) {
+	public static boolean isFull(int[][] doneBoard) {
 		for (int i = 0; i < doneBoard.length; i ++) {
 			for (int j = 0; j < doneBoard[0].length; j ++) {
 				if (doneBoard[i][j] < 1 || doneBoard[i][j] > doneBoard.length) return false;
@@ -39,7 +39,7 @@ public class Checker {
 		return isPossible(p.getBoard());
 	}
 	// expectation: isComplete(doneBoard) == true
-	private static boolean isPossible(int[][] doneBoard) {		
+	public static boolean isPossible(int[][] doneBoard) {		
 		//initializing a temporary array to check equality against
 		int[] check = new int[doneBoard.length];
 		for (int i = 0; i < check.length; i ++) {
@@ -66,7 +66,7 @@ public class Checker {
 		return isPossible(p.getBoard());
 	}
 	// expectation: isComplete(doneBoard) == true
-	private static boolean isLegal(int[][] newBoard) {
+	public static boolean isLegal(int[][] newBoard) {
 		return true; // needs implementation
 	}
 }
