@@ -1,8 +1,9 @@
 /**
  * The class that initializes the MVC
  * 
+ * @date December 12, 2016
  * @author Kyle
- * @version 1.0
+ * @version 0.0
  */
 public class Driver {
 

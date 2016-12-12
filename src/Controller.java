@@ -2,8 +2,9 @@
  * The class that mediates communication between
  * view and model
  * 
+ * @date December 12, 2016
  * @author Kyle
- * @version 1.0
+ * @version 0.0
  */
 public class Controller {
 	private View view;
@@ -28,8 +29,9 @@ public class Controller {
 	
 	//starts program
 	public void run() {
-		// TODO Auto-generated method stub
-		
+		// TODO delegate to view and model to perform operations
 	}
+	
+	// TODO write communication methods here
 
 }

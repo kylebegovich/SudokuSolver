@@ -3,7 +3,7 @@
  * 
  * These methods are individually developed unless sited in the method description
  * 
- * @date Nov 13, 2016
+ * @date December 12, 2016
  * @author Kyle
  * @version 0.0
  */
@@ -20,15 +20,15 @@ public class Solver {
 	 * @param puzz
 	 * @return the solved puzzle
 	 */
-	public static Puzzle solve(Puzzle puzz) {
+	public static Model solve(Model model) {
 		// solving algorithm goes here
+		// TODO implement use of utility methods
 		
-		
-		return puzz;
+		return model;
 	}
 	
 	
-	/**
-	 * private utility methods start here
-	 */
+	// Utility methods start here:
+	// TODO write utility methods, 
+	//    reference SimpleSolver when possible
 }
