@@ -3,26 +3,23 @@
  * 
  * Also stores the board object to abstract away from Solver
  * 
- * @date December 12, 2016
+ * @date December 13, 2016
  * @author Kyle
  * @version 0.0
  */
 public class Model {
 	private Controller controller;
 	private int[][] board;
-	private Checker checker;
 
 	public Model() {}
 	
 	public Model(Controller controller) {
 		this.controller = controller;
-		this.checker = new Checker(board.length);
 	}
 	
 	public Model(Controller controller, int[][] board) {
 		this.controller = controller;
 		this.board = board;
-		this.checker = new Checker(board.length);
 	}
 	
 	public void setBoard(int[][] board) {
@@ -38,7 +35,7 @@ public class Model {
 	}
 
 	public boolean isSolved() {
-		return checker.isLegal(board);
+		return Checker.isLegal(board);
 	}
 	
 	public String toString() {

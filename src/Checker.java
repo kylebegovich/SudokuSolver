@@ -3,35 +3,28 @@
  * 	1) full, as in there is no empty spaces, and
  *  2) legal, as in each row, column, and box has exactly one of each number
  *  
- *  Force pass-in of the board every time as to make sure
- *  it is completely updated every time it's checked
+ *  Static class
  * 
- * @date December 12, 2016
+ * @date December 13, 2016
  * @author Kyle
  * @version 0.0
  */
 public class Checker {
-	private int[] check;
-	
-
-	public Checker(int length) {
-		this.check = new int[length];
-	}
 	
 	// wrapper method for the entirety of the class
-	public boolean check(Model model) {
+	public static boolean check(Model model) {
 		return check(model.getBoard());
 	}
-	public boolean check(int[][] board) {
+	public static boolean check(int[][] board) {
 		return isFull(board) && isLegal(board);
 	}
 	
 	
 	// wrapper method, checks no empty spaces
-	public boolean isFull(Model model) {
+	public static boolean isFull(Model model) {
 		return isFull(model.getBoard());
 	}
-	public boolean isFull(int[][] doneBoard) {
+	public static boolean isFull(int[][] doneBoard) {
 		for (int i = 0; i < doneBoard.length; i ++) {
 			for (int j = 0; j < doneBoard[0].length; j ++) {
 				if (doneBoard[i][j] < 1 || doneBoard[i][j] > doneBoard.length) return false;
@@ -41,44 +34,46 @@ public class Checker {
 	}
 	
 	// wrapper method, checks if solution is genuine
-	public boolean isLegal(Model model) {
+	public static boolean isLegal(Model model) {
 		return isLegal(model.getBoard());
 	}
-	public boolean isLegal(int[][] board) {		
+	public static boolean isLegal(int[][] board) {
+		int[] check = getCheckArray(board.length);
+		
 		for (int i = 0; i < board.length; i ++) {
 			
 			//check legality for each row
 			for (int j = 0; j < board[0].length; j ++) {
-				for (int k = 0; k < this.check.length; k ++) {
-					if (this.check[k] == board[i][j]) {
-						this.check[k] = 0;
-						k = this.check.length;
+				for (int k = 0; k < check.length; k ++) {
+					if (check[k] == board[i][j]) {
+						check[k] = 0;
+						k = check.length;
 					}
 				}
 			}
 			//check that each value in check got set to 0 above
 			for (int j = 0; j < check.length; j ++) {
-				if (this.check[j] != 0) return false;
+				if (check[j] != 0) return false;
 			}
 			//reset check array
-			resetCheckArray();
+			check = getCheckArray(board.length);
 			
 			
 			//check legality for each column
 			for (int j = 0; j < board[0].length; j ++) {
-				for (int k = 0; k < this.check.length; k ++) {
-					if (this.check[k] == board[j][i]) { //note: i <--> j
-						this.check[k] = 0;
-						k = this.check.length;
+				for (int k = 0; k < check.length; k ++) {
+					if (check[k] == board[j][i]) { //note: i <--> j
+						check[k] = 0;
+						k = check.length;
 					}
 				}
 			}
 			//check that each value in check got set to 0 above
 			for (int j = 0; j < check.length; j ++) {
-				if (this.check[j] != 0) return false;
+				if (check[j] != 0) return false;
 			}
 			//reset check array
-			resetCheckArray();
+			check = getCheckArray(board.length);
 		}
 		
 		
@@ -91,9 +86,11 @@ public class Checker {
 	}
 	
 	//re-initialize check array to make testing possible
-	public void resetCheckArray() {
+	private static int[] getCheckArray(int length) {
+		int[] check = new int[length];
 		for (int i = 0; i < check.length; i ++) {
 			check[i] = i + 1;
 		}
+		return check;
 	}
 }
