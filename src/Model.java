@@ -3,7 +3,7 @@
  * 
  * Also stores the board object to abstract away from Solver
  * 
- * @date December 13, 2016
+ * @date December 14, 2016
  * @author Kyle
  * @version 0.0
  */

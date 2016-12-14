@@ -3,7 +3,7 @@
  * 
  * These methods are individually developed unless sited in the method description
  * 
- * @date December 12, 2016
+ * @date December 14, 2016
  * @author Kyle
  * @version 0.0
  */
@@ -17,7 +17,7 @@ public class Solver {
 	/** 
 	 * Wrapper method to the rest of the class
 	 * 
-	 * @param puzz
+	 * @param model
 	 * @return the solved puzzle
 	 */
 	public static Model solve(Model model) {

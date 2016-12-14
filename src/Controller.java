@@ -32,6 +32,6 @@ public class Controller {
 		// TODO delegate to view and model to perform operations
 	}
 	
-	// TODO write communication methods here
+	// TODO write communication helper methods here
 
 }
