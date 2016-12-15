@@ -81,10 +81,37 @@ public class Checker {
 		}
 
 		// check legality for each box
-		// TODO implementation
-
+		int boxSize = (int) Math.sqrt(check.length);
+		// i & j iterate which box to be checking
+		for (int i = 0; i < board.length; i += boxSize) {
+			for (int j = 0; j < board[0].length; j += boxSize) {
+				// u & v iterate within a box
+				for (int u = i; u < boxSize; u++) {
+					for (int v = j; v < boxSize; v++) {
+						// k iterates through check array
+						for (int k = 0; k < check.length; k++) {
+							if (check[k] == board[u][v]) {
+								check[k] = 0;
+								k = check.length;
+							}
+						}
+						
+					}
+				} // end each box
+				// check that each value in check got set to 0 above
+				for (int c = 0; c < check.length; c++) {
+					if (check[c] != 0)
+						return false;
+				}
+				// reset check array
+				check = getCheckArray(board.length);
+			
+			}
+		}
+		
+		// only reaches this line if every check array was filled
 		return true;
-	}
+	} // end isLegal()
 
 	// re-initialize check array to make testing possible
 	private static int[] getCheckArray(int length) {

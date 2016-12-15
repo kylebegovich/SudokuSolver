@@ -23,14 +23,20 @@ public class View {
 	 */
 	private static final Scanner scanner = new Scanner(System.in);
 	private static final String getSizeMessage = "Please enter the number of rows in your Sudoku puzzle";
-	private static final String fillArrayMessage = "Please fill your Sudoku puzzle, row by row, as prompted";
+	private static final String fillArrayMessage = "Please fill your Sudoku puzzle, row by row, as prompted, 0 for unknown";
 	private static final String invalidInputMessage = "Invalid input! please try again";
 	private static final String separator = " : ";
 
 	// Prompt user for input Sudoku size
 	public int getSudokuSize() {
 		System.out.println(getSizeMessage);
-		return scanner.nextInt();
+		int temp = scanner.nextInt();
+		//condition makes sure only square numbers are input
+		while (Math.floor(Math.sqrt(temp)) != Math.sqrt(temp)) {
+			System.out.println(invalidInputMessage);
+			temp = scanner.nextInt();
+		}
+		return temp;
 	}
 
 	// Prompt user for input Sudoku puzzle
@@ -41,7 +47,7 @@ public class View {
 			System.out.println("Row" + (i + 1) + ": ");
 			for (int j = 0; j < size; j++) {
 				int temp = scanner.nextInt();
-				while (temp < 1 || temp > size) {
+				while (temp < 0 || temp > size) {
 					System.out.println(invalidInputMessage);
 					temp = scanner.nextInt();
 				}
