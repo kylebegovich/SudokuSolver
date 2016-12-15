@@ -19,7 +19,7 @@ public class View {
 	}
 
 	/**
-	 * Version 0.0-1.0 will be only terminal input / output
+	 * Version 0.0 will be only terminal input / output
 	 */
 	private static final Scanner scanner = new Scanner(System.in);
 	private static final String getSizeMessage = "Please enter the number of rows in your Sudoku puzzle";
