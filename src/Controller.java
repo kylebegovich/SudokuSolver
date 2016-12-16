@@ -34,28 +34,25 @@ public class Controller {
 		int[][] board = this.view.getInputArrayFromUser(size);
 		this.model.setBoard(board);
 		if (this.model.isSolved()) {
-			endSequence();
+			endSequence(this.model.toString());
 		} else {
 			Solver.solve(this.model); // this may take a while while running
 			if (this.model.isSolved()) {
-				endSequence();
+				endSequence(this.model.toString());
 			} else {
-				errorSequence();
+				errorSequence(this.model.toString());
 			}
 		}
 
 	}
-
-	public void endSequence() {
-		// TODO make call to View that sends the solved puzzle
-		// and a trigger to stop the program
+	
+	// makes a call to View that stops the program, solved model
+	public void endSequence(String modelRepresentation) {
+		this.view.output(modelRepresentation, true);
 	}
 
-	public void errorSequence() {
-		// TODO make call to View that sends the un/partially solved puzzle
-		// back to the user along with an error message
+	// makes a call to View that stops the program, unsolved model
+	public void errorSequence(String modelRepresentation) {
+		this.view.output(modelRepresentation, false);
 	}
-
-	// TODO write communication helper methods here
-
 }

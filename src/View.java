@@ -25,13 +25,15 @@ public class View {
 	private static final String getSizeMessage = "Please enter the number of rows in your Sudoku puzzle";
 	private static final String fillArrayMessage = "Please fill your Sudoku puzzle, row by row, as prompted, 0 for unknown";
 	private static final String invalidInputMessage = "Invalid input! please try again";
-	private static final String separator = " : ";
+	private static final String solvedMessage = "Your Sudoku puzzle was solved! \n";
+	private static final String errorMessage = "Sorry, your sudoku puzzle was not possible to solve \n";
+	
 
 	// Prompt user for input Sudoku size
 	public int getSudokuSize() {
 		System.out.println(getSizeMessage);
 		int temp = scanner.nextInt();
-		//condition makes sure only square numbers are input
+		// condition makes sure only square numbers are input
 		while (Math.floor(Math.sqrt(temp)) != Math.sqrt(temp)) {
 			System.out.println(invalidInputMessage);
 			temp = scanner.nextInt();
@@ -57,9 +59,15 @@ public class View {
 		return array;
 	}
 
-	// TODO output data in an organized, readable fashion
-	// output a visual representation of the Sudoku puzzle to the console
-	public void output(String representation) {
-		System.out.println(representation);
+	// output a visual representation of the Sudoku puzzle to the console, 
+	// along with a message to the user
+	public void output(String representation, boolean solved) {
+		if (solved) {
+			System.out.println(solvedMessage);
+			System.out.println(representation);
+		} else {
+			System.out.println(errorMessage);
+			System.out.println(representation);
+		}
 	}
 }
