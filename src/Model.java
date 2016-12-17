@@ -3,13 +3,13 @@
  * 
  * Also stores the board object to abstract away from Solver
  * 
- * @date December 15, 2016
+ * @date December 17, 2016
  * @author Kyle
  * @version 0.0
  */
 public class Model {
 	private Controller controller;
-	private int[][] board;
+	protected int[][] board; // protected so Solver and SimpleSolver have access
 
 	public Model() {
 		super();

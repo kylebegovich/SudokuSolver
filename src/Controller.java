@@ -36,7 +36,7 @@ public class Controller {
 		if (this.model.isSolved()) {
 			endSequence(this.model.toString());
 		} else {
-			Solver.solve(this.model); // this may take a while while running
+			Solver.solve(this.model); // this may take a while whilst running
 			if (this.model.isSolved()) {
 				endSequence(this.model.toString());
 			} else {

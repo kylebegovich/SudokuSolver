@@ -1,10 +1,12 @@
 /**
  * This is the class used to solve the puzzle given from Driver.java
  * 
- * These methods are individually developed unless sited in the method
+ * These methods are individually developed unless cited in the method
  * description
  * 
- * @date December 15, 2016
+ * Static class
+ * 
+ * @date December 17, 2016
  * @author Kyle
  * @version 0.0
  */
