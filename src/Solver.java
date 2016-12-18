@@ -28,6 +28,7 @@ public class Solver {
 	public static void solve(Model model) {
 		// solving algorithm goes here
 		// TODO implement use of utility methods
+		SimpleSolver.simpleSolve(model);
 	}
 
 	// Utility methods start here:

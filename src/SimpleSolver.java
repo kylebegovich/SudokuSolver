@@ -22,7 +22,7 @@ public class SimpleSolver {
 	 * @param model
 	 * @return the solved puzzle
 	 */
-	public static void simpleSolver(Model model) {
+	public static void simpleSolve(Model model) {
 		solveOneMissingRow(model.board);
 		solveOneMissingColumn(model.board);
 		solveOneMissingBox(model.board);
@@ -62,12 +62,42 @@ public class SimpleSolver {
 		}
 	}
 
-	private static void solveOneMissingColumn(int[][] board) {
-		// TODO Auto-generated method stub
+	public static void solveOneMissingColumn(int[][] board) {
+		int[] temp = getCheckArray(board.length);
+		int openPos = -1; // tracks if exactly one spot is left
+		int missingValue = -1;
 
+		// note row <--> column
+		for (int column = 0; column < board.length; column ++) {
+			for (int row = 0; row < board[0].length; row ++) {
+				for (int k = 0; k < temp.length; k++) {
+					if (temp[k] == board[row][column]) {
+						temp[k] = 0;
+						k = temp.length; // break inner-most loop
+					}
+				}
+			}
+			// check that only one value didn't get set to 0
+			for (int i = 0; i < temp.length; i ++) {
+				if (missingValue >= 0) {
+					missingValue = -1;
+					break;
+				}
+				if (temp[i] != 0) {
+					missingValue = i;
+				}
+			}
+			if (openPos >= 0) {
+				for (int row = 0; row < board[0].length; row ++) {
+					if (board[row][column] == 0) {
+						board[row][column] = missingValue;
+					}
+				}
+			}
+		}
 	}
 
-	private static void solveOneMissingBox(int[][] board) {
+	public static void solveOneMissingBox(int[][] board) {
 		// TODO Auto-generated method stub
 
 	}
