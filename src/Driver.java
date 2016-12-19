@@ -18,6 +18,6 @@ public class Driver {
 		controller.addModel(model);
 
 		// does everything else
-		controller.run(); 
+		controller.run();
 	}
 }

@@ -4,7 +4,7 @@ import java.util.Scanner;
  * The class that displays data to the user, accepts inputs, and communicates
  * with controller
  * 
- * @date December 15, 2016
+ * @date December 19, 2016
  * @author Kyle
  * @version 0.0
  */
@@ -27,7 +27,6 @@ public class View {
 	private static final String invalidInputMessage = "Invalid input! please try again";
 	private static final String solvedMessage = "Your Sudoku puzzle was solved! \n";
 	private static final String errorMessage = "Sorry, your sudoku puzzle was not possible to solve \n";
-	
 
 	// Prompt user for input Sudoku size
 	public int getSudokuSize() {
@@ -59,7 +58,7 @@ public class View {
 		return array;
 	}
 
-	// output a visual representation of the Sudoku puzzle to the console, 
+	// output a visual representation of the Sudoku puzzle to the console,
 	// along with a message to the user
 	public void output(String representation, boolean solved) {
 		if (solved) {
