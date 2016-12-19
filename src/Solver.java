@@ -6,7 +6,7 @@
  * 
  * Static class
  * 
- * @date December 17, 2016
+ * @date December 19, 2016
  * @author Kyle
  * @version 0.0
  */
@@ -26,12 +26,20 @@ public class Solver {
 	 * @return the solved puzzle
 	 */
 	public static void solve(Model model) {
-		// solving algorithm goes here
-		// TODO implement use of utility methods
-		SimpleSolver.simpleSolve(model);
+		// while it is not yet solved
+		while (!Checker.check(model)) {
+			// first check for simple solutions
+			SimpleSolver.simpleSolve(model);
+			// iterate through every space on the board for a call to the solving algorithm
+			for (int row = 0; row < model.board.length; row ++) {
+				for (int column = 0; column < model.board[0].length; column ++) {
+					// TODO implement use of utility methods
+				}
+				
+			}
+		}
 	}
 
 	// Utility methods start here:
-	// TODO write utility methods,
-	// reference SimpleSolver when possible
+	// TODO write utility methods
 }

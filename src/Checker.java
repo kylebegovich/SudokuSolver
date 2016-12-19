@@ -5,7 +5,7 @@
  * 
  * Static class
  * 
- * @date December 15, 2016
+ * @date December 19, 2016
  * @author Kyle
  * @version 0.0
  */
@@ -26,8 +26,8 @@ public class Checker {
 	}
 
 	public static boolean isFull(int[][] doneBoard) {
-		for (int i = 0; i < doneBoard.length; i++) {
-			for (int j = 0; j < doneBoard[0].length; j++) {
+		for (int i = 0; i < doneBoard.length; i ++) {
+			for (int j = 0; j < doneBoard[0].length; j ++) {
 				if (doneBoard[i][j] < 1 || doneBoard[i][j] > doneBoard.length)
 					return false;
 			}
@@ -43,19 +43,19 @@ public class Checker {
 	public static boolean isLegal(int[][] board) {
 		int[] check = getCheckArray(board.length);
 
-		for (int i = 0; i < board.length; i++) {
+		for (int i = 0; i < board.length; i ++) {
 
 			// check legality for each row
-			for (int j = 0; j < board[0].length; j++) {
-				for (int k = 0; k < check.length; k++) {
+			for (int j = 0; j < board[0].length; j ++) {
+				for (int k = 0; k < check.length; k ++) {
 					if (check[k] == board[i][j]) {
 						check[k] = 0;
-						k = check.length;
+						break;
 					}
 				}
 			}
 			// check that each value in check got set to 0 above
-			for (int j = 0; j < check.length; j++) {
+			for (int j = 0; j < check.length; j ++) {
 				if (check[j] != 0)
 					return false;
 			}
@@ -63,16 +63,16 @@ public class Checker {
 			check = getCheckArray(board.length);
 
 			// check legality for each column
-			for (int j = 0; j < board[0].length; j++) {
-				for (int k = 0; k < check.length; k++) {
+			for (int j = 0; j < board[0].length; j ++) {
+				for (int k = 0; k < check.length; k ++) {
 					if (check[k] == board[j][i]) { // note: i <--> j
 						check[k] = 0;
-						k = check.length;
+						break;
 					}
 				}
 			}
 			// check that each value in check got set to 0 above
-			for (int j = 0; j < check.length; j++) {
+			for (int j = 0; j < check.length; j ++) {
 				if (check[j] != 0)
 					return false;
 			}
@@ -85,21 +85,23 @@ public class Checker {
 		// i & j iterate which box to be checking
 		for (int i = 0; i < board.length; i += boxSize) {
 			for (int j = 0; j < board[0].length; j += boxSize) {
+				
 				// u & v iterate within a box
-				for (int u = i; u < boxSize; u++) {
-					for (int v = j; v < boxSize; v++) {
+				for (int u = i; u < boxSize; u ++) {
+					for (int v = j; v < boxSize; v ++) {
 						// k iterates through check array
-						for (int k = 0; k < check.length; k++) {
+						for (int k = 0; k < check.length; k ++) {
 							if (check[k] == board[u][v]) {
 								check[k] = 0;
-								k = check.length;
+								break;
 							}
 						}
 						
 					}
 				} // end each box
+				
 				// check that each value in check got set to 0 above
-				for (int c = 0; c < check.length; c++) {
+				for (int c = 0; c < check.length; c ++) {
 					if (check[c] != 0)
 						return false;
 				}
@@ -108,15 +110,14 @@ public class Checker {
 			
 			}
 		}
-		
 		// only reaches this line if every check array was filled
 		return true;
-	} // end isLegal()
+	}
 
-	// re-initialize check array to make testing possible
+	// return new check array, values [1,length]
 	private static int[] getCheckArray(int length) {
 		int[] check = new int[length];
-		for (int i = 0; i < check.length; i++) {
+		for (int i = 0; i < check.length; i ++) {
 			check[i] = i + 1;
 		}
 		return check;

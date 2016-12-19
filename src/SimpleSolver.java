@@ -4,7 +4,7 @@
  * 
  * Static class
  * 
- * @date December 17, 2016
+ * @date December 19, 2016
  * @author Kyle
  * @version 0.0
  */
@@ -31,35 +31,34 @@ public class SimpleSolver {
 	public static void solveOneMissingRow(int[][] board) {
 		int[] temp = getCheckArray(board.length);
 		int openPos = -1; // tracks if exactly one spot is left
-		int missingValue = -1;
+		int missingValue = -1; // tracks what value is missing
 
 		for (int row = 0; row < board.length; row ++) {
 			for (int column = 0; column < board[0].length; column ++) {
-				for (int k = 0; k < temp.length; k++) {
+				for (int k = 0; k < temp.length; k ++) {
 					if (temp[k] == board[row][column]) {
 						temp[k] = 0;
-						k = temp.length; // break inner-most loop
+						break;
+					} else if (k + 1 == temp.length) {
+						openPos = column;
 					}
 				}
 			}
-			// check that only one value didn't get set to 0
+			// check that exactly one value didn't get set to 0
 			for (int i = 0; i < temp.length; i ++) {
-				if (missingValue >= 0) {
-					missingValue = -1;
-					break;
-				}
 				if (temp[i] != 0) {
+					// if there's already been another value found, break
+					if (missingValue >= 0) {
+						missingValue = -1;
+						break;
+					}
 					missingValue = i;
 				}
 			}
-			if (openPos >= 0) {
-				for (int column = 0; column < board[0].length; column ++) {
-					if (board[row][column] == 0) {
-						board[row][column] = missingValue;
-					}
-				}
+			if (missingValue >= 0) {
+				board[row][openPos] = missingValue;
 			}
-		}
+		} // end row loop
 	}
 
 	public static void solveOneMissingColumn(int[][] board) {
@@ -70,31 +69,31 @@ public class SimpleSolver {
 		// note row <--> column
 		for (int column = 0; column < board.length; column ++) {
 			for (int row = 0; row < board[0].length; row ++) {
-				for (int k = 0; k < temp.length; k++) {
+				for (int k = 0; k < temp.length; k ++) {
 					if (temp[k] == board[row][column]) {
 						temp[k] = 0;
-						k = temp.length; // break inner-most loop
+						break;
+					} else if (k + 1 == temp.length) {
+						openPos = column;
 					}
+					
 				}
 			}
-			// check that only one value didn't get set to 0
+			// check that exactly one value didn't get set to 0
 			for (int i = 0; i < temp.length; i ++) {
-				if (missingValue >= 0) {
-					missingValue = -1;
-					break;
-				}
 				if (temp[i] != 0) {
+					// if there's already been another value found, break
+					if (missingValue >= 0) {
+						missingValue = -1;
+						break;
+					}
 					missingValue = i;
 				}
 			}
-			if (openPos >= 0) {
-				for (int row = 0; row < board[0].length; row ++) {
-					if (board[row][column] == 0) {
-						board[row][column] = missingValue;
-					}
-				}
+			if (missingValue >= 0) {
+				board[openPos][column] = missingValue;
 			}
-		}
+		} // end column loop
 	}
 
 	public static void solveOneMissingBox(int[][] board) {
@@ -105,7 +104,7 @@ public class SimpleSolver {
 	// initialize standard array to make solving possible
 	private static int[] getCheckArray(int length) {
 		int[] check = new int[length];
-		for (int i = 0; i < check.length; i++) {
+		for (int i = 0; i < check.length; i ++) {
 			check[i] = i + 1;
 		}
 		return check;
