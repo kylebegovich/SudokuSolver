@@ -6,7 +6,7 @@
  * 
  * Static class
  * 
- * @date December 19, 2016
+ * @date December 20, 2016
  * @author Kyle
  * @version 0.0
  */
@@ -38,4 +38,35 @@ public class Solver {
 
 	// Utility methods start here:
 	// TODO write utility methods
+
+	public static int[] updateAvailable(int row, int col, int length, int[][] board) {
+		int[] available = getNewAvailableArray(length);
+		// row loop
+		for (int i = 0; i < length; i++) {
+			for (int j = 0; j < length; j++) {
+				if (board[i][col] == available[j] && i != row) {
+					available[j] = 0;
+				}
+			}
+		}
+		// column loop
+		for (int i = 0; i < length; i++) {
+			for (int j = 0; j < length; j++) {
+				if (board[row][i] == available[j] && i != col) {
+					available[j] = 0;
+				}
+			}
+		}
+		// box loop
+		// TODO iterate through the current box and update available array
+		return available;
+	}
+
+	public static int[] getNewAvailableArray(int length) {
+		int[] available = new int[length];
+		for (int k = 0; k < available.length; k++) {
+			available[k] = k + 1;
+		}
+		return available;
+	}
 }
