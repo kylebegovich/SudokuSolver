@@ -6,7 +6,7 @@
  * 
  * Static class
  * 
- * @since December 20, 2016
+ * @since December 22, 2016
  * @author Kyle
  * @version 0.0
  */
