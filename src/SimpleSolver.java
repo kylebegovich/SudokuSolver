@@ -4,7 +4,7 @@
  * 
  * Static class
  * 
- * @date December 19, 2016
+ * @since December 21, 2016
  * @author Kyle
  * @version 0.0
  */
@@ -16,11 +16,9 @@ public class SimpleSolver {
 
 	/**
 	 * Wrapper method to the rest of the class
-	 * 
 	 * Destructive method, no return
 	 * 
-	 * @param model
-	 *            the model to be solved
+	 * @param the model to be solved
 	 */
 	public static void simpleSolve(Model model) {
 		solveOneMissingRow(model.board);

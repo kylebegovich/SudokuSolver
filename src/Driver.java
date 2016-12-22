@@ -1,7 +1,7 @@
 /**
  * The class that initializes the MVC
  * 
- * @date December 19, 2016
+ * @since December 19, 2016
  * @author Kyle
  * @version 0.0
  */

@@ -1,7 +1,7 @@
 /**
  * The class that mediates communication between view and model
  * 
- * @date December 19, 2016
+ * @since December 19, 2016
  * @author Kyle
  * @version 0.0
  */
