@@ -6,7 +6,7 @@
  * Static class
  * 
  * @since December 22, 2016
- * @author Kyle
+ * @author Kyle Begovich
  * @version 0.0
  */
 public class Checker {
@@ -91,6 +91,8 @@ public class Checker {
 		// i & j iterate which box to be checking
 		
 		// TODO figure out why this is broken, fix it
+		// TODO may not actually be broken, fix SimpleSolver first
+		
 //		for (int i = 0; i < board.length; i += boxSize) {
 //			for (int j = 0; j < board[0].length; j += boxSize) {
 //

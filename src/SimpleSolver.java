@@ -5,7 +5,7 @@
  * Static class
  * 
  * @since December 22, 2016
- * @author Kyle
+ * @author Kyle Begovich
  * @version 0.0
  */
 
@@ -31,6 +31,8 @@ public class SimpleSolver {
 		int openPos = -1; // tracks if exactly one spot is left
 		int missingValue = -1; // tracks what value is missing
 
+		
+		// TODO there's an issue with not updating board: find & fix
 		for (int row = 0; row < board.length; row++) {
 			columnLoop: for (int col = 0; col < board[0].length; col++) {
 				for (int k = 0; k < temp.length; k++) {
@@ -69,6 +71,8 @@ public class SimpleSolver {
 		} // end rowLoop
 	}
 
+	// TODO there's an issue with not updating board: find & fix
+	// ref method above
 	public static void solveOneMissingColumn(int[][] board) {
 		int[] temp = getCheckArray(board.length);
 		int openPos = -1; // tracks if exactly one spot is left
@@ -112,7 +116,9 @@ public class SimpleSolver {
 			}
 		} // end columnLoop
 	}
-
+	
+	// TODO there's an issue with not updating board: find & fix
+	// ref method above
 	public static void solveOneMissingBox(int[][] board) {
 		int[] temp = getCheckArray(board.length);
 		int openPosRow = -1; // tracks if exactly one spot is left

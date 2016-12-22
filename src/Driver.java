@@ -2,7 +2,7 @@
  * The class that initializes the MVC
  * 
  * @since December 22, 2016
- * @author Kyle
+ * @author Kyle Begovich
  * @version 0.0
  */
 public class Driver {
