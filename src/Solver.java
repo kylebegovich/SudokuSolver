@@ -44,7 +44,7 @@ public class Solver {
 		// row loop
 		for (int i = 0; i < length; i++) {
 			for (int j = 0; j < length; j++) {
-				if (board[i][col] == available[j] && i != row) {
+				if (board[i][col] == available[j]) {
 					available[j] = 0;
 				}
 			}
@@ -52,13 +52,25 @@ public class Solver {
 		// column loop
 		for (int i = 0; i < length; i++) {
 			for (int j = 0; j < length; j++) {
-				if (board[row][i] == available[j] && i != col) {
+				if (board[row][i] == available[j]) {
 					available[j] = 0;
 				}
 			}
 		}
+		// used to offset the location of the current square within the box
+		int rowStart = (int) ((row/Math.sqrt(length))*Math.sqrt(length));
+		int colStart = (int) ((col/Math.sqrt(length))*Math.sqrt(length));
 		// box loop
-		// TODO iterate through the current box and update available array
+		for (int r = rowStart; r < rowStart + Math.sqrt(length); r++) {
+			for (int c = rowStart; c < colStart + Math.sqrt(length); c++) {
+				for (int j = 0; j < length; j++) {
+					if (board[r][c] == available[j]) {
+						available[j] = 0;
+					}
+				}
+			}
+		}
+		
 		return available;
 	}
 
