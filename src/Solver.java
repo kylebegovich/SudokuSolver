@@ -29,7 +29,9 @@ public class Solver {
 			SimpleSolver.simpleSolve(model);
 			// iterate through every space on the board for a call to the
 			// solving algorithm
+			SimpleSolver.solveOneMissingRow(model.board);
 			for (int row = 0; row < length; row++) {
+				SimpleSolver.solveOneMissingColumn(model.board);
 				for (int column = 0; column < length; column++) {
 					if (model.board[row][column] == 0) {
 						int[] available = updateAvailable(row, column, length, model.board);
