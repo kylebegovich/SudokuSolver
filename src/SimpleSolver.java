@@ -15,10 +15,10 @@ public class SimpleSolver {
 	// find the remaining number and fill it in
 
 	/**
-	 * Wrapper method to the rest of the class
-	 * Destructive method, no return
+	 * Wrapper method to the rest of the class Destructive method, no return
 	 * 
-	 * @param the model to be solved
+	 * @param the
+	 *            model to be solved
 	 */
 	public static void simpleSolve(Model model) {
 		solveOneMissingRow(model.board);
@@ -31,24 +31,26 @@ public class SimpleSolver {
 		int openPos = -1; // tracks if exactly one spot is left
 		int missingValue = -1; // tracks what value is missing
 
-		
 		// TODO there's an issue with not updating board: find & fix
 		for (int row = 0; row < board.length; row++) {
 			columnLoop: for (int col = 0; col < board[0].length; col++) {
+				// iterate through temp array
 				for (int k = 0; k < temp.length; k++) {
 					// set every value matched in temp to 0
 					if (temp[k] == board[row][col]) {
 						temp[k] = 0;
+						System.out.println("testing purposes: found a matched value" + temp[k] + " " + board[row][col]);
 						break;
 					}
 					// if it was not found in temp, it's an open position
 					else if (k + 1 == temp.length) {
 						if (openPos == -1) {
-							// if there's not yet an open position, track it
+							// not yet an open position, track it
+							System.out.println("testing purposes: setting openPos");
 							openPos = col;
 						} else {
-							// if there's more than one open position, go to
-							// next row
+							// more than one open position, go to next row
+							System.out.println("testing purposes: breaking column loop");
 							break columnLoop;
 						}
 					}
@@ -116,7 +118,7 @@ public class SimpleSolver {
 			}
 		} // end columnLoop
 	}
-	
+
 	// TODO there's an issue with not updating board: find & fix
 	// ref method above
 	public static void solveOneMissingBox(int[][] board) {

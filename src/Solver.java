@@ -50,7 +50,7 @@ public class Solver {
 						if (availableIndex >= 0) {
 							model.board[row][column] = available[availableIndex];
 						}
-						System.out.println("testing purposes");
+//						System.out.println("testing purposes");
 					}
 				}
 
@@ -86,6 +86,7 @@ public class Solver {
 		for (int r = rowStart; r < rowStart + Math.sqrt(length); r++) {
 			for (int c = rowStart; c < colStart + Math.sqrt(length); c++) {
 				for (int j = 0; j < length; j++) {
+					// TODO an IndexOutOfBounds exception is being thrown here, find and fix
 					if (board[r][c] == available[j]) {
 						available[j] = 0;
 					}
