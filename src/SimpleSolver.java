@@ -38,8 +38,8 @@ public class SimpleSolver {
 				for (int k = 0; k < temp.length; k++) {
 					// set every value matched in temp to 0
 					if (temp[k] == board[row][col]) {
+						System.out.println("testing purposes: found a matched value " + temp[k] + " " + board[row][col]);
 						temp[k] = 0;
-						System.out.println("testing purposes: found a matched value" + temp[k] + " " + board[row][col]);
 						break;
 					}
 					// if it was not found in temp, it's an open position
@@ -53,9 +53,12 @@ public class SimpleSolver {
 							System.out.println("testing purposes: breaking column loop");
 							break columnLoop;
 						}
+					} else {
+						System.out.println("testing purposes: neither a matched value or an openPos");
 					}
 				} // end temp loop
 			}
+			System.out.println("testing purposes: openPos = " + openPos);
 			// only try to replace value if there's only one open position
 			if (openPos != -1) {
 				// find missingValue: only value in temp != 0
@@ -186,6 +189,7 @@ public class SimpleSolver {
 		int[] check = new int[length];
 		for (int k = 0; k < check.length; k++) {
 			check[k] = k + 1;
+			System.out.println("testing purposes: value at " + k + " is " + check[k]);
 		}
 		return check;
 	}
