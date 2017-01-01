@@ -98,8 +98,8 @@ public class Solver {
 		System.out.println("col take sqrt = " + ((col / Math.sqrt(length))));
 		
 		// used to offset the location of the current square within the box
-		int rowStart = (int) ((row / Math.sqrt(length)) * Math.sqrt(length));
-		int colStart = (int) ((col / Math.sqrt(length)) * Math.sqrt(length));
+		int rowStart = (int) ((int)(row / Math.sqrt(length)) * Math.sqrt(length));
+		int colStart = (int) ((int)(col / Math.sqrt(length)) * Math.sqrt(length));
 		System.out.println("colStart = " + colStart + ", rowStart = " + rowStart + ", sqrt = " + Math.sqrt(length));
 		// box loop
 		for (int r = rowStart; r < rowStart + Math.sqrt(length); r++) {
