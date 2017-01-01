@@ -17,8 +17,7 @@ public class SimpleSolver {
 	/**
 	 * Wrapper method to the rest of the class Destructive method, no return
 	 * 
-	 * @param the
-	 *            model to be solved
+	 * @param the model to be solved
 	 */
 	public static void simpleSolve(Model model) {
 		solveOneMissingRow(model.board);
@@ -72,7 +71,7 @@ public class SimpleSolver {
 				// find missingValue: only value in temp != 0
 				for (int k = 0; k < temp.length; k++) {
 					if (temp[k] != 0) {
-						missingValue = k;
+						missingValue = temp[k];
 						break;
 					}
 				}
@@ -193,6 +192,7 @@ public class SimpleSolver {
 					}
 					// double check there won't be a nullPointer thrown
 					if (missingValue >= 0 && openPosRow >= 0 && openPosCol >= 0) {
+						System.out.println("testing purposes: updating, box, row = " + openPosRow + ", col = " + openPosCol);
 						board[openPosRow][openPosCol] = missingValue;
 					}
 				}
