@@ -10,7 +10,7 @@
  */
 
 public class SimpleSolver {
-	// simple solving algorithms, example: 
+	// simple solving algorithms, example:
 	// if there's all but one in a row, column, or box,
 	// find the remaining number and fill it in
 
@@ -33,14 +33,21 @@ public class SimpleSolver {
 
 		// TODO there's an issue with not updating board: find & fix
 		for (int row = 0; row < board.length; row++) {
+			// make sure to reset temporary variables used
+			temp = getCheckArray(board.length);
+			openPos = -1;
+			missingValue = -1;
 			columnLoop: for (int col = 0; col < board[0].length; col++) {
 				// iterate through temp array
 				for (int k = 0; k < temp.length; k++) {
 					// set every value matched in temp to 0
 					if (temp[k] == board[row][col]) {
-						System.out.println("testing purposes: found a matched value " + temp[k] + " " + board[row][col]);
+						System.out
+								.println("testing purposes: found a matched value " + temp[k] + " " + board[row][col]);
 						temp[k] = 0;
-						break;
+						if (k + 1 != temp.length) {
+							break;
+						}
 					}
 					// if it was not found in temp, it's an open position
 					else if (k + 1 == temp.length) {
@@ -86,6 +93,10 @@ public class SimpleSolver {
 
 		// note row <--> column
 		for (int col = 0; col < board.length; col++) {
+			// make sure to reset temporary variables used
+			temp = getCheckArray(board.length);
+			openPos = -1;
+			missingValue = -1;
 			rowLoop: for (int row = 0; row < board[0].length; row++) {
 				for (int k = 0; k < temp.length; k++) {
 					// set every value matched in temp to 0
@@ -111,7 +122,7 @@ public class SimpleSolver {
 				// find missingValue: only value in temp != 0
 				for (int k = 0; k < temp.length; k++) {
 					if (temp[k] != 0) {
-						missingValue = k;
+						missingValue = temp[k];
 						break;
 					}
 				}
@@ -137,6 +148,12 @@ public class SimpleSolver {
 		for (int i = 0; i < board.length; i += boxSize) {
 			for (int j = 0; j < board[0].length; j += boxSize) {
 
+				// make sure to reset temporary variables used
+				temp = getCheckArray(board.length);
+				openPosRow = -1;
+				openPosCol = -1;
+				missingValue = -1;
+				
 				// u & v iterate within a box
 				boxLoop: for (int row = i; row < i + boxSize; row++) {
 					for (int col = j; col < j + boxSize; col++) {

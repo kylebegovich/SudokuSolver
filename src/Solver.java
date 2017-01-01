@@ -76,8 +76,7 @@ public class Solver {
 
 	public static int[] updateAvailable(int row, int col, int length, int[][] board) {
 		int[] available = getNewAvailableArray(length);
-		
-		System.out.println("col = " + col + ", row = " + row);
+		System.out.println("testing purposes: updateAvailable(): col = " + col + ", row = " + row);
 		
 		// row loop
 		for (int i = 0; i < length; i++) {
@@ -95,12 +94,11 @@ public class Solver {
 				}
 			}
 		}
-		System.out.println("col take sqrt = " + ((col / Math.sqrt(length))));
 		
 		// used to offset the location of the current square within the box
 		int rowStart = (int) ((int)(row / Math.sqrt(length)) * Math.sqrt(length));
 		int colStart = (int) ((int)(col / Math.sqrt(length)) * Math.sqrt(length));
-		System.out.println("colStart = " + colStart + ", rowStart = " + rowStart + ", sqrt = " + Math.sqrt(length));
+		System.out.println("testing purposes: colStart = " + colStart + ", rowStart = " + rowStart + ", sqrt = " + Math.sqrt(length));
 		// box loop
 		for (int r = rowStart; r < rowStart + Math.sqrt(length); r++) {
 			// insert c++ joke here
