@@ -6,7 +6,7 @@
  * 
  * Static class
  * 
- * @since December 31, 2016
+ * @since January 1, 2017
  * @author Kyle Begovich
  * @version 0.0
  */
@@ -21,48 +21,64 @@ public class Solver {
 	 */
 	public static void solve(Model model) {
 		// TODO implement use of utility methods
-
-		// while it is not yet solved
 		int length = model.board.length;
-		while (!Checker.check(model)) {
-			// first check for simple solutions
-			SimpleSolver.simpleSolve(model);
-			// iterate through every space on the board for a call to the
-			// solving algorithm
-			SimpleSolver.solveOneMissingRow(model.board);
-			for (int row = 0; row < length; row++) {
-				SimpleSolver.solveOneMissingColumn(model.board);
-				for (int column = 0; column < length; column++) {
-					if (model.board[row][column] == 0) {
-						int[] available = updateAvailable(row, column, length, model.board);
-						// availableIndex tracks what to set board[row][column] equal to
-						int availableIndex = -1;
-						for (int i = 0; i < length; i++) {
-							if (available[i] != 0) {
-								if (availableIndex >= 0) {
-									availableIndex = -1;
-									break;
-								} else {
-									availableIndex = i;
+		// used to prevent infinite loops
+		int[][] lastIterationBoard;
+
+		// make sure puzzle is not already solved before trying to solve it
+		if (!Checker.check(model)) {
+			do {
+				// make sure the board gets modified at every iteration,
+				// otherwise break loop and fail to solve puzzle
+				lastIterationBoard = model.board;
+
+				// first check for simple solutions
+				SimpleSolver.simpleSolve(model);
+				System.out.println("testing purposes: finished simpleSolve() without error");
+
+				// iterate through every space on the board for a call to the
+				// solving algorithm, if empty (equal to 0)
+				SimpleSolver.solveOneMissingRow(model.board);
+				System.out.println("testing purposes: finished solveOneMissingRow() without error");
+
+				for (int row = 0; row < length; row++) {
+					SimpleSolver.solveOneMissingColumn(model.board);
+					for (int column = 0; column < length; column++) {
+						if (model.board[row][column] == 0) {
+							int[] available = updateAvailable(row, column, length, model.board);
+							// availableIndex tracks what to set
+							// board[row][column] equal to
+							int availableIndex = -1;
+							for (int i = 0; i < length; i++) {
+								if (available[i] != 0) {
+									if (availableIndex >= 0) {
+										availableIndex = -1;
+										break;
+									} else {
+										availableIndex = i;
+									}
 								}
 							}
-						}
-						if (availableIndex >= 0) {
-							model.board[row][column] = available[availableIndex];
-							System.out.println("testing purposes: updated board at (" + row + "," + column + ") to " + available[availableIndex]);
+							if (availableIndex >= 0) {
+								model.board[row][column] = available[availableIndex];
+								System.out.println("testing purposes: updated board at (" + row + "," + column + ") to "
+										+ available[availableIndex]);
+							}
 						}
 					}
-				}
 
-			}
+				}
+			} while (!Checker.check(model) && lastIterationBoard != model.board);
 		}
 	}
 
 	// Utility methods start here:
-	// TODO write utility methods
 
 	public static int[] updateAvailable(int row, int col, int length, int[][] board) {
 		int[] available = getNewAvailableArray(length);
+		
+		System.out.println("col = " + col + ", row = " + row);
+		
 		// row loop
 		for (int i = 0; i < length; i++) {
 			for (int j = 0; j < length; j++) {
@@ -79,14 +95,20 @@ public class Solver {
 				}
 			}
 		}
+		System.out.println("col take sqrt = " + ((col / Math.sqrt(length))));
+		
 		// used to offset the location of the current square within the box
 		int rowStart = (int) ((row / Math.sqrt(length)) * Math.sqrt(length));
 		int colStart = (int) ((col / Math.sqrt(length)) * Math.sqrt(length));
+		System.out.println("colStart = " + colStart + ", rowStart = " + rowStart + ", sqrt = " + Math.sqrt(length));
 		// box loop
 		for (int r = rowStart; r < rowStart + Math.sqrt(length); r++) {
-			for (int c = rowStart; c < colStart + Math.sqrt(length); c++) {
+			// insert c++ joke here
+			for (int c = colStart; c < colStart + Math.sqrt(length); c++) {
 				for (int j = 0; j < length; j++) {
-					// TODO an IndexOutOfBounds exception is being thrown here, find and fix
+					// TODO an IndexOutOfBounds exception is being thrown here,
+					// find and fix
+					System.out.println("testing purposes: r = " + r + ", c = " + c + ", j = " + j);
 					if (board[r][c] == available[j]) {
 						available[j] = 0;
 					}

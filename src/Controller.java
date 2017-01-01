@@ -1,7 +1,7 @@
 /**
  * The class that mediates communication between view and model
  * 
- * @since December 22, 2016
+ * @since January 1, 2017
  * @author Kyle Begovich
  * @version 0.0
  */
@@ -33,26 +33,17 @@ public class Controller {
 		int size = this.view.getSudokuSize();
 		int[][] board = this.view.getInputArrayFromUser(size);
 		this.model.setBoard(board);
-		if (this.model.isSolved()) {
-			endSequence(this.model.toString());
-		} else {
-			Solver.solve(this.model); // this may take a while whilst running
-			if (this.model.isSolved()) {
-				endSequence(this.model.toString());
-			} else {
-				errorSequence(this.model.toString());
-			}
-		}
+
+		// this may take a while, calls solving algorithms
+		Solver.solve(this.model);
+
+		// ends program, View closes program with isSolved() as a parameter
+		endSequence(this.model.toString(), this.model.isSolved());
 
 	}
-	
-	// makes a call to View that stops the program, solved model
-	public void endSequence(String modelRepresentation) {
-		this.view.output(modelRepresentation, true);
-	}
 
-	// makes a call to View that stops the program, unsolved model
-	public void errorSequence(String modelRepresentation) {
-		this.view.output(modelRepresentation, false);
+	// makes a call to View that stops the program
+	public void endSequence(String modelRepresentation, boolean isSolved) {
+		this.view.output(modelRepresentation, isSolved);
 	}
 }
