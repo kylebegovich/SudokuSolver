@@ -6,7 +6,7 @@
  * 
  * Static class
  * 
- * @since December 26, 2016
+ * @since December 31, 2016
  * @author Kyle Begovich
  * @version 0.0
  */
@@ -49,8 +49,8 @@ public class Solver {
 						}
 						if (availableIndex >= 0) {
 							model.board[row][column] = available[availableIndex];
+							System.out.println("testing purposes: updated board at (" + row + "," + column + ") to " + available[availableIndex]);
 						}
-//						System.out.println("testing purposes");
 					}
 				}
 

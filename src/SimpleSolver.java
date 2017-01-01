@@ -4,14 +4,14 @@
  * 
  * Static class
  * 
- * @since December 22, 2016
+ * @since December 31, 2016
  * @author Kyle Begovich
  * @version 0.0
  */
 
 public class SimpleSolver {
-	// TODO write simple solving algorithms,
-	// example: if there's all but one in a row, column, or box,
+	// simple solving algorithms, example: 
+	// if there's all but one in a row, column, or box,
 	// find the remaining number and fill it in
 
 	/**
@@ -51,6 +51,7 @@ public class SimpleSolver {
 						} else {
 							// more than one open position, go to next row
 							System.out.println("testing purposes: breaking column loop");
+							openPos = -1;
 							break columnLoop;
 						}
 					} else {
@@ -189,7 +190,7 @@ public class SimpleSolver {
 		int[] check = new int[length];
 		for (int k = 0; k < check.length; k++) {
 			check[k] = k + 1;
-			System.out.println("testing purposes: value at " + k + " is " + check[k]);
+			System.out.println("testing purposes: value at index: " + k + " is " + check[k]);
 		}
 		return check;
 	}
