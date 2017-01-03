@@ -4,7 +4,7 @@
  * 
  * Static class
  * 
- * @since January 1, 2017
+ * @since January 2, 2017
  * @author Kyle Begovich
  * @version 0.0
  */
@@ -17,18 +17,19 @@ public class SimpleSolver {
 	/**
 	 * Wrapper method to the rest of the class Destructive method, no return
 	 * 
-	 * @param the model to be solved
+	 * @param the
+	 *            model to be solved
 	 */
 	public static void simpleSolve(Model model) {
-		solveOneMissingRow(model.board);
-		solveOneMissingColumn(model.board);
-		solveOneMissingBox(model.board);
+		//solveOneMissingRow(model.board);
+		//solveOneMissingColumn(model.board);
+		//solveOneMissingBox(model.board);
 	}
 
 	public static void solveOneMissingRow(int[][] board) {
-		int[] temp = getCheckArray(board.length);
-		int openPos = -1; // tracks if exactly one spot is left
-		int missingValue = -1; // tracks what value is missing
+		int[] temp; // temporary set of values to check against
+		int openPos; // tracks if exactly one spot is left
+		int missingValue; // tracks what value is missing
 
 		// TODO there's an issue with not updating board: find & fix
 		for (int row = 0; row < board.length; row++) {
@@ -43,7 +44,7 @@ public class SimpleSolver {
 					if (temp[k] == board[row][col]) {
 						System.out
 								.println("testing purposes: found a matched value " + temp[k] + " " + board[row][col]);
-						temp[k] = 0;
+						temp[k] = -1;
 						if (k + 1 != temp.length) {
 							break;
 						}
@@ -70,7 +71,7 @@ public class SimpleSolver {
 			if (openPos != -1) {
 				// find missingValue: only value in temp != 0
 				for (int k = 0; k < temp.length; k++) {
-					if (temp[k] != 0) {
+					if (temp[k] != -1) {
 						missingValue = temp[k];
 						break;
 					}
@@ -86,9 +87,9 @@ public class SimpleSolver {
 	// TODO there's an issue with not updating board: find & fix
 	// ref method above
 	public static void solveOneMissingColumn(int[][] board) {
-		int[] temp = getCheckArray(board.length);
-		int openPos = -1; // tracks if exactly one spot is left
-		int missingValue = -1; // tracks what value is missing
+		int[] temp; // temporary set of values to check against
+		int openPos; // tracks if exactly one spot is left
+		int missingValue; // tracks what value is missing
 
 		// note row <--> column
 		for (int col = 0; col < board.length; col++) {
@@ -100,7 +101,7 @@ public class SimpleSolver {
 				for (int k = 0; k < temp.length; k++) {
 					// set every value matched in temp to 0
 					if (temp[k] == board[row][col]) {
-						temp[k] = 0;
+						temp[k] = -1;
 						break;
 					}
 					// if it was not found in temp, it's an open position
@@ -120,7 +121,7 @@ public class SimpleSolver {
 			if (openPos != -1) {
 				// find missingValue: only value in temp != 0
 				for (int k = 0; k < temp.length; k++) {
-					if (temp[k] != 0) {
+					if (temp[k] != -1) {
 						missingValue = temp[k];
 						break;
 					}
@@ -137,9 +138,9 @@ public class SimpleSolver {
 	// ref method above
 	public static void solveOneMissingBox(int[][] board) {
 		int[] temp = getCheckArray(board.length);
-		int openPosRow = -1; // tracks if exactly one spot is left
-		int openPosCol = -1; // needed because boxes are 2d
-		int missingValue = -1; // tracks which value is missing
+		int openPosRow; // tracks if exactly one spot is left
+		int openPosCol; // needed because boxes are 2d
+		int missingValue; // tracks which value is missing
 
 		int boxSize = (int) Math.sqrt(temp.length);
 
@@ -152,7 +153,7 @@ public class SimpleSolver {
 				openPosRow = -1;
 				openPosCol = -1;
 				missingValue = -1;
-				
+
 				// u & v iterate within a box
 				boxLoop: for (int row = i; row < i + boxSize; row++) {
 					for (int col = j; col < j + boxSize; col++) {
@@ -160,7 +161,7 @@ public class SimpleSolver {
 						for (int k = 0; k < temp.length; k++) {
 							// set every value matched in temp to 0
 							if (temp[k] == board[row][col]) {
-								temp[k] = 0;
+								temp[k] = -1;
 								break;
 							}
 							// if it was not found in temp, it's an open
@@ -185,14 +186,15 @@ public class SimpleSolver {
 				if (openPosRow != -1 && openPosCol != -1) {
 					// find missingValue: only value in temp != 0
 					for (int k = 0; k < temp.length; k++) {
-						if (temp[k] != 0) {
+						if (temp[k] != -1) {
 							missingValue = k;
 							break;
 						}
 					}
 					// double check there won't be a nullPointer thrown
 					if (missingValue >= 0 && openPosRow >= 0 && openPosCol >= 0) {
-						System.out.println("testing purposes: updating, box, row = " + openPosRow + ", col = " + openPosCol);
+						System.out.println(
+								"testing purposes: updating, box, row = " + openPosRow + ", col = " + openPosCol);
 						board[openPosRow][openPosCol] = missingValue;
 					}
 				}

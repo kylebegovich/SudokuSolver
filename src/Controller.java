@@ -1,7 +1,7 @@
 /**
  * The class that mediates communication between view and model
  * 
- * @since January 1, 2017
+ * @since January 2, 2017
  * @author Kyle Begovich
  * @version 0.0
  */
@@ -38,12 +38,12 @@ public class Controller {
 		Solver.solve(this.model);
 
 		// ends program, View closes program with isSolved() as a parameter
-		endSequence(this.model.toString(), this.model.isSolved());
+		endSequence(this.model.toString(), this.model.isSolved(), (size <= 1));
 
 	}
 
 	// makes a call to View that stops the program
-	public void endSequence(String modelRepresentation, boolean isSolved) {
-		this.view.output(modelRepresentation, isSolved);
+	public void endSequence(String modelRepresentation, boolean isSolved, boolean easterEgg) {
+		this.view.output(modelRepresentation, isSolved, easterEgg);
 	}
 }

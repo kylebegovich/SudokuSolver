@@ -4,7 +4,7 @@ import java.util.Scanner;
  * The class that displays data to the user, accepts inputs, and communicates
  * with controller
  * 
- * @since December 22, 2016
+ * @since January 2, 2016
  * @author Kyle Begovich
  * @version 0.0
  */
@@ -25,9 +25,10 @@ public class View {
 	private static final String getSizeMessage = "Please enter the number of rows in your Sudoku puzzle";
 	private static final String fillArrayMessage = "Please fill your Sudoku puzzle, row by row, as prompted, 0 for unknown";
 	private static final String invalidInputMessage = "Invalid input! please try again";
-	private static final String solvedMessage = "Your Sudoku puzzle was solved! \n";
-	private static final String errorMessage = "Sorry, your sudoku puzzle was not possible to solve \n";
-
+	private static final String solvedMessage = "Your Sudoku puzzle was solved!";
+	private static final String errorMessage = "Sorry, your sudoku puzzle was not possible to solve";
+	private static final String tinyPuzzleEasterEgg = " (Well that was easy)";
+	
 	// Prompt user for input Sudoku size
 	public int getSudokuSize() {
 		System.out.println(getSizeMessage);
@@ -60,12 +61,18 @@ public class View {
 
 	// output a visual representation of the Sudoku puzzle to the console,
 	// along with a message to the user
-	public void output(String representation, boolean solved) {
-		if (solved) {
+	public void output(String representation, boolean solved, boolean easterEgg) {
+		if (easterEgg) {
+			System.out.println(solvedMessage + tinyPuzzleEasterEgg);
+			System.out.println();
+			System.out.println(representation);
+		} else if (solved) {
 			System.out.println(solvedMessage);
+			System.out.println();
 			System.out.println(representation);
 		} else {
 			System.out.println(errorMessage);
+			System.out.println();
 			System.out.println(representation);
 		}
 	}
