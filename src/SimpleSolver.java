@@ -4,7 +4,7 @@
  * 
  * Static class
  * 
- * @since January 2, 2017
+ * @since January 3, 2017
  * @author Kyle Begovich
  * @version 0.0
  */
@@ -21,9 +21,9 @@ public class SimpleSolver {
 	 *            model to be solved
 	 */
 	public static void simpleSolve(Model model) {
-		//solveOneMissingRow(model.board);
-		//solveOneMissingColumn(model.board);
-		//solveOneMissingBox(model.board);
+		// solveOneMissingRow(model.board);
+		// solveOneMissingColumn(model.board);
+		// solveOneMissingBox(model.board);
 	}
 
 	public static void solveOneMissingRow(int[][] board) {
@@ -31,7 +31,6 @@ public class SimpleSolver {
 		int openPos; // tracks if exactly one spot is left
 		int missingValue; // tracks what value is missing
 
-		// TODO there's an issue with not updating board: find & fix
 		for (int row = 0; row < board.length; row++) {
 			// make sure to reset temporary variables used
 			temp = getCheckArray(board.length);
@@ -42,8 +41,6 @@ public class SimpleSolver {
 				for (int k = 0; k < temp.length; k++) {
 					// set every value matched in temp to 0
 					if (temp[k] == board[row][col]) {
-						System.out
-								.println("testing purposes: found a matched value " + temp[k] + " " + board[row][col]);
 						temp[k] = -1;
 						if (k + 1 != temp.length) {
 							break;
@@ -53,20 +50,15 @@ public class SimpleSolver {
 					else if (k + 1 == temp.length) {
 						if (openPos == -1) {
 							// not yet an open position, track it
-							System.out.println("testing purposes: setting openPos");
 							openPos = col;
 						} else {
 							// more than one open position, go to next row
-							System.out.println("testing purposes: breaking column loop");
 							openPos = -1;
 							break columnLoop;
 						}
-					} else {
-						System.out.println("testing purposes: neither a matched value or an openPos");
 					}
 				} // end temp loop
 			}
-			System.out.println("testing purposes: openPos = " + openPos);
 			// only try to replace value if there's only one open position
 			if (openPos != -1) {
 				// find missingValue: only value in temp != 0
@@ -84,8 +76,6 @@ public class SimpleSolver {
 		} // end rowLoop
 	}
 
-	// TODO there's an issue with not updating board: find & fix
-	// ref method above
 	public static void solveOneMissingColumn(int[][] board) {
 		int[] temp; // temporary set of values to check against
 		int openPos; // tracks if exactly one spot is left
@@ -93,25 +83,28 @@ public class SimpleSolver {
 
 		// note row <--> column
 		for (int col = 0; col < board.length; col++) {
-			// make sure to reset temporary variables used
+			// make sure to reset the temporary variables used
 			temp = getCheckArray(board.length);
 			openPos = -1;
 			missingValue = -1;
 			rowLoop: for (int row = 0; row < board[0].length; row++) {
+				// iterate through temp array
 				for (int k = 0; k < temp.length; k++) {
 					// set every value matched in temp to 0
 					if (temp[k] == board[row][col]) {
 						temp[k] = -1;
-						break;
+						if (k + 1 != temp.length) {
+							break;
+						}
 					}
 					// if it was not found in temp, it's an open position
 					else if (k + 1 == temp.length) {
 						if (openPos == -1) {
-							// if there's not yet an open position, track it
+							// not yet an open position, track it
 							openPos = row;
 						} else {
-							// if there's more than one open position, go to
-							// next row
+							// more than one open position, go to next row
+							openPos = -1;
 							break rowLoop;
 						}
 					}

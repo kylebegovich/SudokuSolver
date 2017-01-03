@@ -6,7 +6,7 @@
  * 
  * Static class
  * 
- * @since January 1, 2017
+ * @since January 3, 2017
  * @author Kyle Begovich
  * @version 0.0
  */
@@ -68,7 +68,7 @@ public class Solver {
 					}
 
 				}
-			} while (!Checker.check(model) && lastIterationBoard != model.board);
+			} while (!Checker.check(model)); // && lastIterationBoard != model.board);
 		}
 	}
 
