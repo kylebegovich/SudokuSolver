@@ -3,7 +3,7 @@
  * 
  * @since January 3, 2017
  * @author Kyle Begovich
- * @version 0.0
+ * @version 1.0
  */
 public class Controller {
 	private View view;
@@ -13,11 +13,12 @@ public class Controller {
 	public Controller() {
 	}
 
-	// write methods for initialization
+	// initialization of View
 	public void addView(View view) {
 		this.view = view;
 	}
 
+	// initialization of Model
 	public void addModel(Model model) {
 		this.model = model;
 	}

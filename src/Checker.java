@@ -7,7 +7,7 @@
  * 
  * @since January 3, 2017
  * @author Kyle Begovich
- * @version 0.0
+ * @version 1.0
  */
 public class Checker {
 
@@ -42,13 +42,14 @@ public class Checker {
 	}
 
 	public static boolean isLegal(int[][] board) {
-		int[] check = getCheckArray(board.length);
+		int length = board.length;
+		int[] check = getCheckArray(length);
 
-		for (int i = 0; i < board.length; i++) {
+		for (int i = 0; i < length; i++) {
 
 			// check legality for each row
-			for (int j = 0; j < board[0].length; j++) {
-				for (int k = 0; k < check.length; k++) {
+			for (int j = 0; j < length; j++) {
+				for (int k = 0; k < length; k++) {
 					if (check[k] == board[i][j]) {
 						check[k] = 0;
 						break;
@@ -56,17 +57,17 @@ public class Checker {
 				}
 			}
 			// check that each value in check got set to 0 above
-			for (int j = 0; j < check.length; j++) {
+			for (int j = 0; j < length; j++) {
 				if (check[j] != 0) {
 					return false;
 				}
 			}
 			// reset check array
-			check = getCheckArray(board.length);
+			check = getCheckArray(length);
 
 			// check legality for each column
-			for (int j = 0; j < board[0].length; j++) {
-				for (int k = 0; k < check.length; k++) {
+			for (int j = 0; j < length; j++) {
+				for (int k = 0; k < length; k++) {
 					if (check[k] == board[j][i]) { // note: i <--> j
 						check[k] = 0;
 						break;
@@ -74,51 +75,47 @@ public class Checker {
 				}
 			}
 			// check that each value in check got set to 0 above
-			for (int j = 0; j < check.length; j++) {
+			for (int j = 0; j < length; j++) {
 				if (check[j] != 0) {
 					return false;
 				}
 			}
 			// reset check array
-			check = getCheckArray(board.length);
+			check = getCheckArray(length);
 		}
 
 		// check legality for each box
-		int boxSize = (int) Math.sqrt(check.length);
-		// i & j iterate which box to be checking
-		
+		int boxSize = (int) Math.sqrt(length);
+
 		// TODO figure out why this is broken, fix it
-		// TODO may not actually be broken, fix SimpleSolver first
-		
-//		for (int i = 0; i < board.length; i += boxSize) {
-//			for (int j = 0; j < board[0].length; j += boxSize) {
-//
-//				// u & v iterate within a box
-//				for (int u = i; u < boxSize; u++) {
-//					for (int v = j; v < boxSize; v++) {
-//						// k iterates through check array
-//						for (int k = 0; k < check.length; k++) {
-//							if (check[k] == board[u][v]) {
-//								check[k] = 0;
-//								break;
-//							}
-//						}
-//
-//					}
-//				} // end each box
-//
-//				// check that each value in check got set to 0 above
-//				for (int c = 0; c < check.length; c++) {
-//					if (check[c] != 0) {
-//						System.out.println("Testing Purposes: isLegalBox()");
-//						return false;
-//					}
-//				}
-//				// reset check array
-//				check = getCheckArray(board.length);
-//
-//			}
-//		}
+		// rowMajor & colMajor iterate which box to be solving
+		for (int rowMajor = 0; rowMajor < board.length; rowMajor += boxSize) {
+			for (int colMajor = 0; colMajor < board[0].length; colMajor += boxSize) {
+
+				// make sure to reset temporary variables used
+				check = getCheckArray(length);
+				
+				// row & col iterate within a box
+				for (int row = rowMajor; row < rowMajor + boxSize; row++) {
+					for (int col = colMajor; col < colMajor + boxSize; col++) {
+						// k iterates through check array
+						for (int k = 0; k < length; k++) {
+							if (check[k] == board[row][col]) {
+								check[k] = -1;
+								break;
+							}
+						}
+					}
+				} // end each box
+
+				// check that each value in check got set to -1 above
+				for (int c = 0; c < length; c++) {
+					if (check[c] != -1) {
+						return false;
+					}
+				}
+			}
+		}
 		// only reaches this line if every check array was legal
 		return true;
 	}

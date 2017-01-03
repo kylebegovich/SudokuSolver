@@ -4,9 +4,9 @@ import java.util.Scanner;
  * The class that displays data to the user, accepts inputs, and communicates
  * with controller
  * 
- * @since January 3, 2016
+ * @since January 3, 2017
  * @author Kyle Begovich
- * @version 0.0
+ * @version 1.0
  */
 public class View {
 

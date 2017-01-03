@@ -1,14 +1,13 @@
 /**
- * The class that saves data states and performs computations
+ * The class that stores data and representations of the data
  * 
- * Also stores the board object to abstract away from Solver
- * 
- * @since January 3, 2016
+ * @since January 3, 2017
  * @author Kyle Begovich
- * @version 0.0
+ * @version 1.0
  */
 public class Model {
-	protected int[][] board; // protected so solving classes have direct access
+	// protected so solving classes have direct access for now
+	protected int[][] board;
 
 	public Model() {
 		super();
@@ -18,7 +17,7 @@ public class Model {
 		this.board = board;
 	}
 
-	// TODO delegate protected calls directly updating model.board to use this
+	// TODO delegate protected calls, directly updating model.board, to use this
 	// method instead
 	public void setBoard(int[][] board) {
 		this.board = board;

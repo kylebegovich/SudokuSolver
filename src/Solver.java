@@ -8,7 +8,7 @@
  * 
  * @since January 3, 2017
  * @author Kyle Begovich
- * @version 0.0
+ * @version 1.0
  */
 public class Solver {
 
@@ -29,8 +29,8 @@ public class Solver {
 		// tracks what to set borad[row][column] equal to
 		int availableIndex;
 
-		// make sure puzzle is not already solved before trying to solve it
-		while (!Checker.check(model) && counter < 10) {
+		// only iterate while not solved and not stuck
+		while (!Checker.check(model) && counter < 100) {
 			// update most recent board
 			lastIterationBoard = model.board;
 

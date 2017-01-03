@@ -6,7 +6,7 @@
  * 
  * @since January 3, 2017
  * @author Kyle Begovich
- * @version 0.0
+ * @version 1.0
  */
 
 public class SimpleSolver {
