@@ -4,22 +4,14 @@ import java.util.Scanner;
  * The class that displays data to the user, accepts inputs, and communicates
  * with controller
  * 
- * @since January 2, 2016
+ * @since January 3, 2016
  * @author Kyle Begovich
  * @version 0.0
  */
 public class View {
-	private Controller controller;
-
-	public View() {
-	}
-
-	public View(Controller controller) {
-		this.controller = controller;
-	}
 
 	/**
-	 * Version 0.0 will be only terminal input / output
+	 * Version 1.0 will be only terminal input / output
 	 */
 	private static final Scanner scanner = new Scanner(System.in);
 	private static final String getSizeMessage = "Please enter the number of rows in your Sudoku puzzle";
@@ -28,6 +20,10 @@ public class View {
 	private static final String solvedMessage = "Your Sudoku puzzle was solved!";
 	private static final String errorMessage = "Sorry, your sudoku puzzle was not possible to solve";
 	private static final String tinyPuzzleEasterEgg = " (Well that was easy)";
+
+	public View() {
+		super();
+	}
 	
 	// Prompt user for input Sudoku size
 	public int getSudokuSize() {
@@ -65,15 +61,15 @@ public class View {
 		if (easterEgg) {
 			System.out.println(solvedMessage + tinyPuzzleEasterEgg);
 			System.out.println();
-			System.out.println(representation);
+			System.out.println(representation + "\n");
 		} else if (solved) {
 			System.out.println(solvedMessage);
 			System.out.println();
-			System.out.println(representation);
+			System.out.println(representation + "\n");
 		} else {
 			System.out.println(errorMessage);
 			System.out.println();
-			System.out.println(representation);
+			System.out.println(representation + "\n");
 		}
 	}
 }

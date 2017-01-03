@@ -5,7 +5,7 @@
  * 
  * Static class
  * 
- * @since January 1, 2017
+ * @since January 3, 2017
  * @author Kyle Begovich
  * @version 0.0
  */
@@ -29,7 +29,6 @@ public class Checker {
 		for (int i = 0; i < doneBoard.length; i++) {
 			for (int j = 0; j < doneBoard[0].length; j++) {
 				if (doneBoard[i][j] < 1 || doneBoard[i][j] > doneBoard.length) {
-					System.out.println("Testing Purposes: isFull()");
 					return false;
 				}
 			}
@@ -59,7 +58,6 @@ public class Checker {
 			// check that each value in check got set to 0 above
 			for (int j = 0; j < check.length; j++) {
 				if (check[j] != 0) {
-					System.out.println("Testing Purposes: isLegalRow()");
 					return false;
 				}
 			}
@@ -78,7 +76,6 @@ public class Checker {
 			// check that each value in check got set to 0 above
 			for (int j = 0; j < check.length; j++) {
 				if (check[j] != 0) {
-					System.out.println("Testing Purposes: isLegalColumn()");
 					return false;
 				}
 			}
@@ -122,12 +119,12 @@ public class Checker {
 //
 //			}
 //		}
-		// only reaches this line if every check array was filled
+		// only reaches this line if every check array was legal
 		return true;
 	}
 
 	// initialize standard array to make checking possible
-	// values = index + 1: [1,length]
+	// value = index + 1 for entire array
 	private static int[] getCheckArray(int length) {
 		int[] check = new int[length];
 		for (int i = 0; i < check.length; i++) {

@@ -21,9 +21,9 @@ public class SimpleSolver {
 	 *            model to be solved
 	 */
 	public static void simpleSolve(Model model) {
-		// solveOneMissingRow(model.board);
-		// solveOneMissingColumn(model.board);
-		// solveOneMissingBox(model.board);
+		solveOneMissingRow(model.board);
+		solveOneMissingColumn(model.board);
+		solveOneMissingBox(model.board);
 	}
 
 	public static void solveOneMissingRow(int[][] board) {
@@ -57,17 +57,18 @@ public class SimpleSolver {
 							break columnLoop;
 						}
 					}
-				} // end temp loop
+				} // end k loop
 			}
 			// only try to replace value if there's only one open position
 			if (openPos != -1) {
-				// find missingValue: only value in temp != 0
+				// find missingValue: only value in temp != -1
 				for (int k = 0; k < temp.length; k++) {
 					if (temp[k] != -1) {
 						missingValue = temp[k];
 						break;
 					}
 				}
+				// TODO remove this check when sure it's safe
 				// double check there won't be a nullPointer thrown
 				if (missingValue >= 0 && openPos >= 0) {
 					board[row][openPos] = missingValue;
@@ -108,17 +109,18 @@ public class SimpleSolver {
 							break rowLoop;
 						}
 					}
-				} // end temp loop
+				} // end k loop
 			}
 			// only try to replace value if there's only one open position
 			if (openPos != -1) {
-				// find missingValue: only value in temp != 0
+				// find missingValue: only value in temp != -1
 				for (int k = 0; k < temp.length; k++) {
 					if (temp[k] != -1) {
 						missingValue = temp[k];
 						break;
 					}
 				}
+				// TODO remove this check when sure it's safe
 				// double check there won't be a nullPointer thrown
 				if (missingValue >= 0 && openPos >= 0) {
 					board[openPos][col] = missingValue;
@@ -127,19 +129,17 @@ public class SimpleSolver {
 		} // end columnLoop
 	}
 
-	// TODO there's an issue with not updating board: find & fix
-	// ref method above
 	public static void solveOneMissingBox(int[][] board) {
-		int[] temp = getCheckArray(board.length);
+		int[] temp; // temporary set of values to check against
 		int openPosRow; // tracks if exactly one spot is left
-		int openPosCol; // needed because boxes are 2d
+		int openPosCol; // needed because boxes are 2 dimensional
 		int missingValue; // tracks which value is missing
 
-		int boxSize = (int) Math.sqrt(temp.length);
+		int boxSize = (int) Math.sqrt(board.length);
 
-		// i & j iterate which box to be solving
-		for (int i = 0; i < board.length; i += boxSize) {
-			for (int j = 0; j < board[0].length; j += boxSize) {
+		// rowMajor & colMajor iterate which box to be solving
+		for (int rowMajor = 0; rowMajor < board.length; rowMajor += boxSize) {
+			for (int colMajor = 0; colMajor < board[0].length; colMajor += boxSize) {
 
 				// make sure to reset temporary variables used
 				temp = getCheckArray(board.length);
@@ -147,9 +147,9 @@ public class SimpleSolver {
 				openPosCol = -1;
 				missingValue = -1;
 
-				// u & v iterate within a box
-				boxLoop: for (int row = i; row < i + boxSize; row++) {
-					for (int col = j; col < j + boxSize; col++) {
+				// row & col iterate within a box
+				boxLoop: for (int row = rowMajor; row < rowMajor + boxSize; row++) {
+					for (int col = colMajor; col < colMajor + boxSize; col++) {
 						// k iterates through temp array
 						for (int k = 0; k < temp.length; k++) {
 							// set every value matched in temp to 0
@@ -168,26 +168,27 @@ public class SimpleSolver {
 								} else {
 									// if there's more than one open position,
 									// go to next box
+									openPosRow = -1;
+									openPosCol = -1;
 									break boxLoop;
 								}
 							}
-						} // end temp loop
+						} // end k loop
 					}
 				} // end boxLoop
 
 				// only try to replace value if there's only one open position
 				if (openPosRow != -1 && openPosCol != -1) {
-					// find missingValue: only value in temp != 0
+					// find missingValue: only value in temp != -1
 					for (int k = 0; k < temp.length; k++) {
 						if (temp[k] != -1) {
-							missingValue = k;
+							missingValue = temp[k];
 							break;
 						}
 					}
+					// TODO remove this check when sure it's safe
 					// double check there won't be a nullPointer thrown
 					if (missingValue >= 0 && openPosRow >= 0 && openPosCol >= 0) {
-						System.out.println(
-								"testing purposes: updating, box, row = " + openPosRow + ", col = " + openPosCol);
 						board[openPosRow][openPosCol] = missingValue;
 					}
 				}
@@ -197,12 +198,11 @@ public class SimpleSolver {
 	}
 
 	// initialize standard array to make solving possible
-	// values = index + 1: [1,length]
+	// value = index + 1 for entire array
 	private static int[] getCheckArray(int length) {
 		int[] check = new int[length];
 		for (int k = 0; k < check.length; k++) {
 			check[k] = k + 1;
-			System.out.println("testing purposes: value at index: " + k + " is " + check[k]);
 		}
 		return check;
 	}
