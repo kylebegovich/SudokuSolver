@@ -1,13 +1,14 @@
 /**
  * The class that stores data and representations of the data
  * 
- * @since January 3, 2017
+ * @since January 4, 2017
  * @author Kyle Begovich
  * @version 1.0
  */
 public class Model {
 	// protected so solving classes have direct access for now
 	protected int[][] board;
+	protected int[][][] complexBoard;
 
 	public Model() {
 		super();
@@ -16,15 +17,25 @@ public class Model {
 	public Model(int[][] board) {
 		this.board = board;
 	}
-
+	
+	public int[][] getBoard() {
+		return board;
+	}
+	
 	// TODO delegate protected calls, directly updating model.board, to use this
 	// method instead
 	public void setBoard(int[][] board) {
 		this.board = board;
 	}
 
-	public int[][] getBoard() {
-		return board;
+	public int[][][] getComplexBoard() {
+		return complexBoard;
+	}
+	
+	// TODO delegate protected calls, directly updating model.board, to use this
+	// method instead
+	public void setComplexBoard(int[][][] complexBoard) {
+		this.complexBoard = complexBoard;
 	}
 
 	public boolean isNull() {
