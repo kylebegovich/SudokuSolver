@@ -16,6 +16,13 @@ public class Model {
 
 	public Model(int[][] board) {
 		this.board = board;
+
+		// initialize complexBoard with an available array.
+		for (int row = 0; row < board.length; row ++) {
+            for (int col = 0; col < board.length; col ++) {
+                complexBoard[row][col] = new int[board.length];
+            }
+        }
 	}
 	
 	public int[][] getBoard() {
@@ -23,7 +30,6 @@ public class Model {
 	}
 	
 	// TODO delegate protected calls, directly updating model.board, to use this
-	// method instead
 	public void setBoard(int[][] board) {
 		this.board = board;
 	}
@@ -33,7 +39,6 @@ public class Model {
 	}
 	
 	// TODO delegate protected calls, directly updating model.board, to use this
-	// method instead
 	public void setComplexBoard(int[][][] complexBoard) {
 		this.complexBoard = complexBoard;
 	}

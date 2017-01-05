@@ -17,8 +17,8 @@ public class SimpleSolver {
 	/**
 	 * Wrapper method to the rest of the class Destructive method, no return
 	 * 
-	 * @param the
-	 *            model to be solved
+	 * @param model
+	 *            the model to be solved
 	 */
 	public static void simpleSolve(Model model) {
 		solveOneMissingRow(model.board);

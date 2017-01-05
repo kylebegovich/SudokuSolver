@@ -31,7 +31,7 @@ public class Controller {
 
 	// starts program
 	public void run() {
-		int size = this.view.getSudokuSize();
+		int size = this.view.getSudokuSizeFromUser();
 		int[][] board = this.view.getInputArrayFromUser(size);
 		this.model.setBoard(board);
 

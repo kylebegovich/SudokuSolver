@@ -43,7 +43,8 @@ public class Checker {
 
 	public static boolean isLegal(int[][] board) {
 		int length = board.length;
-		int[] check = getCheckArray(length);
+		// modified from this previous call: getCheckArray(length);
+		int[] check = ArrayUtil.getStandardArray(length);
 
 		for (int i = 0; i < length; i++) {
 
@@ -63,7 +64,7 @@ public class Checker {
 				}
 			}
 			// reset check array
-			check = getCheckArray(length);
+			check = ArrayUtil.getStandardArray(length);
 
 			// check legality for each column
 			for (int j = 0; j < length; j++) {
@@ -81,7 +82,7 @@ public class Checker {
 				}
 			}
 			// reset check array
-			check = getCheckArray(length);
+			check = ArrayUtil.getStandardArray(length);
 		}
 
 		// check legality for each box
@@ -93,7 +94,7 @@ public class Checker {
 			for (int colMajor = 0; colMajor < board[0].length; colMajor += boxSize) {
 
 				// make sure to reset temporary variables used
-				check = getCheckArray(length);
+				check = ArrayUtil.getStandardArray(length);
 				
 				// row & col iterate within a box
 				for (int row = rowMajor; row < rowMajor + boxSize; row++) {
@@ -120,13 +121,12 @@ public class Checker {
 		return true;
 	}
 
-	// initialize standard array to make checking possible
-	// value = index + 1 for entire array
-	private static int[] getCheckArray(int length) {
-		int[] check = new int[length];
-		for (int i = 0; i < check.length; i++) {
-			check[i] = i + 1;
-		}
-		return check;
-	}
+
+//	private static int[] getCheckArray(int length) {
+//		int[] check = new int[length];
+//		for (int i = 0; i < check.length; i++) {
+//			check[i] = i + 1;
+//		}
+//		return check;
+//	}
 }

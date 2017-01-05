@@ -74,7 +74,8 @@ public class Solver {
 
 	// Utility methods start here:
 	public static int[] updateAvailable(int row, int col, int length, int[][] board) {
-		int[] available = getNewAvailableArray(length);
+		// modified from this previous call: getNewAvailableArray(length);
+		int[] available = ArrayUtil.getStandardArray(length);
 		System.out.println("testing purposes: updateAvailable(): col = " + col + ", row = " + row);
 
 		// row loop
@@ -115,11 +116,11 @@ public class Solver {
 		return available;
 	}
 
-	public static int[] getNewAvailableArray(int length) {
-		int[] available = new int[length];
-		for (int k = 0; k < available.length; k++) {
-			available[k] = k + 1;
-		}
-		return available;
-	}
+//	public static int[] getNewAvailableArray(int length) {
+//		int[] available = new int[length];
+//		for (int k = 0; k < available.length; k++) {
+//			available[k] = k + 1;
+//		}
+//		return available;
+//	}
 }

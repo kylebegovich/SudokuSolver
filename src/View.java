@@ -26,7 +26,7 @@ public class View {
 	}
 	
 	// Prompt user for input Sudoku size
-	public int getSudokuSize() {
+	public int getSudokuSizeFromUser() {
 		System.out.println(getSizeMessage);
 		int temp = scanner.nextInt();
 		// condition makes sure only square numbers are input

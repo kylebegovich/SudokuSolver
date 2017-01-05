@@ -6,15 +6,16 @@
  * values in order to solve for other surrounding spaces
  * 
  * Static class
+ * ^Not sure if this will be maintained
  * 
- * @since January 4, 2017
+ * @since January 5, 2017
  * @author Kyle Begovich
  * @version 1.0
  */
 public class SophisticatedSolver {
 
 	public static void findTuples() {
-		// TODO figure out how these should be returned
+		// TODO figure out how these should be returned or stored
 		// TODO implement
 	}
 
@@ -39,20 +40,6 @@ public class SophisticatedSolver {
 	}
 	
 	public static void solveBoxes() {
-		// TODO implement
-	}
-	
-
-	//Utility methods I'm not sure I'll need yet
-	public static void iterateRow(int rowIndex) {
-		// TODO implement
-	}
-
-	public static void iterateCol(int colIndex) {
-		// TODO implement
-	}
-
-	public static void iterateBox(int rowIndex, int colIndex) {
 		// TODO implement
 	}
 }
