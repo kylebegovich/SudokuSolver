@@ -88,7 +88,6 @@ public class Checker {
 		// check legality for each box
 		int boxSize = (int) Math.sqrt(length);
 
-		// TODO figure out why this is broken, fix it
 		// rowMajor & colMajor iterate which box to be solving
 		for (int rowMajor = 0; rowMajor < board.length; rowMajor += boxSize) {
 			for (int colMajor = 0; colMajor < board[0].length; colMajor += boxSize) {
