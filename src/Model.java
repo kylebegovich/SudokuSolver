@@ -28,8 +28,7 @@ public class Model {
 	public int[][] getBoard() {
 		return board;
 	}
-	
-	// TODO delegate protected calls, directly updating model.board, to use this
+
 	public void setBoard(int[][] board) {
 		this.board = board;
 	}
@@ -37,14 +36,9 @@ public class Model {
 	public int[][][] getComplexBoard() {
 		return complexBoard;
 	}
-	
-	// TODO delegate protected calls, directly updating model.board, to use this
+
 	public void setComplexBoard(int[][][] complexBoard) {
 		this.complexBoard = complexBoard;
-	}
-
-	public boolean isNull() {
-		return board == null;
 	}
 
 	public boolean isSolved() {
