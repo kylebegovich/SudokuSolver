@@ -1,14 +1,14 @@
 /**
  * The class that stores data and representations of the data
  * 
- * @since January 4, 2017
+ * @since January 8, 2017
  * @author Kyle Begovich
  * @version 1.0
  */
 public class Model {
 	// protected so solving classes have direct access for now
-	protected int[][] board;
-	protected int[][][] complexBoard;
+	private int[][] board;
+	private int[][][] complexBoard;
 
 	public Model() {
 		super();

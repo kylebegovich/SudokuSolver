@@ -4,7 +4,7 @@
  * 
  * Static class
  * 
- * @since January 3, 2017
+ * @since January 8, 2017
  * @author Kyle Begovich
  * @version 1.0
  */
@@ -21,19 +21,20 @@ public class SimpleSolver {
 	 *            the model to be solved
 	 */
 	public static void simpleSolve(Model model) {
-		solveOneMissingRow(model.board);
-		solveOneMissingColumn(model.board);
-		solveOneMissingBox(model.board);
+		solveOneMissingRow(model);
+		solveOneMissingColumn(model);
+		solveOneMissingBox(model);
 	}
 
-	public static void solveOneMissingRow(int[][] board) {
+	public static void solveOneMissingRow(Model model) {
+		int[][] board = model.getBoard(); // the board from the model
 		int[] temp; // temporary set of values to check against
 		int openPos; // tracks if exactly one spot is left
 		int missingValue; // tracks what value is missing
 
 		for (int row = 0; row < board.length; row++) {
 			// make sure to reset temporary variables used
-			temp = getCheckArray(board.length);
+            temp = ArrayUtil.getStandardArray(board.length);
 			openPos = -1;
 			missingValue = -1;
 			columnLoop: for (int col = 0; col < board[0].length; col++) {
@@ -68,16 +69,16 @@ public class SimpleSolver {
 						break;
 					}
 				}
-				// TODO remove this check when sure it's safe
-				// double check there won't be a nullPointer thrown
-				if (missingValue >= 0 && openPos >= 0) {
-					board[row][openPos] = missingValue;
-				}
+				// the actual update to the board
+				board[row][openPos] = missingValue;
+				// updating the state in model
+				model.setBoard(board);
 			}
 		} // end rowLoop
 	}
 
-	public static void solveOneMissingColumn(int[][] board) {
+	public static void solveOneMissingColumn(Model model) {
+		int[][] board = model.getBoard(); // the board from the model
 		int[] temp; // temporary set of values to check against
 		int openPos; // tracks if exactly one spot is left
 		int missingValue; // tracks what value is missing
@@ -85,7 +86,7 @@ public class SimpleSolver {
 		// note row <--> column
 		for (int col = 0; col < board.length; col++) {
 			// make sure to reset the temporary variables used
-			temp = getCheckArray(board.length);
+            temp = ArrayUtil.getStandardArray(board.length);
 			openPos = -1;
 			missingValue = -1;
 			rowLoop: for (int row = 0; row < board[0].length; row++) {
@@ -120,16 +121,16 @@ public class SimpleSolver {
 						break;
 					}
 				}
-				// TODO remove this check when sure it's safe
-				// double check there won't be a nullPointer thrown
-				if (missingValue >= 0 && openPos >= 0) {
-					board[openPos][col] = missingValue;
-				}
+				// the actual update to the board
+				board[openPos][col] = missingValue;
+				// updating the state in model
+				model.setBoard(board);
 			}
 		} // end columnLoop
 	}
 
-	public static void solveOneMissingBox(int[][] board) {
+	public static void solveOneMissingBox(Model model) {
+		int[][] board = model.getBoard(); // the board from the model
 		int[] temp; // temporary set of values to check against
 		int openPosRow; // tracks if exactly one spot is left
 		int openPosCol; // needed because boxes are 2 dimensional
@@ -142,7 +143,7 @@ public class SimpleSolver {
 			for (int colMajor = 0; colMajor < board[0].length; colMajor += boxSize) {
 
 				// make sure to reset temporary variables used
-				temp = getCheckArray(board.length);
+                temp = ArrayUtil.getStandardArray(board.length);
 				openPosRow = -1;
 				openPosCol = -1;
 				missingValue = -1;
@@ -186,24 +187,13 @@ public class SimpleSolver {
 							break;
 						}
 					}
-					// TODO remove this check when sure it's safe
-					// double check there won't be a nullPointer thrown
-					if (missingValue >= 0 && openPosRow >= 0 && openPosCol >= 0) {
-						board[openPosRow][openPosCol] = missingValue;
-					}
+					// the actual update to the board
+					board[openPosRow][openPosCol] = missingValue;
+					// updating the state in model
+					model.setBoard(board);
 				}
 
 			}
 		}
-	}
-
-	// initialize standard array to make solving possible
-	// value = index + 1 for entire array
-	private static int[] getCheckArray(int length) {
-		int[] check = new int[length];
-		for (int k = 0; k < check.length; k++) {
-			check[k] = k + 1;
-		}
-		return check;
 	}
 }

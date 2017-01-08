@@ -6,7 +6,7 @@
  * 
  * Static class
  * 
- * @since January 3, 2017
+ * @since January 8, 2017
  * @author Kyle Begovich
  * @version 1.0
  */
@@ -20,19 +20,20 @@ public class Solver {
 	 * @param model
 	 */
 	public static void solve(Model model) {
-		int length = model.board.length;
+		int length = model.getBoard().length;
+		int[][] board = model.getBoard();
 
 		// used to prevent infinite loops
 		int[][] lastIterationBoard;
 		int counter = 0;
 
-		// tracks what to set borad[row][column] equal to
+		// tracks what to set board[row][column] equal to
 		int availableIndex;
 
 		// only iterate while not solved and not stuck
 		while (!Checker.check(model) && counter < 100) {
 			// update most recent board
-			lastIterationBoard = model.board;
+			lastIterationBoard = board;
 
 			// check for simple solutions
 			SimpleSolver.simpleSolve(model);
@@ -41,9 +42,9 @@ public class Solver {
 			// solving algorithm iff space is empty (equal to 0)
 			for (int row = 0; row < length; row++) {
 				for (int column = 0; column < length; column++) {
-					if (model.board[row][column] == 0) {
+					if (board[row][column] == 0) {
 						// reset variables that got updated
-						int[] available = updateAvailable(row, column, length, model.board);
+						int[] available = updateAvailable(row, column, length, board);
 						availableIndex = -1;
 						for (int i = 0; i < length; i++) {
 							if (available[i] != -1) {
@@ -56,15 +57,14 @@ public class Solver {
 							}
 						}
 						if (availableIndex >= 0) {
-							model.board[row][column] = available[availableIndex];
-							System.out.println("testing purposes: updated board at (" + row + "," + column + ") to "
-									+ available[availableIndex]);
+							board[row][column] = available[availableIndex];
+							model.setBoard(board);
 						}
 					}
 				}
 
 			}
-			if (lastIterationBoard.equals(model.board)) {
+			if (lastIterationBoard.equals(board)) {
 				counter++;
 			} else {
 				counter = 0;
@@ -76,7 +76,6 @@ public class Solver {
 	public static int[] updateAvailable(int row, int col, int length, int[][] board) {
 		// modified from this previous call: getNewAvailableArray(length);
 		int[] available = ArrayUtil.getStandardArray(length);
-		System.out.println("testing purposes: updateAvailable(): col = " + col + ", row = " + row);
 
 		// row loop
 		for (int i = 0; i < length; i++) {
@@ -86,6 +85,7 @@ public class Solver {
 				}
 			}
 		}
+
 		// column loop
 		for (int i = 0; i < length; i++) {
 			for (int j = 0; j < length; j++) {
@@ -98,14 +98,12 @@ public class Solver {
 		// used to offset the location of the current square within the box
 		int rowStart = (int) ((int) (row / Math.sqrt(length)) * Math.sqrt(length));
 		int colStart = (int) ((int) (col / Math.sqrt(length)) * Math.sqrt(length));
-		System.out.println("testing purposes: colStart = " + colStart + ", rowStart = " + rowStart + ", sqrt = "
-				+ Math.sqrt(length));
-		// box loop
+
+		// box loops
 		for (int r = rowStart; r < rowStart + Math.sqrt(length); r++) {
 			// insert c++ joke here
 			for (int c = colStart; c < colStart + Math.sqrt(length); c++) {
 				for (int j = 0; j < length; j++) {
-					System.out.println("testing purposes: r = " + r + ", c = " + c + ", j = " + j);
 					if (board[r][c] == available[j]) {
 						available[j] = -1;
 					}
@@ -115,12 +113,4 @@ public class Solver {
 
 		return available;
 	}
-
-//	public static int[] getNewAvailableArray(int length) {
-//		int[] available = new int[length];
-//		for (int k = 0; k < available.length; k++) {
-//			available[k] = k + 1;
-//		}
-//		return available;
-//	}
 }
