@@ -6,7 +6,7 @@
  * 
  * Static class
  * 
- * @since January 8, 2017
+ * @since January 9, 2017
  * @author Kyle Begovich
  * @version 1.0
  */
@@ -39,7 +39,7 @@ public class Solver {
 			SimpleSolver.simpleSolve(model);
 
 			// iterate through every space on the board for a call to the
-			// solving algorithm iff space is empty (equal to 0)
+			// standard solving algorithm iff space is empty (equal to 0)
 			for (int row = 0; row < length; row++) {
 				for (int column = 0; column < length; column++) {
 					if (board[row][column] == 0) {
@@ -62,8 +62,11 @@ public class Solver {
 						}
 					}
 				}
-
 			}
+
+			// check for sophisticated solutions
+			SophisticatedSolver.sophisticatedSolve(model);
+
 			if (lastIterationBoard.equals(board)) {
 				counter++;
 			} else {

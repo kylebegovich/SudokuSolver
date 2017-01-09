@@ -1,7 +1,7 @@
 /**
  * The class that stores data and representations of the data
  * 
- * @since January 8, 2017
+ * @since January 9, 2017
  * @author Kyle Begovich
  * @version 1.0
  */
@@ -45,7 +45,6 @@ public class Model {
 		return Checker.check(board);
 	}
 
-
 	public int[] updateAvailable(int row, int col, int length) {
 		// modified from this previous call: getNewAvailableArray(length);
 		int[] available = ArrayUtil.getStandardArray(length);
@@ -88,7 +87,6 @@ public class Model {
 
 		return available;
 	}
-
 
 	public String toString() {
 		String output = "";
