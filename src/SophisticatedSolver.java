@@ -8,7 +8,7 @@
  * Static class
  * ^Not sure if this will be maintained
  * 
- * @since January 9, 2017
+ * @since January 10, 2017
  * @author Kyle Begovich
  * @version 1.0
  */
@@ -58,6 +58,42 @@ public class SophisticatedSolver {
 
             // at this point, neededNumbers[] is the set of numbers from
             // which every empty element in row[] == 0 needs to select one of
+
+            // an array of all the numbers needed in the row and their respective possible locations
+            int[][] numberAvailabilityArray = new int[neededNumbers.length][length];
+            // initialize every spot to -1
+            for (int i = 0; i < numberAvailabilityArray.length; i ++) {
+                for (int j = 0; j < numberAvailabilityArray[0].length; j ++) {
+                    numberAvailabilityArray[i][j] = -1;
+                }
+            }
+            // set any possible location as it's index value, instead of -1
+            for (int i = 0; i < neededNumbers.length; i ++) {
+                for (int col = 0; col < length; col ++) {
+                    if (ArrayUtil.canPlace(board, row, col, neededNumbers[i])) {
+                        numberAvailabilityArray[i][col] = col;
+                    }
+                }
+            }
+
+            // tracks where to put the number within the row
+            int openPos = -1;
+
+            for (int i = 0; i < numberAvailabilityArray.length; i ++) {
+                for (int j = 0; j < numberAvailabilityArray[0].length; j ++) {
+                    if (numberAvailabilityArray[i][j] != -1) {
+                        if (openPos == -1) {
+                            openPos = numberAvailabilityArray[i][j];
+                        } else {
+                            openPos = -1;
+                            break;
+                        }
+                    }
+                }
+                if (openPos != -1) {
+                     board[row][openPos] = neededNumbers[i];
+                }
+            }
         }
 	}
 	

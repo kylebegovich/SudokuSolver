@@ -3,7 +3,7 @@
  *
  * Static Class
  *
- * @since January 9, 2017
+ * @since January 10, 2017
  * @author Kyle Begovich
  * @version unreleased
  */
@@ -61,6 +61,29 @@ public class ArrayUtil {
         }
 
         return available;
+    }
+
+    public static boolean canPlace(int[][] board, int row, int col, int neededNumber) {
+        if (board[row][col] == 0) {
+            int length = board.length;
+            // row and column checks
+            for (int i = 0; i < length; i ++) {
+                if (board[row][i] == neededNumber) return false;
+                if (board[i][col] == neededNumber) return false;
+            }
+            // box check
+            int rowStart = (int) ((int) (row / Math.sqrt(length)) * Math.sqrt(length));
+            int colStart = (int) ((int) (col / Math.sqrt(length)) * Math.sqrt(length));
+
+            for (int r = rowStart; r < rowStart + Math.sqrt(length); r++) {
+                for (int c = colStart; c < colStart + Math.sqrt(length); c++) {
+                    if (board[r][c] == neededNumber) return false;
+                }
+            }
+
+            return true;
+        }
+        return false;
     }
 
     //Utility methods I'm not sure I'll need yet
