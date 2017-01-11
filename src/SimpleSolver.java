@@ -4,7 +4,7 @@
  * 
  * Static class
  * 
- * @since January 8, 2017
+ * @since January 11, 2017
  * @author Kyle Begovich
  * @version 1.0
  */
@@ -29,13 +29,13 @@ public class SimpleSolver {
 	public static void solveOneMissingRow(Model model) {
 		int[][] board = model.getBoard(); // the board from the model
 		int[] temp; // temporary set of values to check against
-		int openPos; // tracks if exactly one spot is left
+		int availableIndex; // tracks if exactly one spot is left
 		int missingValue; // tracks what value is missing
 
 		for (int row = 0; row < board.length; row++) {
 			// make sure to reset temporary variables used
             temp = ArrayUtil.getStandardArray(board.length);
-			openPos = -1;
+			availableIndex = -1;
 			missingValue = -1;
 			columnLoop: for (int col = 0; col < board[0].length; col++) {
 				// iterate through temp array
@@ -49,19 +49,19 @@ public class SimpleSolver {
 					}
 					// if it was not found in temp, it's an open position
 					else if (k + 1 == temp.length) {
-						if (openPos == -1) {
+						if (availableIndex == -1) {
 							// not yet an open position, track it
-							openPos = col;
+							availableIndex = col;
 						} else {
 							// more than one open position, go to next row
-							openPos = -1;
+							availableIndex = -1;
 							break columnLoop;
 						}
 					}
 				} // end k loop
 			}
 			// only try to replace value if there's only one open position
-			if (openPos != -1) {
+			if (availableIndex != -1) {
 				// find missingValue: only value in temp != -1
 				for (int k = 0; k < temp.length; k++) {
 					if (temp[k] != -1) {
@@ -70,7 +70,7 @@ public class SimpleSolver {
 					}
 				}
 				// the actual update to the board
-				board[row][openPos] = missingValue;
+				board[row][availableIndex] = missingValue;
 				// updating the state in model
 				model.setBoard(board);
 			}
@@ -80,14 +80,14 @@ public class SimpleSolver {
 	public static void solveOneMissingColumn(Model model) {
 		int[][] board = model.getBoard(); // the board from the model
 		int[] temp; // temporary set of values to check against
-		int openPos; // tracks if exactly one spot is left
+		int availableIndex; // tracks if exactly one spot is left
 		int missingValue; // tracks what value is missing
 
 		// note row <--> column
 		for (int col = 0; col < board.length; col++) {
 			// make sure to reset the temporary variables used
             temp = ArrayUtil.getStandardArray(board.length);
-			openPos = -1;
+			availableIndex = -1;
 			missingValue = -1;
 			rowLoop: for (int row = 0; row < board[0].length; row++) {
 				// iterate through temp array
@@ -101,19 +101,19 @@ public class SimpleSolver {
 					}
 					// if it was not found in temp, it's an open position
 					else if (k + 1 == temp.length) {
-						if (openPos == -1) {
+						if (availableIndex == -1) {
 							// not yet an open position, track it
-							openPos = row;
+							availableIndex = row;
 						} else {
 							// more than one open position, go to next row
-							openPos = -1;
+							availableIndex = -1;
 							break rowLoop;
 						}
 					}
 				} // end k loop
 			}
 			// only try to replace value if there's only one open position
-			if (openPos != -1) {
+			if (availableIndex != -1) {
 				// find missingValue: only value in temp != -1
 				for (int k = 0; k < temp.length; k++) {
 					if (temp[k] != -1) {
@@ -122,7 +122,7 @@ public class SimpleSolver {
 					}
 				}
 				// the actual update to the board
-				board[openPos][col] = missingValue;
+				board[availableIndex][col] = missingValue;
 				// updating the state in model
 				model.setBoard(board);
 			}
@@ -132,8 +132,8 @@ public class SimpleSolver {
 	public static void solveOneMissingBox(Model model) {
 		int[][] board = model.getBoard(); // the board from the model
 		int[] temp; // temporary set of values to check against
-		int openPosRow; // tracks if exactly one spot is left
-		int openPosCol; // needed because boxes are 2 dimensional
+		int availableIndexRow; // tracks if exactly one spot is left
+		int availableIndexCol; // needed because boxes are 2 dimensional
 		int missingValue; // tracks which value is missing
 
 		int boxSize = (int) Math.sqrt(board.length);
@@ -144,8 +144,8 @@ public class SimpleSolver {
 
 				// make sure to reset temporary variables used
                 temp = ArrayUtil.getStandardArray(board.length);
-				openPosRow = -1;
-				openPosCol = -1;
+				availableIndexRow = -1;
+				availableIndexCol = -1;
 				missingValue = -1;
 
 				// row & col iterate within a box
@@ -161,16 +161,16 @@ public class SimpleSolver {
 							// if it was not found in temp, it's an open
 							// position
 							else if (k + 1 == temp.length) {
-								if (openPosRow == -1 && openPosCol == -1) {
+								if (availableIndexRow == -1 && availableIndexCol == -1) {
 									// if there's not yet an open position,
 									// track it
-									openPosRow = row;
-									openPosCol = col;
+									availableIndexRow = row;
+									availableIndexCol = col;
 								} else {
 									// if there's more than one open position,
 									// go to next box
-									openPosRow = -1;
-									openPosCol = -1;
+									availableIndexRow = -1;
+									availableIndexCol = -1;
 									break boxLoop;
 								}
 							}
@@ -179,7 +179,7 @@ public class SimpleSolver {
 				} // end boxLoop
 
 				// only try to replace value if there's only one open position
-				if (openPosRow != -1 && openPosCol != -1) {
+				if (availableIndexRow != -1 && availableIndexCol != -1) {
 					// find missingValue: only value in temp != -1
 					for (int k = 0; k < temp.length; k++) {
 						if (temp[k] != -1) {
@@ -188,7 +188,7 @@ public class SimpleSolver {
 						}
 					}
 					// the actual update to the board
-					board[openPosRow][openPosCol] = missingValue;
+					board[availableIndexRow][availableIndexCol] = missingValue;
 					// updating the state in model
 					model.setBoard(board);
 				}

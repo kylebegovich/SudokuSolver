@@ -6,7 +6,7 @@
  * 
  * Static class
  * 
- * @since January 9, 2017
+ * @since January 11, 2017
  * @author Kyle Begovich
  * @version 1.0
  */

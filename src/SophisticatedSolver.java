@@ -8,7 +8,7 @@
  * Static class
  * ^Not sure if this will be maintained
  * 
- * @since January 10, 2017
+ * @since January 11, 2017
  * @author Kyle Begovich
  * @version 1.0
  */
@@ -77,21 +77,22 @@ public class SophisticatedSolver {
             }
 
             // tracks where to put the number within the row
-            int openPos = -1;
+            int availableIndex = -1;
 
             for (int i = 0; i < numberAvailabilityArray.length; i ++) {
                 for (int j = 0; j < numberAvailabilityArray[0].length; j ++) {
                     if (numberAvailabilityArray[i][j] != -1) {
-                        if (openPos == -1) {
-                            openPos = numberAvailabilityArray[i][j];
+                        if (availableIndex == -1) {
+                            availableIndex = numberAvailabilityArray[i][j];
                         } else {
-                            openPos = -1;
+                            availableIndex = -1;
                             break;
                         }
                     }
                 }
-                if (openPos != -1) {
-                     board[row][openPos] = neededNumbers[i];
+                if (availableIndex != -1) {
+                    board[row][availableIndex] = neededNumbers[i];
+                    model.setBoard(board);
                 }
             }
         }
