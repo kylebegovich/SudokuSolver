@@ -48,7 +48,6 @@ public class SophisticatedSolver {
 
             for (int col = 0; col < length; col ++) {
                 if (currentRow[col] == 0) counter ++;
-                // TODO verify this line:
                 else standardArray[currentRow[col]-1] = 0;
             }
 
