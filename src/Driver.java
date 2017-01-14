@@ -1,9 +1,9 @@
 /**
  * The class that initializes the MVC, delegates work
  * 
- * @since January 3, 2017
+ * @since January 14, 2017
  * @author Kyle Begovich
- * @version 1.0
+ * @version 1.5
  */
 public class Driver {
 

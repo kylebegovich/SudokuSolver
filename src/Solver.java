@@ -6,9 +6,9 @@
  * 
  * Static class
  * 
- * @since January 11, 2017
+ * @since January 14, 2017
  * @author Kyle Begovich
- * @version 1.0
+ * @version 1.5
  */
 public class Solver {
 

@@ -3,9 +3,9 @@
  *
  * Static Class
  *
- * @since January 10, 2017
+ * @since January 14, 2017
  * @author Kyle Begovich
- * @version unreleased
+ * @version 1.5
  */
 public class ArrayUtil {
     // Methods replacing ones already in place in other classes

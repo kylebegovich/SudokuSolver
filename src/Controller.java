@@ -1,9 +1,9 @@
 /**
  * The class that mediates communication between view and model
  * 
- * @since January 3, 2017
+ * @since January 14, 2017
  * @author Kyle Begovich
- * @version 1.0
+ * @version 1.5
  */
 public class Controller {
 	private View view;
