@@ -1,10 +1,14 @@
 /**
- * Simple solving algorithms class: example: if there's all but one in a row,
+ * Simple solving algorithms class
+ *
+ * Example: if there's all but one in a row,
  * column, or box, find the remaining number and fill it in
- * 
+ *
+ * These methods are all individually developed
+ *
  * Static class
  * 
- * @since January 14, 2017
+ * @since January 15, 2017
  * @author Kyle Begovich
  * @version 1.5
  */

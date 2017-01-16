@@ -1,21 +1,20 @@
 /**
- * This is the class used to solve the puzzle given from Driver.java
- * 
- * These methods are individually developed unless cited in the method
- * description
+ * This is the class used to solve the puzzle given from Model, makes calls to other solving classes
+ *
+ * These methods are all individually developed
  * 
  * Static class
  * 
- * @since January 14, 2017
+ * @since January 15, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class Solver {
 
 	/**
-	 * Wrapper method to the rest of the class
-	 * 
-	 * Destructive method, no returns
+	 * Wraps standard solving algorithms with calls to SimpleSolver and SophisticatedSolver
+	 *
+	 * Static method
 	 * 
 	 * @param model
 	 */
@@ -44,7 +43,7 @@ public class Solver {
 				for (int column = 0; column < length; column++) {
 					if (board[row][column] == 0) {
 						// reset variables that got updated
-						int[] available = updateAvailable(row, column, length, board);
+						int[] available = ArrayUtil.getAvailable(row, column, board);
 						availableIndex = -1;
 						for (int i = 0; i < length; i++) {
 							if (available[i] != -1) {
@@ -73,47 +72,5 @@ public class Solver {
 				counter = 0;
 			}
 		}
-	}
-
-	// Utility methods start here:
-	public static int[] updateAvailable(int row, int col, int length, int[][] board) {
-		// modified from this previous call: getNewAvailableArray(length);
-		int[] available = ArrayUtil.getStandardArray(length);
-
-		// row loop
-		for (int i = 0; i < length; i++) {
-			for (int j = 0; j < length; j++) {
-				if (board[i][col] == available[j]) {
-					available[j] = -1;
-				}
-			}
-		}
-
-		// column loop
-		for (int i = 0; i < length; i++) {
-			for (int j = 0; j < length; j++) {
-				if (board[row][i] == available[j]) {
-					available[j] = -1;
-				}
-			}
-		}
-
-		// used to offset the location of the current square within the box
-		int rowStart = (int) ((int) (row / Math.sqrt(length)) * Math.sqrt(length));
-		int colStart = (int) ((int) (col / Math.sqrt(length)) * Math.sqrt(length));
-
-		// box loops
-		for (int r = rowStart; r < rowStart + Math.sqrt(length); r++) {
-			// insert c++ joke here
-			for (int c = colStart; c < colStart + Math.sqrt(length); c++) {
-				for (int j = 0; j < length; j++) {
-					if (board[r][c] == available[j]) {
-						available[j] = -1;
-					}
-				}
-			}
-		}
-
-		return available;
 	}
 }

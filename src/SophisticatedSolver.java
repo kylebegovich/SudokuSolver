@@ -5,15 +5,19 @@
  * potential values, treat the tuple as though it is already filled with those
  * values in order to solve for other surrounding spaces
  *
- * Static class
- * ^Not sure if this will be maintained
+ * These methods are all individually developed
  *
- * @since January 14, 2017
+ * @since January 15, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class SophisticatedSolver {
 
+    /**
+     * Will make a call to each individual solving algorithm
+     *
+     * Static method
+     */
 	public static void sophisticatedSolve(Model model) {
 		solveForStructures(model);
 	}
@@ -276,7 +280,7 @@ public class SophisticatedSolver {
 
 
 
-    public static void findTuples() {
+    public static void findPairedPositions() {
         // TODO figure out how these should be returned or stored
         // TODO implement
     }

@@ -1,17 +1,18 @@
+// Only using Scanner until graphics interface is developed
 import java.util.Scanner;
 
 /**
  * The class that displays data to the user, accepts inputs, and communicates
  * with controller
  * 
- * @since January 14, 2017
+ * @since January 15, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class View {
 
 	/**
-	 * Version 1.0 will be only terminal input / output
+	 * Version 1.0 - 2.0 will be only terminal input / output
 	 */
 	private static final Scanner scanner = new Scanner(System.in);
 	private static final String getSizeMessage = "Please enter the number of rows in your Sudoku puzzle";

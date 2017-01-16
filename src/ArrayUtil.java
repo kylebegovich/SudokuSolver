@@ -3,7 +3,7 @@
  *
  * Static Class
  *
- * @since January 14, 2017
+ * @since January 15, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -21,7 +21,8 @@ public class ArrayUtil {
     }
 
     // returns an array of the available numbers for a single location
-    public int[] getAvailable(int[][] board, int row, int col, int length) {
+    public static int[] getAvailable(int row, int col, int[][] board) {
+        int length = board.length;
         int[] available = getStandardArray(length);
         System.out.println("testing purposes: updateAvailable(): col = " + col + ", row = " + row);
 
