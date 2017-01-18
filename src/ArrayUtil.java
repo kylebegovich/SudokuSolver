@@ -3,7 +3,7 @@
  *
  * Static Class
  *
- * @since January 16, 2017
+ * @since January 17, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -24,7 +24,6 @@ public class ArrayUtil {
     public static int[] getAvailable(int row, int col, int[][] board) {
         int length = board.length;
         int[] available = getStandardArray(length);
-        System.out.println("testing purposes: updateAvailable(): col = " + col + ", row = " + row);
 
         // row loop
         for (int i = 0; i < length; i++) {

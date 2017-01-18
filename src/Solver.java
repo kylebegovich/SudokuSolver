@@ -5,7 +5,7 @@
  * 
  * Static class
  * 
- * @since January 15, 2017
+ * @since January 17, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -21,6 +21,7 @@ public class Solver {
 	public static void solve(Model model) {
 		int length = model.getBoard().length;
 		int[][] board = model.getBoard();
+		int[][][] complexBoard = model.getComplexBoard();
 
 		// used to prevent infinite loops
 		int[][] lastIterationBoard;
@@ -42,11 +43,11 @@ public class Solver {
 			for (int row = 0; row < length; row++) {
 				for (int column = 0; column < length; column++) {
 					if (board[row][column] == 0) {
-						// reset variables that got updated
-						int[] available = ArrayUtil.getAvailable(row, column, board);
+						// reset variables that got changed
+                        model.updateComplexBoard();
 						availableIndex = -1;
 						for (int i = 0; i < length; i++) {
-							if (available[i] != -1) {
+							if (complexBoard[row][column][i] != -1) {
 								if (availableIndex >= 0) {
 									availableIndex = -1;
 									break;
@@ -56,7 +57,7 @@ public class Solver {
 							}
 						}
 						if (availableIndex >= 0) {
-							board[row][column] = available[availableIndex];
+							board[row][column] = complexBoard[row][column][availableIndex];
 							model.setBoard(board);
 						}
 					}

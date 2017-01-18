@@ -1,7 +1,7 @@
 /**
  * The class that stores data and representations of the data
  * 
- * @since January 14, 2017
+ * @since January 17, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -13,17 +13,6 @@ public class Model {
 	public Model() {
 		super();
 	}
-
-	public Model(int[][] board) {
-		this.board = board;
-
-		// initialize complexBoard with an available array.
-		for (int row = 0; row < board.length; row ++) {
-            for (int col = 0; col < board.length; col ++) {
-                complexBoard[row][col] = updateAvailable(row, col, board.length);
-            }
-        }
-	}
 	
 	public int[][] getBoard() {
 		return board;
@@ -31,24 +20,31 @@ public class Model {
 
 	public void setBoard(int[][] board) {
 		this.board = board;
+		complexBoard = new int[board.length][board.length][board.length];
+		updateComplexBoard();
 	}
 
 	public int[][][] getComplexBoard() {
 		return complexBoard;
 	}
 
+	// not sure if I will use this method yet, not sure when / where it would be applicable
 	public void setComplexBoard(int[][][] complexBoard) {
 		this.complexBoard = complexBoard;
 	}
 
-	public boolean isSolved() {
-		return Checker.check(board);
-	}
+    public void updateComplexBoard() {
+        int length = board.length;
+        for (int row = 0; row < length; row++) {
+            for (int col = 0; col < length; col++) {
+                complexBoard[row][col] = updateAvailable(row, col, length);
+            }
+        }
+    }
 
+	// Simple version for each individual position
 	public int[] updateAvailable(int row, int col, int length) {
-		// modified from this previous call: getNewAvailableArray(length);
 		int[] available = ArrayUtil.getStandardArray(length);
-		System.out.println("testing purposes: updateAvailable(): col = " + col + ", row = " + row);
 
 		// row loop
 		for (int i = 0; i < length; i++) {
@@ -87,6 +83,10 @@ public class Model {
 
 		return available;
 	}
+
+    public boolean isSolved() {
+        return Checker.check(board);
+    }
 
 	public String toString() {
 		String output = "";
