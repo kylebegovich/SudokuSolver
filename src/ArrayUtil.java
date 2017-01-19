@@ -3,15 +3,17 @@
  *
  * Static Class
  *
- * @since January 17, 2017
+ * @since January 18, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class ArrayUtil {
     // Methods replacing ones already in place in other classes
 
-    // initialize standard array to make checking possible
-    // value = index + 1 for entire array
+    /*
+     * initialize standard array to make checking possible
+     * value = index + 1 for entire array
+     */
     public static int[] getStandardArray(int length) {
         int[] arr = new int[length];
         for (int i = 0; i < arr.length; i++) {
@@ -33,6 +35,7 @@ public class ArrayUtil {
                 }
             }
         }
+
         // column loop
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length; j++) {
@@ -45,10 +48,12 @@ public class ArrayUtil {
         // used to offset the location of the current square within the box
         int rowStart = (int) ((int) (row / Math.sqrt(length)) * Math.sqrt(length));
         int colStart = (int) ((int) (col / Math.sqrt(length)) * Math.sqrt(length));
-        System.out.println("testing purposes: colStart = " + colStart + ", rowStart = " + rowStart + ", sqrt = "
-                + Math.sqrt(length));
+        System.out.println("testing purposes: colStart = " + colStart +
+                ", rowStart = " + rowStart + ", sqrt = " + Math.sqrt(length));
+
         // box loop
         for (int r = rowStart; r < rowStart + Math.sqrt(length); r++) {
+
             // insert c++ joke here
             for (int c = colStart; c < colStart + Math.sqrt(length); c++) {
                 for (int j = 0; j < length; j++) {

@@ -1,13 +1,14 @@
 /**
  * The class that initializes the MVC, delegates work
  * 
- * @since January 14, 2017
+ * @since January 18, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class Driver {
 
 	public static void main(String[] args) {
+
 		// initializing the MVC structure
 		Controller controller = new Controller();
 		Model model = new Model();

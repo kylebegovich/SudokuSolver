@@ -5,7 +5,7 @@
  * 
  * Static class
  * 
- * @since January 17, 2017
+ * @since January 18, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -43,6 +43,7 @@ public class Solver {
 			for (int row = 0; row < length; row++) {
 				for (int column = 0; column < length; column++) {
 					if (board[row][column] == 0) {
+
 						// reset variables that got changed
                         model.updateComplexBoard();
 						availableIndex = -1;

@@ -1,19 +1,19 @@
 /**
  * The class that stores data and representations of the data
  * 
- * @since January 17, 2017
+ * @since January 18, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class Model {
-	// protected so solving classes have direct access for now
 	private int[][] board;
 	private int[][][] complexBoard;
 
 	public Model() {
 		super();
 	}
-	
+
+
 	public int[][] getBoard() {
 		return board;
 	}
@@ -23,6 +23,7 @@ public class Model {
 		complexBoard = new int[board.length][board.length][board.length];
 		updateComplexBoard();
 	}
+
 
 	public int[][][] getComplexBoard() {
 		return complexBoard;
@@ -41,6 +42,7 @@ public class Model {
             }
         }
     }
+
 
 	// Simple version for each individual position
 	public int[] updateAvailable(int row, int col, int length) {
@@ -84,9 +86,11 @@ public class Model {
 		return available;
 	}
 
+
     public boolean isSolved() {
         return Checker.check(board);
     }
+
 
 	public String toString() {
 		String output = "";

@@ -7,13 +7,13 @@
  *
  * These methods are all individually developed
  *
- * @since January 15, 2017
+ * @since January 18, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class SophisticatedSolver {
 
-    /**
+    /*
      * Will make a call to each individual solving algorithm
      *
      * Static method
@@ -33,6 +33,7 @@ public class SophisticatedSolver {
 		solveColumns(model);
 		solveBoxes(model);
 	}
+
 
 	public static void solveRows(Model model) {
 	    // local versions of model's fields
@@ -277,7 +278,6 @@ public class SophisticatedSolver {
             }
         }
     }
-
 
 
     public static void findPairedPositions() {

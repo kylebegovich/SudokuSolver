@@ -5,7 +5,7 @@
  * 
  * Static class
  * 
- * @since January 14, 2017
+ * @since January 18, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -19,6 +19,7 @@ public class Checker {
 	public static boolean check(int[][] board) {
 		return isFull(board) && isLegal(board);
 	}
+
 
 	// wrapper method, checks no empty spaces
 	public static boolean isFull(Model model) {
@@ -43,6 +44,7 @@ public class Checker {
 
 	public static boolean isLegal(int[][] board) {
 		int length = board.length;
+
 		// modified from this previous call: getCheckArray(length);
 		int[] check = ArrayUtil.getStandardArray(length);
 
@@ -57,12 +59,14 @@ public class Checker {
 					}
 				}
 			}
+
 			// check that each value in check got set to 0 above
 			for (int j = 0; j < length; j++) {
 				if (check[j] != 0) {
 					return false;
 				}
 			}
+
 			// reset check array
 			check = ArrayUtil.getStandardArray(length);
 
@@ -75,15 +79,18 @@ public class Checker {
 					}
 				}
 			}
+
 			// check that each value in check got set to 0 above
 			for (int j = 0; j < length; j++) {
 				if (check[j] != 0) {
 					return false;
 				}
 			}
+
 			// reset check array
 			check = ArrayUtil.getStandardArray(length);
 		}
+
 
 		// check legality for each box
 		int boxSize = (int) Math.sqrt(length);
@@ -98,6 +105,7 @@ public class Checker {
 				// row & col iterate within a box
 				for (int row = rowMajor; row < rowMajor + boxSize; row++) {
 					for (int col = colMajor; col < colMajor + boxSize; col++) {
+
 						// k iterates through check array
 						for (int k = 0; k < length; k++) {
 							if (check[k] == board[row][col]) {
@@ -116,16 +124,8 @@ public class Checker {
 				}
 			}
 		}
+
 		// only reaches this line if every check array was legal
 		return true;
 	}
-
-
-//	private static int[] getCheckArray(int length) {
-//		int[] check = new int[length];
-//		for (int i = 0; i < check.length; i++) {
-//			check[i] = i + 1;
-//		}
-//		return check;
-//	}
 }

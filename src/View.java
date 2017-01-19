@@ -5,13 +5,13 @@ import java.util.Scanner;
  * The class that displays data to the user, accepts inputs, and communicates
  * with controller
  * 
- * @since January 15, 2017
+ * @since January 18, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class View {
 
-	/**
+	/*
 	 * Version 1.0 - 2.0 will be only terminal input / output
 	 */
 	private static final Scanner scanner = new Scanner(System.in);
@@ -30,6 +30,7 @@ public class View {
 	public int getSudokuSizeFromUser() {
 		System.out.println(getSizeMessage);
 		int temp = scanner.nextInt();
+
 		// condition makes sure only square numbers are input
 		while (Math.floor(Math.sqrt(temp)) != Math.sqrt(temp)) {
 			System.out.println(invalidInputMessage);
@@ -56,8 +57,10 @@ public class View {
 		return array;
 	}
 
-	// output a visual representation of the Sudoku puzzle to the console,
-	// along with a message to the user
+	/*
+	 * output a visual representation of the Sudoku puzzle to the console,
+	 * along with a message to the user
+	 */
 	public void output(String representation, boolean solved, boolean easterEgg) {
 		if (easterEgg) {
 			System.out.println(solvedMessage + tinyPuzzleEasterEgg);
