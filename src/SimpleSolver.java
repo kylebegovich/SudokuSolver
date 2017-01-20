@@ -27,6 +27,7 @@ public class SimpleSolver {
 		solveOneMissingBox(model);
 	}
 
+
 	public static void solveOneMissingRow(Model model) {
 		int[][] board = model.getBoard(); // the board from the model
 		int[] temp; // temporary set of values to check against

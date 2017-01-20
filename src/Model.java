@@ -1,7 +1,7 @@
 /**
  * The class that stores data and representations of the data
  * 
- * @since January 18, 2017
+ * @since January 19, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -38,14 +38,14 @@ public class Model {
         int length = board.length;
         for (int row = 0; row < length; row++) {
             for (int col = 0; col < length; col++) {
-                complexBoard[row][col] = updateAvailable(row, col, length);
+                complexBoard[row][col] = getAvailable(row, col, length);
             }
         }
     }
 
 
 	// Simple version for each individual position
-	public int[] updateAvailable(int row, int col, int length) {
+	public int[] getAvailable(int row, int col, int length) {
 		int[] available = ArrayUtil.getStandardArray(length);
 
 		// row loop
@@ -84,6 +84,21 @@ public class Model {
 		}
 
 		return available;
+	}
+
+	public int[] getAvailableComplex(int row, int col, int length) {
+
+        int[] available = complexBoard[row][col];
+
+        for (int i = 0; i < length; i ++) {
+            // TODO figure out a structure to store a variable number of variables,
+            // TODO the rows, columns, and boxes to check for partial positions at
+        }
+
+
+
+
+        return available;
 	}
 
 

@@ -7,7 +7,7 @@
  *
  * These methods are all individually developed
  *
- * @since January 18, 2017
+ * @since January 19, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -20,10 +20,11 @@ public class SophisticatedSolver {
      */
 	public static void sophisticatedSolve(Model model) {
 		solveForStructures(model);
+		// findPairedPositions(model);
 	}
 
 
-	/**
+	/*
 	 * Will make a call to each row, column, and box to solve for missing values
 	 * 
 	 * Static method
@@ -280,8 +281,10 @@ public class SophisticatedSolver {
     }
 
 
-    public static void findPairedPositions() {
+    public static void findPairedPositions(Model model) {
         // TODO figure out how these should be returned or stored
-        // TODO implement
+
+
+
     }
 }
