@@ -89,6 +89,7 @@ public class Model {
 	public int[] getAvailableComplex(int row, int col, int length) {
 
         int[] available = complexBoard[row][col];
+		//int[] indexArray = new int[length / 2];
 
         for (int i = 0; i < length; i ++) {
             // TODO figure out a structure to store a variable number of variables,

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="672c2e35-ce98-4e02-af65-6af4ad1fa1ec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model.java" afterPath="$PROJECT_DIR$/src/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SimpleSolver.java" afterPath="$PROJECT_DIR$/src/SimpleSolver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SophisticatedSolver.java" afterPath="$PROJECT_DIR$/src/SophisticatedSolver.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,14 +25,6 @@
               <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
               <folding>
                 <element signature="method#Tuple#0;class#Tuple#0" expanded="false" />
-                <element signature="e#403#404#0" expanded="false" />
-                <element signature="e#436#437#0" expanded="false" />
-                <element signature="e#471#472#0" expanded="false" />
-                <element signature="e#505#506#0" expanded="false" />
-                <element signature="e#554#555#0" expanded="false" />
-                <element signature="e#598#599#0" expanded="false" />
-                <element signature="e#649#650#0" expanded="false" />
-                <element signature="e#695#696#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -59,8 +48,8 @@
       <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+            <state relative-caret-position="338">
+              <caret line="91" column="10" lean-forward="false" selection-start-line="91" selection-start-column="10" selection-end-line="91" selection-end-column="10" />
               <folding>
                 <element signature="method#setBoard#0;class#Model#0" expanded="false" />
                 <element signature="method#getAvailable#0;class#Model#0" expanded="false" />
@@ -236,8 +225,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1038,14 +1027,6 @@
           <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
           <folding>
             <element signature="method#Tuple#0;class#Tuple#0" expanded="false" />
-            <element signature="e#403#404#0" expanded="false" />
-            <element signature="e#436#437#0" expanded="false" />
-            <element signature="e#471#472#0" expanded="false" />
-            <element signature="e#505#506#0" expanded="false" />
-            <element signature="e#554#555#0" expanded="false" />
-            <element signature="e#598#599#0" expanded="false" />
-            <element signature="e#649#650#0" expanded="false" />
-            <element signature="e#695#696#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1085,8 +1066,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+        <state relative-caret-position="338">
+          <caret line="91" column="10" lean-forward="false" selection-start-line="91" selection-start-column="10" selection-end-line="91" selection-end-column="10" />
           <folding>
             <element signature="method#setBoard#0;class#Model#0" expanded="false" />
             <element signature="method#getAvailable#0;class#Model#0" expanded="false" />
