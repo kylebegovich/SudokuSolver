@@ -5,7 +5,7 @@ import java.util.Scanner;
  * The class that displays data to the user, accepts inputs, and communicates
  * with controller
  * 
- * @since January 18, 2017
+ * @since January 22, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -15,11 +15,11 @@ public class View {
 	 * Version 1.0 - 2.0 will be only terminal input / output
 	 */
 	private static final Scanner scanner = new Scanner(System.in);
-	private static final String getSizeMessage = "Please enter the number of rows in your Sudoku puzzle";
-	private static final String fillArrayMessage = "Please fill your Sudoku puzzle, row by row, as prompted, 0 for unknown";
+	private static final String getSizeMessage = "Enter the number of rows in your Sudoku puzzle";
+	private static final String fillArrayMessage = "Fill your Sudoku puzzle, row by row, as prompted, 0 for unknown";
 	private static final String invalidInputMessage = "Invalid input! please try again";
-	private static final String solvedMessage = "Your Sudoku puzzle was solved!";
-	private static final String errorMessage = "Sorry, your sudoku puzzle was not possible to solve";
+	private static final String solvedMessage = "Your puzzle was solved!";
+	private static final String errorMessage = "Sorry, your puzzle was not possible to solve";
 	private static final String tinyPuzzleEasterEgg = " (Well that was easy)";
 
 	public View() {
