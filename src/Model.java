@@ -1,7 +1,7 @@
 /**
  * The class that stores data and representations of the data
  * 
- * @since January 19, 2017
+ * @since January 24, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -88,11 +88,16 @@ public class Model {
 
 	public int[] getAvailableComplex(int row, int col, int length) {
 
+		// local instance of complexBoard;
         int[] available = complexBoard[row][col];
-		//int[] indexArray = new int[length / 2];
+
+		// length is the number of rows and columns that affect the box without intersecting the specific index
+		int arrLength = (((int)Math.sqrt(length)) - 1) * 2;
+
+		// an array of all the row and column indices to check for partial positions
+		int[] indexArray = new int[ arrLength ];
 
         for (int i = 0; i < length; i ++) {
-            // TODO figure out a structure to store a variable number of variables,
             // TODO the rows, columns, and boxes to check for partial positions at
         }
 
