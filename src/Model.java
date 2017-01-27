@@ -1,7 +1,7 @@
 /**
  * The class that stores data and representations of the data
  * 
- * @since January 24, 2017
+ * @since January 27, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -88,18 +88,40 @@ public class Model {
 
 	public int[] getAvailableComplex(int row, int col, int length) {
 
+        int boxSize = (int) Math.sqrt(length);
+	    int rowStart = row - (row % boxSize);
+	    int colStart = col - (col % boxSize);
+
 		// local instance of complexBoard;
         int[] available = complexBoard[row][col];
 
-		// length is the number of rows and columns that affect the box without intersecting the specific index
+		// length is the number of rows and columns that affect the box without intersecting (row, col)
 		int arrLength = (((int)Math.sqrt(length)) - 1) * 2;
 
 		// an array of all the row and column indices to check for partial positions
 		int[] indexArray = new int[ arrLength ];
+		int i = 0;
 
-        for (int i = 0; i < length; i ++) {
-            // TODO the rows, columns, and boxes to check for partial positions at
+
+		// first half of indexArray is row indices
+        for (int r = rowStart; r < boxSize + rowStart; r ++) {
+            if (r != row) {
+                indexArray[i] = r;
+                i ++;
+            }
         }
+
+        // second half of indexArray is col indices
+        for (int c = colStart; c < boxSize + colStart; c ++) {
+            if (c != col) {
+                indexArray[i] = c;
+                i ++;
+            }
+        }
+
+        // TODO remove once confident this condition is met
+        if (i != arrLength) return null;
+
 
 
 

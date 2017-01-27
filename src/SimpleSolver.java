@@ -8,7 +8,7 @@
  *
  * Static class
  * 
- * @since January 158, 2017
+ * @since January 27, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -160,7 +160,7 @@ public class SimpleSolver {
 		int[] temp; // temporary set of values to check against
 		int availableIndexRow; // tracks if exactly one spot is left
 		int availableIndexCol; // needed because boxes are 2 dimensional
-		int missingValue; // tracks which value is missing
+		int missingValue;
 
 		int boxSize = (int) Math.sqrt(board.length);
 
