@@ -1,7 +1,11 @@
+package mvc;
+
+import solvingAlgorithms.Solver;
+
 /**
  * The class that mediates communication between view and model
  * 
- * @since January 18, 2017
+ * @since January 28, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -13,13 +17,13 @@ public class Controller {
 	public Controller() {
 	}
 
-	// initialization of View
+	// initialization of mvc.View
 	public void addView(View view) {
 		this.view = view;
 	}
 
 
-	// initialization of Model
+	// initialization of mvc.Model
 	public void addModel(Model model) {
 		this.model = model;
 	}
@@ -40,13 +44,13 @@ public class Controller {
 		// this may take a while, calls solving algorithm(s)
 		Solver.solve(this.model);
 
-		// ends program, View closes program with isSolved() as a parameter
+		// ends program, mvc.View closes program with isSolved() as a parameter
 		endSequence(this.model.toString(), this.model.isSolved(), (size == 0));
 
 	}
 
 
-	// makes a call to View that stops the program
+	// makes a call to mvc.View that stops the program
 	public void endSequence(String modelRepresentation, boolean isSolved, boolean easterEgg) {
 		this.view.output(modelRepresentation, isSolved, easterEgg);
 	}

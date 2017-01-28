@@ -1,7 +1,9 @@
+package util;
+
 /**
- * Tuple data structure, as implemented for use in SophisticatedSolver.java
+ * util.Tuple data structure, as implemented for use in SophisticatedSolver.java
  *
- * @since January 14, 2017
+ * @since January 28, 2017
  * @author Kyle Begovich
  * @version 1.5
  */

@@ -1,7 +1,11 @@
+import mvc.Controller;
+import mvc.Model;
+import mvc.View;
+
 /**
  * The class that initializes the MVC, delegates work
  * 
- * @since January 18, 2017
+ * @since January 28, 2017
  * @author Kyle Begovich
  * @version 1.5
  */

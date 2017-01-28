@@ -1,3 +1,8 @@
+package solvingAlgorithms;
+
+import mvc.*;
+import util.*;
+
 /**
  * Sophisticated solving algorithms class
  *
@@ -7,7 +12,7 @@
  *
  * These methods are all individually developed
  *
- * @since January 19, 2017
+ * @since January 28, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -239,7 +244,7 @@ public class SophisticatedSolver {
                     }
                 }
 
-                // an array of all the numbers needed in the box and their respective possible locations (in a Tuple)
+                // an array of all the numbers needed in the box and their respective possible locations (in a util.Tuple)
                 Tuple[][] numberAvailabilityArray = new Tuple[neededNumbers.length][length];
 
                 // set any possible location as it's index value, instead of null

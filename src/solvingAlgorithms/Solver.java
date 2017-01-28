@@ -1,18 +1,23 @@
+package solvingAlgorithms;
+
+import mvc.*;
+import util.*;
+
 /**
- * This is the class used to solve the puzzle given from Model, makes calls to other solving classes
+ * This is the class used to solve the puzzle given from mvc.Model, makes calls to other solving classes
  *
  * These methods are all individually developed
  * 
  * Static class
  * 
- * @since January 18, 2017
+ * @since January 28, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class Solver {
 
 	/**
-	 * Wraps standard solving algorithms with calls to SimpleSolver and SophisticatedSolver
+	 * Wraps standard solving algorithms with calls to solvingAlgorithms.SimpleSolver and solvingAlgorithms.SophisticatedSolver
 	 *
 	 * Static method
 	 * 

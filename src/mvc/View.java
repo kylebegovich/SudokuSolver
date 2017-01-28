@@ -1,11 +1,12 @@
-// Only using Scanner until graphics interface is developed
+package mvc;
+
 import java.util.Scanner;
 
 /**
  * The class that displays data to the user, accepts inputs, and communicates
  * with controller
  * 
- * @since January 22, 2017
+ * @since January 28, 2017
  * @author Kyle Begovich
  * @version 1.5
  */

@@ -1,3 +1,7 @@
+package util;
+
+import mvc.Model;
+
 /**
  * This is the class used to check if a puzzle is: 1) full, as in there is no
  * empty spaces, and 2) legal, as in each row, column, and box has exactly one
@@ -5,7 +9,7 @@
  * 
  * Static class
  * 
- * @since January 18, 2017
+ * @since January 28, 2017
  * @author Kyle Begovich
  * @version 1.5
  */

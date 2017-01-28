@@ -1,7 +1,11 @@
+package mvc;
+
+import util.*;
+
 /**
  * The class that stores data and representations of the data
  * 
- * @since January 27, 2017
+ * @since January 28, 2017
  * @author Kyle Begovich
  * @version 1.5
  */

@@ -1,3 +1,8 @@
+package solvingAlgorithms;
+
+import mvc.*;
+import util.*;
+
 /**
  * Simple solving algorithms class
  *
@@ -8,7 +13,7 @@
  *
  * Static class
  * 
- * @since January 27, 2017
+ * @since January 28, 2017
  * @author Kyle Begovich
  * @version 1.5
  */

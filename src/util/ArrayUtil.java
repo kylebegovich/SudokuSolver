@@ -1,9 +1,11 @@
+package util;
+
 /**
  * Class to be used for static utility methods in arrays of various sizes and dimensions
  *
  * Static Class
  *
- * @since January 18, 2017
+ * @since January 28, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
