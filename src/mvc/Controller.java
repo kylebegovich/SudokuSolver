@@ -1,11 +1,12 @@
 package mvc;
 
+// TODO replace this import with the wrapper for the solving algorithms, once it exists
 import solvingAlgorithms.Solver;
 
 /**
  * The class that mediates communication between view and model
  * 
- * @since January 28, 2017
+ * @since January 30, 2017
  * @author Kyle Begovich
  * @version 1.5
  */

@@ -1,7 +1,7 @@
 package solvingAlgorithms;
 
-import mvc.*;
-import util.*;
+import mvc.Model;
+import util.Checker;
 
 /**
  * This is the class used to solve the puzzle given from mvc.Model, makes calls to other solving classes
@@ -10,7 +10,7 @@ import util.*;
  * 
  * Static class
  * 
- * @since January 28, 2017
+ * @since January 30, 2017
  * @author Kyle Begovich
  * @version 1.5
  */

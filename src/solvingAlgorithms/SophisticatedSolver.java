@@ -1,7 +1,8 @@
 package solvingAlgorithms;
 
-import mvc.*;
-import util.*;
+import mvc.Model;
+import util.Tuple;
+import util.ArrayUtil;
 
 /**
  * Sophisticated solving algorithms class
@@ -12,7 +13,7 @@ import util.*;
  *
  * These methods are all individually developed
  *
- * @since January 29, 2017
+ * @since January 30, 2017
  * @author Kyle Begovich
  * @version 1.5
  */

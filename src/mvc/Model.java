@@ -1,11 +1,13 @@
 package mvc;
 
-import util.*;
+import util.Checker;
+import util.ArrayUtil;
+
 
 /**
  * The class that stores data and representations of the data
  * 
- * @since January 28, 2017
+ * @since January 30, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
