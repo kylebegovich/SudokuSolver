@@ -12,7 +12,7 @@ import util.*;
  *
  * These methods are all individually developed
  *
- * @since January 28, 2017
+ * @since January 29, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -204,17 +204,13 @@ public class SophisticatedSolver {
         int[][] board = model.getBoard();
         int boxSize = (int) Math.sqrt(length);
 
-        // used to record status of the board and it's properties
-        int counter;
-        int[] standardArray;
-
-        // rowMajor & colMajor iterate which box to be solving
+        // iterate which box to be solving
         for (int rowMajor = 0; rowMajor < board.length; rowMajor += boxSize) {
             for (int colMajor = 0; colMajor < board[0].length; colMajor += boxSize) {
 
                 // update variables used and modified
-                counter = 0;
-                standardArray = ArrayUtil.getStandardArray(length);
+                int counter = 0;
+                int[] standardArray = ArrayUtil.getStandardArray(length);
 
                 // how to track a box as it's own entity
                 int[] currentBox = new int[length];
@@ -226,17 +222,17 @@ public class SophisticatedSolver {
                 }
                 counter = 0;
 
-                // how to figure out how many number are needed
+                // figure out how many numbers are needed
                 for (int i = 0; i < length; i++) {
                     if (currentBox[i] == 0) counter++;
                     else standardArray[currentBox[i] - 1] = 0;
                 }
 
-                // resetting counter and setting up the array to hold the missing values
+                // reset counter and setting up the array to hold the missing values
                 int[] neededNumbers = new int[counter];
                 counter = 0;
 
-                // filling the needed numbers array
+                // populate the needed numbers array
                 for (int i = 0; i < length; i++) {
                     if (standardArray[i] != 0) {
                         neededNumbers[counter] = standardArray[i];
@@ -244,7 +240,7 @@ public class SophisticatedSolver {
                     }
                 }
 
-                // an array of all the numbers needed in the box and their respective possible locations (in a util.Tuple)
+                // all the numbers needed in the box and their respective possible locations
                 Tuple[][] numberAvailabilityArray = new Tuple[neededNumbers.length][length];
 
                 // set any possible location as it's index value, instead of null
@@ -267,8 +263,8 @@ public class SophisticatedSolver {
                     for (int j = 0; j < numberAvailabilityArray[0].length; j++) {
                         if (numberAvailabilityArray[i][j] != null) {
                             if (availableIndexRow == -1) {
-                                availableIndexRow = numberAvailabilityArray[i][j].getFirstValue();
-                                availableIndexCol = numberAvailabilityArray[i][j].getSecondValue();
+                                availableIndexRow = numberAvailabilityArray[i][j].FIRST_VALUE;
+                                availableIndexCol = numberAvailabilityArray[i][j].SECOND_VALUE;
                             } else {
                                 availableIndexRow = -1;
                                 availableIndexCol = -1;
