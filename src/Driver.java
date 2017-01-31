@@ -1,11 +1,9 @@
-import mvc.Controller;
-import mvc.Model;
-import mvc.View;
+import mvc.*;
 
 /**
  * The class that initializes the MVC, delegates work
  * 
- * @since January 28, 2017
+ * @since January 31, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -22,7 +20,6 @@ public class Driver {
 		controller.addView(view);
 		controller.addModel(model);
 
-		// does everything else
 		controller.run();
 	}
 }

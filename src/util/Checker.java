@@ -9,7 +9,7 @@ import mvc.Model;
  * 
  * Static class
  * 
- * @since January 28, 2017
+ * @since January 31, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -20,15 +20,11 @@ public class Checker {
 		return check(model.getBoard());
 	}
 
+
 	public static boolean check(int[][] board) {
 		return isFull(board) && isLegal(board);
 	}
 
-
-	// wrapper method, checks no empty spaces
-	public static boolean isFull(Model model) {
-		return isFull(model.getBoard());
-	}
 
 	public static boolean isFull(int[][] doneBoard) {
 		for (int i = 0; i < doneBoard.length; i++) {
@@ -41,10 +37,6 @@ public class Checker {
 		return true;
 	}
 
-	// wrapper method, checks if solution is genuine
-	public static boolean isLegal(Model model) {
-		return isLegal(model.getBoard());
-	}
 
 	public static boolean isLegal(int[][] board) {
 		int length = board.length;

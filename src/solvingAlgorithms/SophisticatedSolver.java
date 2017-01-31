@@ -13,7 +13,7 @@ import util.ArrayUtil;
  *
  * These methods are all individually developed
  *
- * @since January 30, 2017
+ * @since January 31, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -32,7 +32,6 @@ public class SophisticatedSolver {
 
 	/*
 	 * Will make a call to each row, column, and box to solve for missing values
-	 * 
 	 * Static method
 	 */
 	public static void solveForStructures(Model model) {
@@ -285,8 +284,6 @@ public class SophisticatedSolver {
 
     public static void findPairedPositions(Model model) {
         // TODO figure out how these should be returned or stored
-
-
 
     }
 }
