@@ -5,7 +5,7 @@ package util;
  *
  * Static Class
  *
- * @since January 28, 2017
+ * @since February 1, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -102,11 +102,33 @@ public class ArrayUtil {
         int row2 = secondPos.FIRST_VALUE;
         int col2 = secondPos.SECOND_VALUE;
         /* TODO
-            determine which box these values are within in order to
-            extrapolate that they are the only positions with the available value
-        */
+         *  determine which box these values are within in order to
+         *  extrapolate that they are the only positions with the available value
+         */
 
 
         // TODO make this function return true iff there is a commonality of available numbers between the two positions
+
+        
+        return false;
+    }
+
+    public static boolean isPairedPosition(int[][][] complexBoard, Tuple firstPos, Tuple secondPos, Tuple thirdPos) {
+        int row1 = firstPos.FIRST_VALUE;
+        int col1 = firstPos.SECOND_VALUE;
+        int row2 = secondPos.FIRST_VALUE;
+        int col2 = secondPos.SECOND_VALUE;
+        int row3 = thirdPos.FIRST_VALUE;
+        int col3 = thirdPos.SECOND_VALUE;
+        /* TODO
+         *  determine which box these values are within in order to
+         *  extrapolate that they are the only positions with the available value
+         */
+
+
+        // TODO make this function return true iff there is a commonality of available numbers between the two positions
+
+
+        return false;
     }
 }

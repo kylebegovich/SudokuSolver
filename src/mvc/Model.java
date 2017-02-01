@@ -1,16 +1,14 @@
 package mvc;
 
-import util.Checker;
 import util.ArrayUtil;
+import util.Checker;
 import util.Tuple;
-
-import java.lang.reflect.Array;
 
 
 /**
  * The class that stores data and representations of the data
  * 
- * @since January 30, 2017
+ * @since February 1, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -134,9 +132,12 @@ public class Model {
 
         int[] tempAvailable = null;
 
+
+        // currently only checks for a pair of positions, not for a set of 3 positions
+
         // checking rows
 		for (int r = 0; r < arrLength / 2; r ++) {
-			Tuple firstLocation;
+			Tuple firstLocation = new Tuple(-1, -1);
 			for (int index = 0; index < board[r].length; index++) {
 				if (board[r][index] == 0) {
 					if (tempAvailable == null) {
