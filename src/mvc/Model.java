@@ -2,6 +2,9 @@ package mvc;
 
 import util.Checker;
 import util.ArrayUtil;
+import util.Tuple;
+
+import java.lang.reflect.Array;
 
 
 /**
@@ -92,7 +95,7 @@ public class Model {
 		return available;
 	}
 
-	public int[] getAvailableComplex(int row, int col, int length) {
+	public int[] complexUpdateComplexBoard(int row, int col, int length) {
 
         int boxSize = (int) Math.sqrt(length);
 	    int rowStart = row - (row % boxSize);
@@ -106,30 +109,52 @@ public class Model {
 
 		// an array of all the row and column indices to check for partial positions
 		int[] indexArray = new int[ arrLength ];
-		int i = 0;
+		int counter = 0;
 
 
 		// first half of indexArray is row indices
         for (int r = rowStart; r < boxSize + rowStart; r ++) {
             if (r != row) {
-                indexArray[i] = r;
-                i ++;
+                indexArray[counter] = r;
+				counter ++;
             }
         }
 
         // second half of indexArray is col indices
         for (int c = colStart; c < boxSize + colStart; c ++) {
             if (c != col) {
-                indexArray[i] = c;
-                i ++;
+                indexArray[counter] = c;
+				counter ++;
             }
         }
 
         // TODO remove once confident this condition is met
-        if (i != arrLength) return null;
+        if (counter != arrLength) return null;
 
 
+        int[] tempAvailable = null;
 
+        // checking rows
+		for (int r = 0; r < arrLength / 2; r ++) {
+			Tuple firstLocation;
+			for (int index = 0; index < board[r].length; index++) {
+				if (board[r][index] == 0) {
+					if (tempAvailable == null) {
+						tempAvailable = complexBoard[r][index];
+						firstLocation = new Tuple(r, index);
+					} else {
+						// TODO write comparison for if there's a match between available in tempAvailable and at comBoard[r][i]
+						ArrayUtil.isPairedPosition(complexBoard, firstLocation, new Tuple(r, index));
+						tempAvailable = null;
+					}
+				}
+			}
+		}
+
+		// checking columns
+		for (int c = arrLength / 2 + 1; c < arrLength; c++) {
+			// TODO duplicate 'checking rows' for checking columns
+		}
 
 
         return available;

@@ -95,4 +95,18 @@ public class ArrayUtil {
         // if it passes all row, column, and box checks, return true
         return true;
     }
+
+    public static boolean isPairedPosition(int[][][] complexBoard, Tuple firstPos, Tuple secondPos) {
+        int row1 = firstPos.FIRST_VALUE;
+        int col1 = firstPos.SECOND_VALUE;
+        int row2 = secondPos.FIRST_VALUE;
+        int col2 = secondPos.SECOND_VALUE;
+        /* TODO
+            determine which box these values are within in order to
+            extrapolate that they are the only positions with the available value
+        */
+
+
+        // TODO make this function return true iff there is a commonality of available numbers between the two positions
+    }
 }
