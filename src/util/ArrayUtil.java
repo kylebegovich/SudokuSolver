@@ -1,11 +1,13 @@
 package util;
 
+import java.util.ArrayList;
+
 /**
  * Class to be used for static utility methods in arrays of various sizes and dimensions
  *
  * Static Class
  *
- * @since February 1, 2017
+ * @since February 2, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -97,14 +99,38 @@ public class ArrayUtil {
     }
 
     public static boolean isPairedPosition(int[][][] complexBoard, Tuple firstPos, Tuple secondPos) {
-        int row1 = firstPos.FIRST_VALUE;
-        int col1 = firstPos.SECOND_VALUE;
-        int row2 = secondPos.FIRST_VALUE;
-        int col2 = secondPos.SECOND_VALUE;
         /* TODO
          *  determine which box these values are within in order to
          *  extrapolate that they are the only positions with the available value
          */
+
+
+        int row1 = firstPos.FIRST_VALUE;
+        int col1 = firstPos.SECOND_VALUE;
+        int row2 = secondPos.FIRST_VALUE;
+        int col2 = secondPos.SECOND_VALUE;
+
+
+        boolean oneWayFlag = false;
+        ArrayList<Integer> similar = new ArrayList<>();
+        for (int avail1 : complexBoard[row1][col1]) {
+            for (int avail2 : complexBoard[row2][col2]) {
+
+                if (avail1 == avail2) {
+                    oneWayFlag = true;
+                    similar.add(avail1);
+                }
+            }
+        }
+
+        if (oneWayFlag) {
+            int boxSize = (int) Math.sqrt(complexBoard.length);
+            int bowRowStart = (row1 / boxSize) * boxSize;
+            int bowColStart = (col1 / boxSize) * boxSize;
+
+            // TODO implement the check for exclusivity of the paired number stored in similar
+        }
+
 
 
         // TODO make this function return true iff there is a commonality of available numbers between the two positions
