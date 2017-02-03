@@ -8,7 +8,7 @@ import util.Tuple;
 /**
  * The class that stores data and representations of the data
  * 
- * @since February 1, 2017
+ * @since February 3, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -45,53 +45,10 @@ public class Model {
         int length = board.length;
         for (int row = 0; row < length; row++) {
             for (int col = 0; col < length; col++) {
-                complexBoard[row][col] = getAvailable(row, col, length);
+                complexBoard[row][col] = ArrayUtil.getAvailable(row, col, board);
             }
         }
     }
-
-
-	// Simple version for each individual position
-	public int[] getAvailable(int row, int col, int length) {
-		int[] available = ArrayUtil.getStandardArray(length);
-
-		// row loop
-		for (int i = 0; i < length; i++) {
-			for (int j = 0; j < length; j++) {
-				if (board[i][col] == available[j]) {
-					available[j] = -1;
-				}
-			}
-		}
-		// column loop
-		for (int i = 0; i < length; i++) {
-			for (int j = 0; j < length; j++) {
-				if (board[row][i] == available[j]) {
-					available[j] = -1;
-				}
-			}
-		}
-
-		// used to offset the location of the current square within the box
-		int rowStart = (int) ((int) (row / Math.sqrt(length)) * Math.sqrt(length));
-		int colStart = (int) ((int) (col / Math.sqrt(length)) * Math.sqrt(length));
-		System.out.println("testing purposes: colStart = " + colStart + ", rowStart = " + rowStart + ", sqrt = "
-				+ Math.sqrt(length));
-		// box loop
-		for (int r = rowStart; r < rowStart + Math.sqrt(length); r++) {
-			// insert c++ joke here
-			for (int c = colStart; c < colStart + Math.sqrt(length); c++) {
-				for (int j = 0; j < length; j++) {
-					System.out.println("testing purposes: r = " + r + ", c = " + c + ", j = " + j);
-					if (board[r][c] == available[j]) {
-						available[j] = -1;
-					}
-				}
-			}
-		}
-
-		return available;
-	}
 
 	public int[] complexUpdateComplexBoard(int row, int col, int length) {
 

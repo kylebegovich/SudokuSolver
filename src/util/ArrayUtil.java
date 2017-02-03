@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  * Static Class
  *
- * @since February 2, 2017
+ * @since February 3, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -57,8 +57,6 @@ public class ArrayUtil {
 
         // box loop
         for (int r = rowStart; r < rowStart + Math.sqrt(length); r++) {
-
-            // insert c++ joke here
             for (int c = colStart; c < colStart + Math.sqrt(length); c++) {
                 for (int j = 0; j < length; j++) {
                     System.out.println("testing purposes: r = " + r + ", c = " + c + ", j = " + j);
@@ -99,9 +97,8 @@ public class ArrayUtil {
     }
 
     public static boolean isPairedPosition(int[][][] complexBoard, Tuple firstPos, Tuple secondPos) {
-        /* TODO
-         *  determine which box these values are within in order to
-         *  extrapolate that they are the only positions with the available value
+        /*
+         *  TODO make this function return true iff there is a commonality of available numbers between the two positions
          */
 
 
@@ -109,6 +106,11 @@ public class ArrayUtil {
         int col1 = firstPos.SECOND_VALUE;
         int row2 = secondPos.FIRST_VALUE;
         int col2 = secondPos.SECOND_VALUE;
+
+        // double check that the positions can be paired in some way
+        if (row1 != row2 && col1 != col2) {
+            return false;
+        }
 
 
         boolean oneWayFlag = false;
@@ -125,17 +127,32 @@ public class ArrayUtil {
 
         if (oneWayFlag) {
             int boxSize = (int) Math.sqrt(complexBoard.length);
-            int bowRowStart = (row1 / boxSize) * boxSize;
-            int bowColStart = (col1 / boxSize) * boxSize;
+            int boxRowStart = (row1 / boxSize) * boxSize;
+            int boxColStart = (col1 / boxSize) * boxSize;
 
             // TODO implement the check for exclusivity of the paired number stored in similar
+
+            // for the entire box
+            for (int currRow = boxRowStart; currRow < boxRowStart + boxSize; currRow ++) {
+                for (int currCol = boxColStart; currCol < boxColStart + boxSize; currCol ++) {
+
+                    // if the position isn't one of the ones passed in
+                    if ((currRow != row1 || currCol != col1) && (currRow != row2 || currCol != col2)) {
+
+                        // if it's in the list of similar available values, remove it, as it's not exclusive
+                        for (int avail : complexBoard[currRow][currCol]) {
+                            if (similar.size() > 0) {
+                                for (int sim : similar) {
+                                    if (avail == sim) {
+                                        similar.remove(new Integer(avail));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-
-
-
-        // TODO make this function return true iff there is a commonality of available numbers between the two positions
-
-        
         return false;
     }
 
