@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  * Static Class
  *
- * @since February 3, 2017
+ * @since February 4, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -96,12 +96,7 @@ public class ArrayUtil {
         return true;
     }
 
-    public static boolean isPairedPosition(int[][][] complexBoard, Tuple firstPos, Tuple secondPos) {
-        /*
-         *  TODO make this function return true iff there is a commonality of available numbers between the two positions
-         */
-
-
+    public static ArrayList<Integer> isPairedPosition(int[][][] complexBoard, Tuple firstPos, Tuple secondPos) {
         int row1 = firstPos.FIRST_VALUE;
         int col1 = firstPos.SECOND_VALUE;
         int row2 = secondPos.FIRST_VALUE;
@@ -109,7 +104,7 @@ public class ArrayUtil {
 
         // double check that the positions can be paired in some way
         if (row1 != row2 && col1 != col2) {
-            return false;
+            return null;
         }
 
 
@@ -130,8 +125,6 @@ public class ArrayUtil {
             int boxRowStart = (row1 / boxSize) * boxSize;
             int boxColStart = (col1 / boxSize) * boxSize;
 
-            // TODO implement the check for exclusivity of the paired number stored in similar
-
             // for the entire box
             for (int currRow = boxRowStart; currRow < boxRowStart + boxSize; currRow ++) {
                 for (int currCol = boxColStart; currCol < boxColStart + boxSize; currCol ++) {
@@ -141,19 +134,21 @@ public class ArrayUtil {
 
                         // if it's in the list of similar available values, remove it, as it's not exclusive
                         for (int avail : complexBoard[currRow][currCol]) {
-                            if (similar.size() > 0) {
-                                for (int sim : similar) {
-                                    if (avail == sim) {
-                                        similar.remove(new Integer(avail));
-                                    }
+                            if (similar.size() < 1) {
+                                break;
+                            }
+                            for (int sim : similar) {
+                                if (avail == sim) {
+                                    similar.remove(new Integer(avail));
                                 }
                             }
                         }
                     }
+
                 }
             }
         }
-        return false;
+        return similar;
     }
 
     public static boolean isPairedPosition(int[][][] complexBoard, Tuple firstPos, Tuple secondPos, Tuple thirdPos) {

@@ -4,11 +4,13 @@ import util.ArrayUtil;
 import util.Checker;
 import util.Tuple;
 
+import java.util.ArrayList;
+
 
 /**
  * The class that stores data and representations of the data
  * 
- * @since February 3, 2017
+ * @since February 4, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -83,10 +85,6 @@ public class Model {
             }
         }
 
-        // TODO remove once confident this condition is met
-        if (counter != arrLength) return null;
-
-
         int[] tempAvailable = null;
 
 
@@ -101,8 +99,8 @@ public class Model {
 						tempAvailable = complexBoard[r][index];
 						firstLocation = new Tuple(r, index);
 					} else {
-						// TODO write comparison for if there's a match between available in tempAvailable and at comBoard[r][i]
-						ArrayUtil.isPairedPosition(complexBoard, firstLocation, new Tuple(r, index));
+						// TODO do something with the arraylist of paired values here:
+						ArrayList<Integer> pairedValues = ArrayUtil.isPairedPosition(complexBoard, firstLocation, new Tuple(r, index));
 						tempAvailable = null;
 					}
 				}
