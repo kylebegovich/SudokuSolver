@@ -17,6 +17,9 @@ import java.util.ArrayList;
 public class Model {
 	private int[][] board;
 	private int[][][] complexBoard;
+	// TODO store a list of shared available values, with the positions where they're paired
+    //private ArrayList<Integer> pairedPositions;
+    //private Tuple pair;
 
 	public Model() {
 		super();
@@ -99,7 +102,7 @@ public class Model {
 						tempAvailable = complexBoard[r][index];
 						firstLocation = new Tuple(r, index);
 					} else {
-						// TODO do something with the arraylist of paired values here:
+						// TODO do something with the array list of paired values here:
 						ArrayList<Integer> pairedValues = ArrayUtil.isPairedPosition(complexBoard, firstLocation, new Tuple(r, index));
 						tempAvailable = null;
 					}
