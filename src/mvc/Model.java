@@ -10,14 +10,14 @@ import java.util.ArrayList;
 /**
  * The class that stores data and representations of the data
  * 
- * @since February 4, 2017
+ * @since February 6, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class Model {
 	private int[][] board;
 	private int[][][] complexBoard;
-	// TODO store a list of shared available values, with the positions where they're paired
+	// TODO don't want to store these values, trying to deal with them live with an ArrayUtil method
     //private ArrayList<Integer> pairedPositions;
     //private Tuple pair;
 
@@ -88,23 +88,23 @@ public class Model {
             }
         }
 
-        int[] tempAvailable = null;
-
+		boolean needFirstPos = true;
 
         // currently only checks for a pair of positions, not for a set of 3 positions
 
         // checking rows
 		for (int r = 0; r < arrLength / 2; r ++) {
-			Tuple firstLocation = new Tuple(-1, -1);
+			Tuple firstLocation = null;
 			for (int index = 0; index < board[r].length; index++) {
 				if (board[r][index] == 0) {
-					if (tempAvailable == null) {
-						tempAvailable = complexBoard[r][index];
+					if (needFirstPos) {
 						firstLocation = new Tuple(r, index);
+                        needFirstPos = true;
 					} else {
-						// TODO do something with the array list of paired values here:
-						ArrayList<Integer> pairedValues = ArrayUtil.isPairedPosition(complexBoard, firstLocation, new Tuple(r, index));
-						tempAvailable = null;
+						Tuple secondPos = new Tuple(r, index);
+						ArrayList<Integer> pairedValues = ArrayUtil.getPairedPositions(firstLocation, secondPos, complexBoard);
+						ArrayUtil.dealWithPairedPositions(firstLocation, secondPos, pairedValues);
+                        needFirstPos = false;
 					}
 				}
 			}

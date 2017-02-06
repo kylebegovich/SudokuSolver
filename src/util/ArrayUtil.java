@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  * Static Class
  *
- * @since February 4, 2017
+ * @since February 6, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -96,7 +96,7 @@ public class ArrayUtil {
         return true;
     }
 
-    public static ArrayList<Integer> isPairedPosition(int[][][] complexBoard, Tuple firstPos, Tuple secondPos) {
+    public static ArrayList<Integer> getPairedPositions(Tuple firstPos, Tuple secondPos, int[][][] complexBoard) {
         int row1 = firstPos.FIRST_VALUE;
         int col1 = firstPos.SECOND_VALUE;
         int row2 = secondPos.FIRST_VALUE;
@@ -151,22 +151,20 @@ public class ArrayUtil {
         return similar;
     }
 
-    public static boolean isPairedPosition(int[][][] complexBoard, Tuple firstPos, Tuple secondPos, Tuple thirdPos) {
+    public static ArrayList<Integer> getPairedPositions(Tuple firstPos, Tuple secondPos, Tuple thirdPos, int[][][] complexBoard) {
         int row1 = firstPos.FIRST_VALUE;
         int col1 = firstPos.SECOND_VALUE;
         int row2 = secondPos.FIRST_VALUE;
         int col2 = secondPos.SECOND_VALUE;
         int row3 = thirdPos.FIRST_VALUE;
         int col3 = thirdPos.SECOND_VALUE;
-        /* TODO
-         *  determine which box these values are within in order to
-         *  extrapolate that they are the only positions with the available value
-         */
 
+        // TODO make this do what the other one does :)
 
-        // TODO make this function return true iff there is a commonality of available numbers between the two positions
+        return null;
+    }
 
+    public static void dealWithPairedPositions(Tuple firstPos, Tuple secondPos, ArrayList<Integer> pairedValues) {
 
-        return false;
     }
 }
