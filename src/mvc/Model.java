@@ -90,21 +90,19 @@ public class Model {
 
 		boolean needFirstPos = true;
 
-        // currently only checks for a pair of positions, not for a set of 3 positions
-
         // checking rows
 		for (int r = 0; r < arrLength / 2; r ++) {
 			Tuple firstLocation = null;
-			for (int index = 0; index < board[r].length; index++) {
+			for (int index = 0; index < board.length; index++) {
 				if (board[r][index] == 0) {
 					if (needFirstPos) {
 						firstLocation = new Tuple(r, index);
-                        needFirstPos = true;
+                        needFirstPos = false;
 					} else {
 						Tuple secondPos = new Tuple(r, index);
 						ArrayList<Integer> pairedValues = ArrayUtil.getPairedPositions(firstLocation, secondPos, complexBoard);
 						ArrayUtil.dealWithPairedPositions(firstLocation, secondPos, pairedValues);
-                        needFirstPos = false;
+                        needFirstPos = true;
 					}
 				}
 			}
@@ -112,12 +110,27 @@ public class Model {
 
 		// checking columns
 		for (int c = arrLength / 2 + 1; c < arrLength; c++) {
-			// TODO duplicate 'checking rows' for checking columns
+			Tuple firstLocation = null;
+			for (int index = 0; index < board.length; index++) {
+				if (board[index][c] == 0) {
+					if (needFirstPos) {
+						firstLocation = new Tuple(index, c);
+						needFirstPos = false;
+					} else {
+						Tuple secondPos = new Tuple(index, c);
+						ArrayList<Integer> pairedValues = ArrayUtil.getPairedPositions(firstLocation, secondPos, complexBoard);
+						ArrayUtil.dealWithPairedPositions(firstLocation, secondPos, pairedValues);
+						needFirstPos = true;
+					}
+				}
+			}
 		}
 
 
         return available;
 	}
+
+    // TODO write method similar to above, but for a set of 3 positions
 
 
     public boolean isSolved() {
