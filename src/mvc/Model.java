@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * The class that stores data and representations of the data
  * 
- * @since February 6, 2017
+ * @since February 7, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
