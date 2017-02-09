@@ -9,27 +9,43 @@ import mvc.Model;
  * 
  * Static class
  * 
- * @since January 31, 2017
+ * @since February 9, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class Checker {
 
-	// wrapper method for the entirety of the class
+	/**
+	 * Wrapper method for the entirety of the class
+	 *
+	 * @param model the object that represents the Sudoku Puzzle
+	 * @return Boolean, if the model has no open positions and all are legal entries
+	 */
 	public static boolean check(Model model) {
 		return check(model.getBoard());
 	}
 
 
+	/**
+	 * Calls other functions to check the model
+     *
+	 * @param board The board
+	 * @return Boolean, if the model has no open positions and all are legal entries
+	 */
 	public static boolean check(int[][] board) {
 		return isFull(board) && isLegal(board);
 	}
 
-
-	public static boolean isFull(int[][] doneBoard) {
-		for (int i = 0; i < doneBoard.length; i++) {
-			for (int j = 0; j < doneBoard[0].length; j++) {
-				if (doneBoard[i][j] < 1 || doneBoard[i][j] > doneBoard.length) {
+	/**
+	 * Checks that every entry is not zero
+     *
+	 * @param board The board
+	 * @return Boolean, if the model has no open positions
+	 */
+	public static boolean isFull(int[][] board) {
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[0].length; j++) {
+				if (board[i][j] < 1 || board[i][j] > board.length) {
 					return false;
 				}
 			}
@@ -38,6 +54,12 @@ public class Checker {
 	}
 
 
+	/**
+	 * Assume all entries are non-zero
+     *
+	 * @param board The board
+	 * @return Boolean, if all entries are legal entries
+	 */
 	public static boolean isLegal(int[][] board) {
 		int length = board.length;
 

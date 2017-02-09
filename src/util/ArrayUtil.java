@@ -7,16 +7,18 @@ import java.util.ArrayList;
  *
  * Static Class
  *
- * @since February 6, 2017
+ * @since February 9, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class ArrayUtil {
-    // Methods replacing ones already in place in other classes
 
-    /*
+    /**
      * initialize standard array to make checking possible
      * value = index + 1 for entire array
+     *
+     * @param length The length of the board
+     * @return Array of ints, an array of numbers from 1 to length
      */
     public static int[] getStandardArray(int length) {
         int[] arr = new int[length];
@@ -26,7 +28,15 @@ public class ArrayUtil {
         return arr;
     }
 
-    // returns an array of the available numbers for a single location
+
+    /**
+     * returns an array of the available numbers for a single location
+     *
+     * @param row The index of the row
+     * @param col The index of the column
+     * @param board The board
+     * @return Array of ints, the possible numbers to place at the given position
+     */
     public static int[] getAvailable(int row, int col, int[][] board) {
         int length = board.length;
         int[] available = getStandardArray(length);
@@ -70,6 +80,15 @@ public class ArrayUtil {
         return available;
     }
 
+
+    /**
+     *
+     * @param board The board
+     * @param row The index of the row to place at
+     * @param col The index of the col to place at
+     * @param neededNumber The number to input at the given location
+     * @return Boolean, if you can place the number at the given location
+     */
     public static boolean canPlace(int[][] board, int row, int col, int neededNumber) {
         // check if the spot is empty
         if (board[row][col] != 0) return false;
@@ -96,6 +115,15 @@ public class ArrayUtil {
         return true;
     }
 
+    /**
+     * Gives the paired positions, the integers that must go in one of the two given locations
+     * so we can remove that integer from all of the available arrays in the same row or column
+     *
+     * @param firstPos Tuple of the index of the first location
+     * @param secondPos Tuple of the index of the second location
+     * @param complexBoard The board with available arrays
+     * @return ArrayList, a list of the paired integers for the locations
+     */
     public static ArrayList<Integer> getPairedPositions(Tuple firstPos, Tuple secondPos, int[][][] complexBoard) {
         int row1 = firstPos.FIRST_VALUE;
         int col1 = firstPos.SECOND_VALUE;
@@ -151,6 +179,15 @@ public class ArrayUtil {
         return similar;
     }
 
+    /**
+     * Similar to the method above, but with three positions instead of two
+     *
+     * @param firstPos Tuple of the index of the first location
+     * @param secondPos Tuple of the index of the second location
+     * @param thirdPos Tuple of the index of the third location
+     * @param complexBoard The board with available arrays
+     * @return ArrayList, a list of the paired integers for the locations
+     */
     public static ArrayList<Integer> getPairedPositions(Tuple firstPos, Tuple secondPos, Tuple thirdPos, int[][][] complexBoard) {
         int row1 = firstPos.FIRST_VALUE;
         int col1 = firstPos.SECOND_VALUE;
@@ -164,6 +201,12 @@ public class ArrayUtil {
         return null;
     }
 
+    /**
+     *
+     * @param firstPos
+     * @param secondPos
+     * @param pairedValues
+     */
     public static void dealWithPairedPositions(Tuple firstPos, Tuple secondPos, ArrayList<Integer> pairedValues) {
 
     }
