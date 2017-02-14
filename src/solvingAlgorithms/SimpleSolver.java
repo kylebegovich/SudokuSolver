@@ -13,7 +13,7 @@ import util.ArrayUtil;
  *
  * Static class
  * 
- * @since January 30, 2017
+ * @since February 13, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -21,10 +21,9 @@ import util.ArrayUtil;
 public class SimpleSolver {
 
 	/**
-	 * Wrapper method to the rest of the class Destructive method, no return
+	 * Wrapper method to the rest of the
 	 * 
-	 * @param model
-	 *            the model to be solved
+	 * @param model The model to be solving
 	 */
 	public static void simpleSolve(Model model) {
 		solveOneMissingRow(model);
@@ -33,6 +32,12 @@ public class SimpleSolver {
 	}
 
 
+    /**
+     * Determines for every row, if there is one value missing,
+     * what the value is and places it in the available location
+     *
+     * @param model The model to be solving
+     */
 	public static void solveOneMissingRow(Model model) {
 		int[][] board = model.getBoard(); // the board from the model
 		int[] temp; // temporary set of values to check against
@@ -96,6 +101,12 @@ public class SimpleSolver {
 		} // end rowLoop
 	}
 
+    /**
+     * Determines for every column, if there is one value missing,
+     * what the value is and places it in the available location
+     *
+     * @param model The model to be solving
+     */
 	public static void solveOneMissingColumn(Model model) {
 		int[][] board = model.getBoard(); // the board from the model
 		int[] temp; // temporary set of values to check against
@@ -160,6 +171,12 @@ public class SimpleSolver {
 		} // end columnLoop
 	}
 
+    /**
+     * Determines for every box, if there is one value missing,
+     * what the value is and places it in the available location
+     *
+     * @param model The model to be solving
+     */
 	public static void solveOneMissingBox(Model model) {
 		int[][] board = model.getBoard(); // the board from the model
 		int[] temp; // temporary set of values to check against

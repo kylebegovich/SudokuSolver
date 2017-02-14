@@ -10,7 +10,7 @@ import util.Checker;
  * 
  * Static class
  * 
- * @since January 30, 2017
+ * @since February 13, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -21,7 +21,7 @@ public class Solver {
 	 *
 	 * Static method
 	 * 
-	 * @param model
+	 * @param model The model to be solving
 	 */
 	public static void solve(Model model) {
 		int length = model.getBoard().length;

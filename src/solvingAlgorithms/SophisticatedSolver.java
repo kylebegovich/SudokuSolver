@@ -13,16 +13,18 @@ import util.ArrayUtil;
  *
  * These methods are all individually developed
  *
- * @since January 31, 2017
+ * @since February 13, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class SophisticatedSolver {
 
-    /*
+    /**
      * Will make a call to each individual solving algorithm
      *
      * Static method
+     *
+     * @param model The model to be solving
      */
 	public static void sophisticatedSolve(Model model) {
 		solveForStructures(model);
@@ -30,10 +32,13 @@ public class SophisticatedSolver {
 	}
 
 
-	/*
-	 * Will make a call to each row, column, and box to solve for missing values
-	 * Static method
-	 */
+    /**
+     * Will make a call to each row, column, and box to solve for missing values
+     *
+     * Static method
+     *
+     * @param model The model to be solving
+     */
 	public static void solveForStructures(Model model) {
 		solveRows(model);
 		solveColumns(model);
@@ -41,6 +46,11 @@ public class SophisticatedSolver {
 	}
 
 
+    /**
+     * Solves for values we can determine in every row, individually
+     *
+     * @param model The model to be solving
+     */
 	public static void solveRows(Model model) {
 	    // local versions of model's fields
         int length = model.getBoard().length;
@@ -115,7 +125,12 @@ public class SophisticatedSolver {
             }
         }
 	}
-	
+
+    /**
+     * Solves for values we can determine in every column, individually
+     *
+     * @param model The model to be solving
+     */
 	public static void solveColumns(Model model) {
         // local versions of model's fields
         int length = model.getBoard().length;
@@ -195,7 +210,12 @@ public class SophisticatedSolver {
             }
         }
 	}
-	
+
+    /**
+     * Solves for values we can determine in every box, individually
+     *
+     * @param model The model to be solving
+     */
 	public static void solveBoxes(Model model) {
         // here we go... no promises this works until this comment is deleted
 
@@ -282,6 +302,11 @@ public class SophisticatedSolver {
     }
 
 
+    /**
+     * Finds paired positions within the entire puzzle, and updates the complexBoard accordingly
+     *
+     * @param model The model to be solving
+     */
     public static void findPairedPositions(Model model) {
         // TODO figure out how these should be returned or stored
 

@@ -3,12 +3,17 @@ import mvc.*;
 /**
  * The class that initializes the MVC, delegates work
  * 
- * @since January 31, 2017
+ * @since February 13, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class Driver {
 
+	/**
+	 * Main method to initialize the MVC
+     *
+	 * @param args Any array, not used at all
+	 */
 	public static void main(String[] args) {
 
 		// initializing the MVC structure
