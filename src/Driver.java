@@ -22,8 +22,8 @@ public class Driver {
 		View view = new View();
 
 		// connecting references
-		controller.addView(view);
-		controller.addModel(model);
+		controller.setView(view);
+		controller.setModel(model);
 
 		controller.run();
 	}

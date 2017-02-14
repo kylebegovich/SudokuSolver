@@ -6,7 +6,7 @@ import solvingAlgorithms.Solver;
 /**
  * The class that mediates communication between view and model
  * 
- * @since January 30, 2017
+ * @since February 14, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -14,29 +14,51 @@ public class Controller {
 	private View view;
 	private Model model;
 
-	// default constructor
+	/**
+	 * Default constructor, not specifically important in this version
+	 */
 	public Controller() {
+		super();
 	}
 
-	// initialization of mvc.View
-	public void addView(View view) {
+
+    /**
+     * Sets the instance field, view
+     *
+     * @param view A View object
+     */
+	public void setView(View view) {
 		this.view = view;
 	}
 
 
-	// initialization of mvc.Model
-	public void addModel(Model model) {
+    /**
+     * Sets the instance field, model
+     *
+     * @param model A View object
+     */
+	public void setModel(Model model) {
 		this.model = model;
 	}
 
 
-	// constructor if the view and model already exist
+    /**
+     * For future use, if necessary
+     *
+     * @param view A View object
+     * @param model A Model object
+     */
 	public Controller(View view, Model model) {
 		this.view = view;
 		this.model = model;
 	}
 
 	// starts program
+
+    /**
+     * Starts program by making all necessary calls to
+     * Model, View, and Solver to give the desired behavior
+     */
 	public void run() {
 		int size = this.view.getSudokuSizeFromUser();
 		int[][] board = this.view.getInputArrayFromUser(size);
@@ -47,11 +69,18 @@ public class Controller {
 
 		// ends program, mvc.View closes program with isSolved() as a parameter
 		endSequence(this.model.toString(), this.model.isSolved(), (size == 0));
-
 	}
 
 
 	// makes a call to mvc.View that stops the program
+
+    /**
+     * Used here as a framework for when more complex outputs will be added
+     *
+     * @param modelRepresentation A String representation of the puzzle
+     * @param isSolved Boolean, if the puzzle got solved
+     * @param easterEgg Boolean, is a secret ;)
+     */
 	public void endSequence(String modelRepresentation, boolean isSolved, boolean easterEgg) {
 		this.view.output(modelRepresentation, isSolved, easterEgg);
 	}

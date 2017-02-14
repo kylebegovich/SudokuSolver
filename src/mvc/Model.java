@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * The class that stores data and representations of the data
  * 
- * @since February 7, 2017
+ * @since February 14, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -21,15 +21,29 @@ public class Model {
     //private ArrayList<Integer> pairedPositions;
     //private Tuple pair;
 
+
+    /**
+     * Default constructor, not specifically important in this version
+     */
 	public Model() {
 		super();
 	}
 
 
+    /**
+     * Returns the board
+     *
+     * @return 2D int array representing the board
+     */
 	public int[][] getBoard() {
 		return board;
 	}
 
+    /**
+     * Sets the instance field board to the input board
+     *
+     * @param board The board to store the value of
+     */
 	public void setBoard(int[][] board) {
 		this.board = board;
 		complexBoard = new int[board.length][board.length][board.length];
@@ -37,6 +51,11 @@ public class Model {
 	}
 
 
+    /**
+     * Returns the complex board
+     *
+     * @return 3D int array representing the board and the available positions of
+     */
 	public int[][][] getComplexBoard() {
 		return complexBoard;
 	}
@@ -46,6 +65,10 @@ public class Model {
 		this.complexBoard = complexBoard;
 	}
 
+
+    /**
+     * Updates the complex board with paired position consideration
+     */
     public void updateComplexBoard() {
         int length = board.length;
         for (int row = 0; row < length; row++) {
@@ -55,6 +78,7 @@ public class Model {
         }
     }
 
+    // This is a mess at the moment
 	public int[] complexUpdateComplexBoard(int row, int col, int length) {
 
         int boxSize = (int) Math.sqrt(length);
@@ -133,11 +157,22 @@ public class Model {
     // TODO write method similar to above, but for a set of 3 positions
 
 
+    /**
+     * Returns the value of the solved status of the board
+     *
+     * @return Boolean, whether the model is solved or not
+     */
     public boolean isSolved() {
         return Checker.check(board);
     }
 
 
+    /**
+     * Overrides the default toString()
+     * Gives a formatted string representation of the Sudoku puzzle
+     *
+     * @return String, the puzzle, but pretty
+     */
 	public String toString() {
 		String output = "";
 		int boxSize = (int) Math.sqrt(board.length);

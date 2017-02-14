@@ -6,15 +6,12 @@ import java.util.Scanner;
  * The class that displays data to the user, accepts inputs, and communicates
  * with controller
  * 
- * @since January 28, 2017
+ * @since February 14, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
 public class View {
 
-	/*
-	 * Version 1.0 - 2.0 will be only terminal input / output
-	 */
 	private static final Scanner scanner = new Scanner(System.in);
 	private static final String getSizeMessage = "Enter the number of rows in your Sudoku puzzle";
 	private static final String fillArrayMessage = "Fill your Sudoku puzzle, row by row, as prompted, 0 for unknown";
@@ -23,11 +20,19 @@ public class View {
 	private static final String errorMessage = "Sorry, your puzzle was not possible to solve";
 	private static final String tinyPuzzleEasterEgg = " (Well that was easy)";
 
+    /**
+     * Default constructor, not specifically important in this version
+     */
 	public View() {
 		super();
 	}
-	
-	// Prompt user for input Sudoku size
+
+
+	/**
+	 * Prompt user for input Sudoku size
+     *
+	 * @return The length of one side of the puzzle
+	 */
 	public int getSudokuSizeFromUser() {
 		System.out.println(getSizeMessage);
 		int temp = scanner.nextInt();
@@ -40,7 +45,13 @@ public class View {
 		return temp;
 	}
 
-	// Prompt user for input Sudoku puzzle
+
+	/**
+	 * Prompt user for input Sudoku puzzle, return that puzzle
+	 *
+	 * @param size The length of one side of the puzzle
+	 * @return A 2D integer array that stores the value of the board
+	 */
 	public int[][] getInputArrayFromUser(int size) {
 		int[][] array = new int[size][size];
 		System.out.println(fillArrayMessage);
@@ -58,9 +69,14 @@ public class View {
 		return array;
 	}
 
-	/*
-	 * output a visual representation of the Sudoku puzzle to the console,
+
+	/**
+	 * Output a visual representation of the Sudoku puzzle to the console,
 	 * along with a message to the user
+	 *
+	 * @param representation The String representation of the puzzle
+	 * @param solved If the puzzle was solved or not
+	 * @param easterEgg Fun secret boolean
 	 */
 	public void output(String representation, boolean solved, boolean easterEgg) {
 		if (easterEgg) {
