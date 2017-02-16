@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="672c2e35-ce98-4e02-af65-6af4ad1fa1ec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/ArrayUtil.java" afterPath="$PROJECT_DIR$/src/util/ArrayUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/Model.java" afterPath="$PROJECT_DIR$/src/mvc/Model.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,11 +18,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ArrayUtil.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ArrayUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/ArrayUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="243" column="44" lean-forward="true" selection-start-line="243" selection-start-column="44" selection-end-line="243" selection-end-column="44" />
+            <state relative-caret-position="240">
+              <caret line="126" column="46" lean-forward="false" selection-start-line="126" selection-start-column="46" selection-end-line="126" selection-end-column="46" />
               <folding>
                 <element signature="method#getStandardArray#0;class#ArrayUtil#0" expanded="false" />
                 <element signature="method#getAvailable#0;class#ArrayUtil#0" expanded="false" />
@@ -30,8 +30,20 @@
                 <element signature="docComment;method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
                 <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
                 <element signature="docComment;method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
-                <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
                 <element signature="docComment;method#dealWithPairedPositions#0;class#ArrayUtil#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/mvc/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="159" column="69" lean-forward="false" selection-start-line="159" selection-start-column="69" selection-end-line="159" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#toString#0;class#Model#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -56,6 +68,7 @@
       <find>openPos</find>
       <find>row</find>
       <find>available[</find>
+      <find>getPa</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -88,8 +101,8 @@
         <option value="$PROJECT_DIR$/src/mvc/View.java" />
         <option value="$PROJECT_DIR$/src/Driver.java" />
         <option value="$PROJECT_DIR$/src/mvc/Controller.java" />
-        <option value="$PROJECT_DIR$/src/mvc/Model.java" />
         <option value="$PROJECT_DIR$/src/util/ArrayUtil.java" />
+        <option value="$PROJECT_DIR$/src/mvc/Model.java" />
       </list>
     </option>
   </component>
@@ -190,6 +203,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -272,9 +288,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -735,7 +748,6 @@
             <element signature="docComment;method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
             <element signature="docComment;method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
             <element signature="docComment;method#dealWithPairedPositions#0;class#ArrayUtil#0" expanded="false" />
           </folding>
         </state>
@@ -777,7 +789,6 @@
             <element signature="docComment;method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
             <element signature="docComment;method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
             <element signature="docComment;method#dealWithPairedPositions#0;class#ArrayUtil#0" expanded="false" />
           </folding>
         </state>
@@ -912,7 +923,6 @@
             <element signature="docComment;method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
             <element signature="docComment;method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
             <element signature="docComment;method#dealWithPairedPositions#0;class#ArrayUtil#0" expanded="false" />
           </folding>
         </state>
@@ -1040,18 +1050,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mvc/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#complexUpdateComplexBoard#0;class#Model#0" expanded="false" />
-            <element signature="method#toString#0;class#Model#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/solvingAlgorithms/SophisticatedSolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1072,8 +1070,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/ArrayUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="243" column="44" lean-forward="true" selection-start-line="243" selection-start-column="44" selection-end-line="243" selection-end-column="44" />
+        <state relative-caret-position="240">
+          <caret line="126" column="46" lean-forward="false" selection-start-line="126" selection-start-column="46" selection-end-line="126" selection-end-column="46" />
           <folding>
             <element signature="method#getStandardArray#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#getAvailable#0;class#ArrayUtil#0" expanded="false" />
@@ -1081,8 +1079,18 @@
             <element signature="docComment;method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
             <element signature="docComment;method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
             <element signature="docComment;method#dealWithPairedPositions#0;class#ArrayUtil#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mvc/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="159" column="69" lean-forward="false" selection-start-line="159" selection-start-column="69" selection-end-line="159" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#toString#0;class#Model#0" expanded="false" />
           </folding>
         </state>
       </provider>

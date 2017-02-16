@@ -124,9 +124,12 @@ public class Model {
                         needFirstPos = false;
 					} else {
 						Tuple secondPos = new Tuple(r, index);
+
 						ArrayList<Integer> pairedValues = ArrayUtil.getPairedPositions(firstLocation, secondPos, complexBoard);
-						ArrayUtil.dealWithPairedPositions(firstLocation, secondPos, pairedValues);
-                        needFirstPos = true;
+						if (pairedValues != null) {
+							ArrayUtil.dealWithPairedPositions(firstLocation, secondPos, pairedValues);
+							needFirstPos = true;
+						}
 					}
 				}
 			}
@@ -142,13 +145,19 @@ public class Model {
 						needFirstPos = false;
 					} else {
 						Tuple secondPos = new Tuple(index, c);
+
 						ArrayList<Integer> pairedValues = ArrayUtil.getPairedPositions(firstLocation, secondPos, complexBoard);
-						ArrayUtil.dealWithPairedPositions(firstLocation, secondPos, pairedValues);
-						needFirstPos = true;
+                        if (pairedValues != null) {
+                            ArrayUtil.dealWithPairedPositions(firstLocation, secondPos, pairedValues);
+                            needFirstPos = true;
+                        }
 					}
 				}
 			}
 		}
+
+
+		// TODO check for triple paired positions in rows and columns
 
 
         return available;
