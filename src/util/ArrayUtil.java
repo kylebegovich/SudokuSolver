@@ -157,26 +157,19 @@ public class ArrayUtil {
             for (int currRow = boxRowStart; currRow < boxRowStart + boxSize; currRow ++) {
                 for (int currCol = boxColStart; currCol < boxColStart + boxSize; currCol ++) {
 
-                    // if the position isn't one of the ones passed in
-                    if ((currRow != row1 || currCol != col1) && (currRow != row2 || currCol != col2)) {
-
-                        // if it's in the list of similar available values, remove it, as it's not exclusive
-                        for (int avail : complexBoard[currRow][currCol]) {
-                            if (similar.size() < 1) {
-                                break;
-                            }
-                            for (int sim : similar) {
-                                if (avail == sim) {
-                                    similar.remove(new Integer(avail));
-                                }
-                            }
-                        }
+                    // removes all potential paired positions that aren't actually paired positions
+                    if (cleanSimilar(complexBoard, row1, col1, row2, col2, -1, -1,similar, currRow, currCol)) {
+                        return null;
                     }
-
                 }
             }
         }
-        return similar;
+
+        if (similar.size() < 1) {
+            return null;
+        } else {
+            return similar;
+        }
     }
 
     /**
@@ -206,10 +199,12 @@ public class ArrayUtil {
         ArrayList<Integer> similar = new ArrayList<>();
         for (int avail1 : complexBoard[row1][col1]) {
             for (int avail2 : complexBoard[row2][col2]) {
+                for (int avail3 : complexBoard[row3][col3]) {
 
-                if (avail1 == avail2) {
-                    oneWayFlag = true;
-                    similar.add(avail1);
+                    if (avail1 == avail2 && avail1 == avail3) {
+                        oneWayFlag = true;
+                        similar.add(avail1);
+                    }
                 }
             }
         }
@@ -220,31 +215,48 @@ public class ArrayUtil {
             int boxColStart = (col1 / boxSize) * boxSize;
 
             // for the entire box
-            for (int currRow = boxRowStart; currRow < boxRowStart + boxSize; currRow ++) {
-                for (int currCol = boxColStart; currCol < boxColStart + boxSize; currCol ++) {
+            for (int currRow = boxRowStart; currRow < boxRowStart + boxSize; currRow++) {
+                for (int currCol = boxColStart; currCol < boxColStart + boxSize; currCol++) {
 
-                    // if the position isn't one of the ones passed in
-                    if ((currRow != row1 || currCol != col1) && (currRow != row2 || currCol != col2)) {
-
-                        // if it's in the list of similar available values, remove it, as it's not exclusive
-                        for (int avail : complexBoard[currRow][currCol]) {
-                            if (similar.size() < 1) {
-                                break;
-                            }
-                            for (int sim : similar) {
-                                if (avail == sim) {
-                                    similar.remove(new Integer(avail));
-                                }
-                            }
-                        }
+                    // removes all potential paired positions that aren't actually paired positions
+                    if (cleanSimilar(complexBoard, row1, col1, row2, col2, row3, col3, similar, currRow, currCol)) {
+                        return null;
                     }
-
                 }
             }
         }
-        return similar;
 
-        return null;
+        if (similar.size() < 1) {
+            return null;
+        } else {
+            return similar;
+        }
+    }
+
+    /* Utility function to abstract away complexity from getPairedPositions */
+    private static boolean cleanSimilar(int[][][] complexBoard, int row1, int col1, int row2, int col2, int row3, int col3,
+                                        ArrayList<Integer> similar, int currRow, int currCol) {
+
+        // if the position isn't one of the ones passed in
+        boolean isRow1 = (currRow == row1 && currCol == col1);
+        boolean isRow2 = (currRow == row2 && currCol == col2);
+        boolean isRow3 = (currRow == row3 && currCol == col3);
+        if (!isRow1 && !isRow2 && !isRow3) {
+
+            // if it's in the list of similar available values, remove it, as it's not exclusive
+            for (int avail : complexBoard[currRow][currCol]) {
+                if (similar.size() < 1) {
+                    // no potential paired positions left in similar
+                    return true;
+                }
+                for (int sim : similar) {
+                    if (avail == sim) {
+                        similar.remove(new Integer(avail));
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     /**

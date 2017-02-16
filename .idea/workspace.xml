@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="672c2e35-ce98-4e02-af65-6af4ad1fa1ec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/ArrayUtil.java" afterPath="$PROJECT_DIR$/src/util/ArrayUtil.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -22,12 +21,17 @@
       <file leaf-file-name="ArrayUtil.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/util/ArrayUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1018">
-              <caret line="244" column="23" lean-forward="false" selection-start-line="244" selection-start-column="23" selection-end-line="244" selection-end-column="23" />
+            <state relative-caret-position="398">
+              <caret line="243" column="44" lean-forward="true" selection-start-line="243" selection-start-column="44" selection-end-line="243" selection-end-column="44" />
               <folding>
                 <element signature="method#getStandardArray#0;class#ArrayUtil#0" expanded="false" />
                 <element signature="method#getAvailable#0;class#ArrayUtil#0" expanded="false" />
                 <element signature="method#canPlace#0;class#ArrayUtil#0" expanded="false" />
+                <element signature="docComment;method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
+                <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
+                <element signature="docComment;method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
+                <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
+                <element signature="docComment;method#dealWithPairedPositions#0;class#ArrayUtil#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -275,6 +279,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RunManager" selected="Application.Driver">
     <configuration default="false" name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -727,6 +732,11 @@
             <element signature="method#getStandardArray#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#getAvailable#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#canPlace#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="docComment;method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="docComment;method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
+            <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
+            <element signature="docComment;method#dealWithPairedPositions#0;class#ArrayUtil#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -764,6 +774,11 @@
             <element signature="method#getStandardArray#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#getAvailable#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#canPlace#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="docComment;method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="docComment;method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
+            <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
+            <element signature="docComment;method#dealWithPairedPositions#0;class#ArrayUtil#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -894,6 +909,11 @@
             <element signature="method#getStandardArray#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#getAvailable#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#canPlace#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="docComment;method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="docComment;method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
+            <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
+            <element signature="docComment;method#dealWithPairedPositions#0;class#ArrayUtil#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -967,8 +987,8 @@
         <state relative-caret-position="165">
           <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="20" />
           <folding>
-            <element signature="e#838#839#0" expanded="true" />
-            <element signature="e#883#884#0" expanded="true" />
+            <element signature="e#838#839#0" expanded="false" />
+            <element signature="e#883#884#0" expanded="false" />
             <element signature="method#isFull#0;class#Checker#0" expanded="false" />
             <element signature="method#isLegal#0;class#Checker#0" expanded="false" />
           </folding>
@@ -1052,12 +1072,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/ArrayUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1018">
-          <caret line="244" column="23" lean-forward="false" selection-start-line="244" selection-start-column="23" selection-end-line="244" selection-end-column="23" />
+        <state relative-caret-position="398">
+          <caret line="243" column="44" lean-forward="true" selection-start-line="243" selection-start-column="44" selection-end-line="243" selection-end-column="44" />
           <folding>
             <element signature="method#getStandardArray#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#getAvailable#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#canPlace#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="docComment;method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="docComment;method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
+            <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
+            <element signature="docComment;method#dealWithPairedPositions#0;class#ArrayUtil#0" expanded="false" />
           </folding>
         </state>
       </provider>
