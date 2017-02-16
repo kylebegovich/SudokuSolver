@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="672c2e35-ce98-4e02-af65-6af4ad1fa1ec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Driver.java" afterPath="$PROJECT_DIR$/src/Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/Controller.java" afterPath="$PROJECT_DIR$/src/mvc/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/Model.java" afterPath="$PROJECT_DIR$/src/mvc/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mvc/View.java" afterPath="$PROJECT_DIR$/src/mvc/View.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/ArrayUtil.java" afterPath="$PROJECT_DIR$/src/util/ArrayUtil.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,37 +18,16 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mvc/Controller.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ArrayUtil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/util/ArrayUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1125">
-              <caret line="81" column="47" lean-forward="false" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mvc/View.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="14" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="24" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/mvc/Model.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
-              <caret line="173" column="45" lean-forward="false" selection-start-line="173" selection-start-column="45" selection-end-line="173" selection-end-column="45" />
+            <state relative-caret-position="1018">
+              <caret line="244" column="23" lean-forward="false" selection-start-line="244" selection-start-column="23" selection-end-line="244" selection-end-column="23" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#updateComplexBoard#0;class#Model#0" expanded="false" />
-                <element signature="method#complexUpdateComplexBoard#0;class#Model#0" expanded="false" />
-                <element signature="method#toString#0;class#Model#0" expanded="false" />
+                <element signature="method#getStandardArray#0;class#ArrayUtil#0" expanded="false" />
+                <element signature="method#getAvailable#0;class#ArrayUtil#0" expanded="false" />
+                <element signature="method#canPlace#0;class#ArrayUtil#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -100,7 +76,6 @@
         <option value="$PROJECT_DIR$/src/Model.java" />
         <option value="$PROJECT_DIR$/src/SimpleSolver.java" />
         <option value="$PROJECT_DIR$/src/solvingAlgorithms/Checker.java" />
-        <option value="$PROJECT_DIR$/src/util/ArrayUtil.java" />
         <option value="$PROJECT_DIR$/src/util/Checker.java" />
         <option value="$PROJECT_DIR$/src/util/Tuple.java" />
         <option value="$PROJECT_DIR$/src/solvingAlgorithms/SophisticatedSolver.java" />
@@ -110,13 +85,13 @@
         <option value="$PROJECT_DIR$/src/Driver.java" />
         <option value="$PROJECT_DIR$/src/mvc/Controller.java" />
         <option value="$PROJECT_DIR$/src/mvc/Model.java" />
+        <option value="$PROJECT_DIR$/src/util/ArrayUtil.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="37" />
     <option name="y" value="23" />
-    <option name="width" value="1403" />
+    <option name="width" value="1440" />
     <option name="height" value="824" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -211,7 +186,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -296,6 +270,7 @@
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -564,7 +539,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="37" y="23" width="1403" height="824" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="824" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -581,7 +556,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19743407" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19722222" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -630,10 +605,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#solveForStructures#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveRows#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveColumns#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveBoxes#0;class#SophisticatedSolver#0" expanded="false" />
             <element signature="e#7737#7806#0" expanded="false" />
           </folding>
         </state>
@@ -656,9 +627,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-          <folding>
-            <element signature="method#solve#0;class#Solver#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -675,10 +644,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#solveForStructures#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveRows#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveColumns#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveBoxes#0;class#SophisticatedSolver#0" expanded="false" />
             <element signature="e#7737#7806#0" expanded="false" />
           </folding>
         </state>
@@ -701,9 +666,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-          <folding>
-            <element signature="method#solve#0;class#Solver#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -720,10 +683,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#solveForStructures#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveRows#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveColumns#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveBoxes#0;class#SophisticatedSolver#0" expanded="false" />
             <element signature="e#7737#7806#0" expanded="false" />
           </folding>
         </state>
@@ -746,9 +705,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
           <caret line="96" column="17" lean-forward="true" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="17" />
-          <folding>
-            <element signature="method#solve#0;class#Solver#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -757,10 +714,6 @@
         <state relative-caret-position="150">
           <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
           <folding>
-            <element signature="method#solveForStructures#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveRows#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveColumns#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveBoxes#0;class#SophisticatedSolver#0" expanded="false" />
             <element signature="e#7737#7806#0" expanded="false" />
           </folding>
         </state>
@@ -774,8 +727,6 @@
             <element signature="method#getStandardArray#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#getAvailable#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#canPlace#0;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -784,9 +735,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1005">
           <caret line="67" column="57" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="57" />
-          <folding>
-            <element signature="method#solve#0;class#Solver#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -795,10 +744,6 @@
         <state relative-caret-position="630">
           <caret line="44" column="17" lean-forward="false" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
           <folding>
-            <element signature="method#solveForStructures#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveRows#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveColumns#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveBoxes#0;class#SophisticatedSolver#0" expanded="false" />
             <element signature="e#7737#7806#0" expanded="false" />
           </folding>
         </state>
@@ -819,8 +764,6 @@
             <element signature="method#getStandardArray#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#getAvailable#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#canPlace#0;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -842,9 +785,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#solve#0;class#Solver#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -872,9 +813,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#solve#0;class#Solver#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -902,9 +841,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1305">
           <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding>
-            <element signature="method#solve#0;class#Solver#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -932,9 +869,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="885">
           <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding>
-            <element signature="method#solve#0;class#Solver#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -959,8 +894,6 @@
             <element signature="method#getStandardArray#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#getAvailable#0;class#ArrayUtil#0" expanded="false" />
             <element signature="method#canPlace#0;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -978,10 +911,6 @@
         <state relative-caret-position="120">
           <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
           <folding>
-            <element signature="method#solveForStructures#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveRows#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveColumns#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveBoxes#0;class#SophisticatedSolver#0" expanded="false" />
             <element signature="e#7737#7806#0" expanded="false" />
           </folding>
         </state>
@@ -1006,9 +935,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1740">
           <caret line="116" column="5" lean-forward="true" selection-start-line="75" selection-start-column="4" selection-end-line="116" selection-end-column="5" />
-          <folding>
-            <element signature="method#solve#0;class#Solver#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1056,57 +983,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/ArrayUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-          <folding>
-            <element signature="method#getStandardArray#0;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#getAvailable#0;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#canPlace#0;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#getPairedPositions#0;class#ArrayUtil#0" expanded="false" />
-            <element signature="method#getPairedPositions#1;class#ArrayUtil#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/solvingAlgorithms/SophisticatedSolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-          <folding>
-            <element signature="method#solveForStructures#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveRows#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveColumns#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="method#solveBoxes#0;class#SophisticatedSolver#0" expanded="false" />
-            <element signature="e#7737#7806#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/solvingAlgorithms/Solver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-          <folding>
-            <element signature="method#solve#0;class#Solver#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/solvingAlgorithms/SimpleSolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="104" column="34" lean-forward="false" selection-start-line="104" selection-start-column="34" selection-end-line="104" selection-end-column="34" />
-          <folding>
-            <element signature="method#simpleSolve#0;class#SimpleSolver#0" expanded="false" />
-            <element signature="method#solveOneMissingRow#0;class#SimpleSolver#0" expanded="false" />
-            <element signature="method#solveOneMissingColumn#0;class#SimpleSolver#0" expanded="false" />
-            <element signature="method#solveOneMissingBox#0;class#SimpleSolver#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1123,6 +999,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/solvingAlgorithms/SimpleSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1577">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+          <folding>
+            <element signature="method#simpleSolve#0;class#SimpleSolver#0" expanded="false" />
+            <element signature="method#solveOneMissingRow#0;class#SimpleSolver#0" expanded="false" />
+            <element signature="method#solveOneMissingColumn#0;class#SimpleSolver#0" expanded="false" />
+            <element signature="method#solveOneMissingBox#0;class#SimpleSolver#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/mvc/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1133,13 +1022,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mvc/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="173" column="45" lean-forward="false" selection-start-line="173" selection-start-column="45" selection-end-line="173" selection-end-column="45" />
+        <state relative-caret-position="270">
+          <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#updateComplexBoard#0;class#Model#0" expanded="false" />
             <element signature="method#complexUpdateComplexBoard#0;class#Model#0" expanded="false" />
             <element signature="method#toString#0;class#Model#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/solvingAlgorithms/SophisticatedSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding>
+            <element signature="e#7737#7806#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/solvingAlgorithms/Solver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/ArrayUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1018">
+          <caret line="244" column="23" lean-forward="false" selection-start-line="244" selection-start-column="23" selection-end-line="244" selection-end-column="23" />
+          <folding>
+            <element signature="method#getStandardArray#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="method#getAvailable#0;class#ArrayUtil#0" expanded="false" />
+            <element signature="method#canPlace#0;class#ArrayUtil#0" expanded="false" />
           </folding>
         </state>
       </provider>

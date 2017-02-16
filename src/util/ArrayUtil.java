@@ -196,7 +196,53 @@ public class ArrayUtil {
         int row3 = thirdPos.FIRST_VALUE;
         int col3 = thirdPos.SECOND_VALUE;
 
-        // TODO make this do what the other one does :)
+        // double check that the positions can be paired in some way
+        if (row1 != row2 && col1 != col2) {
+            return null;
+        }
+
+
+        boolean oneWayFlag = false;
+        ArrayList<Integer> similar = new ArrayList<>();
+        for (int avail1 : complexBoard[row1][col1]) {
+            for (int avail2 : complexBoard[row2][col2]) {
+
+                if (avail1 == avail2) {
+                    oneWayFlag = true;
+                    similar.add(avail1);
+                }
+            }
+        }
+
+        if (oneWayFlag) {
+            int boxSize = (int) Math.sqrt(complexBoard.length);
+            int boxRowStart = (row1 / boxSize) * boxSize;
+            int boxColStart = (col1 / boxSize) * boxSize;
+
+            // for the entire box
+            for (int currRow = boxRowStart; currRow < boxRowStart + boxSize; currRow ++) {
+                for (int currCol = boxColStart; currCol < boxColStart + boxSize; currCol ++) {
+
+                    // if the position isn't one of the ones passed in
+                    if ((currRow != row1 || currCol != col1) && (currRow != row2 || currCol != col2)) {
+
+                        // if it's in the list of similar available values, remove it, as it's not exclusive
+                        for (int avail : complexBoard[currRow][currCol]) {
+                            if (similar.size() < 1) {
+                                break;
+                            }
+                            for (int sim : similar) {
+                                if (avail == sim) {
+                                    similar.remove(new Integer(avail));
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+        return similar;
 
         return null;
     }
