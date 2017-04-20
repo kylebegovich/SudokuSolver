@@ -166,13 +166,6 @@ public class Model {
 
 
 
-
-
-
-
-
-
-
     private boolean checkRowsForPairedPos(int arrLength, boolean needFirstPos) {
         for (int r = 0; r < arrLength / 2; r++) {
             Tuple firstLocation = null;

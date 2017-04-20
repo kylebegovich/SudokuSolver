@@ -233,7 +233,27 @@ public class ArrayUtil {
         }
     }
 
-    /* Utility function to abstract away complexity from getPairedPositions */
+
+    /**
+     * Utility function to abstract away complexity from getPairedPositions
+     *
+     * @param complexBoard the full array with potential values
+     *
+     * @param row1 row index of a potentially paired position
+     * @param col1 column index of a potentially paired position
+     *
+     * @param row2 row index of a potentially paired position
+     * @param col2 column index of a potentially paired position
+     *
+     * @param row3 row index of a potentially paired position
+     * @param col3 column index of a potentially paired position
+     *
+     * @param similar current list of similar values
+     * @param currRow current column index
+     * @param currCol current row index
+     *
+     * @return true iff no paired positions are left in similar
+     */
     private static boolean cleanSimilar(int[][][] complexBoard, int row1, int col1, int row2, int col2, int row3, int col3,
                                         ArrayList<Integer> similar, int currRow, int currCol) {
 
@@ -246,6 +266,7 @@ public class ArrayUtil {
             // if it's in the list of similar available values, remove it, as it's not exclusive
             for (int avail : complexBoard[currRow][currCol]) {
                 if (similar.size() < 1) {
+
                     // no potential paired positions left in similar
                     return true;
                 }
@@ -260,12 +281,13 @@ public class ArrayUtil {
     }
 
     /**
+     * Will return correct assignment tags once implemented
      *
-     * @param firstPos
-     * @param secondPos
-     * @param pairedValues
+     * @param firstPos coordinates of first value
+     * @param secondPos coordinates of second value
+     * @param pairedValues which values at the location are paired with each other
      */
     public static void dealWithPairedPositions(Tuple firstPos, Tuple secondPos, ArrayList<Integer> pairedValues) {
-
+        // TODO: implement
     }
 }
