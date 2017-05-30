@@ -1,12 +1,11 @@
 package mvc;
 
-// TODO replace this import with the wrapper for the solving algorithms, once it exists
 import solvingAlgorithms.Solver;
 
 /**
  * The class that mediates communication between view and model
  * 
- * @since February 14, 2017
+ * @since May 30, 2017
  * @author Kyle Begovich
  * @version 1.5
  */
@@ -53,18 +52,17 @@ public class Controller {
 		this.model = model;
 	}
 
-	// starts program
 
     /**
      * Starts program by making all necessary calls to
-     * Model, View, and Solver to give the desired behavior
+     * Model, View, and Solver
      */
 	public void run() {
 		int size = this.view.getSudokuSizeFromUser();
 		int[][] board = this.view.getInputArrayFromUser(size);
 		this.model.setBoard(board);
 
-		// this may take a while, calls solving algorithm(s)
+		// this may take a while, calls solving algorithms
 		Solver.solve(this.model);
 
 		// ends program, mvc.View closes program with isSolved() as a parameter
@@ -72,10 +70,8 @@ public class Controller {
 	}
 
 
-	// makes a call to mvc.View that stops the program
-
     /**
-     * Used here as a framework for when more complex outputs will be added
+     * Last call in the controller before handing off control, all solving is done
      *
      * @param modelRepresentation A String representation of the puzzle
      * @param isSolved Boolean, if the puzzle got solved

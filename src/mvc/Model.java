@@ -17,9 +17,6 @@ import java.util.ArrayList;
 public class Model {
     private int[][] board;
     private int[][][] complexBoard;
-    // TODO don't want to store these values, trying to deal with them live with an ArrayUtil method
-    //private ArrayList<Integer> pairedPositions;
-    //private Tuple pair;
 
 
     /**
@@ -38,6 +35,7 @@ public class Model {
     public int[][] getBoard() {
         return board;
     }
+
 
     /**
      * Sets the instance field board to the input board
@@ -60,6 +58,7 @@ public class Model {
         return complexBoard;
     }
 
+
     // not sure if I will use this method yet, not sure when / where it would be applicable
     public void setComplexBoard(int[][][] complexBoard) {
         this.complexBoard = complexBoard;
@@ -76,9 +75,7 @@ public class Model {
                 complexBoard[row][col] = ArrayUtil.getAvailable(row, col, board);
             }
         }
-    }
-
-    // This is a mess at the moment
+    }// This is a mess at the moment
     public int[] complexUpdateComplexBoard(int row, int col, int length) {
 
         int boxSize = (int) Math.sqrt(length);
