@@ -3,6 +3,8 @@ package solvingAlgorithms;
 import mvc.Model;
 import util.Checker;
 
+import static java.util.Arrays.deepEquals;
+
 /**
  * This is the class used to solve the puzzle given from mvc.Model, makes calls to other solving classes
  *
@@ -73,7 +75,8 @@ public class Solver {
 			// check for sophisticated solutions
 			SophisticatedSolver.sophisticatedSolve(model);
 
-			if (lastIterationBoard.equals(board)) {
+			// this is
+			if (deepEquals(lastIterationBoard, board)) {
 				counter++;
 			} else {
 				counter = 0;

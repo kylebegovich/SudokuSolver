@@ -63,7 +63,7 @@ public class ArrayUtil {
         int rowStart = (int) ((int) (row / Math.sqrt(length)) * Math.sqrt(length));
         int colStart = (int) ((int) (col / Math.sqrt(length)) * Math.sqrt(length));
         System.out.println("testing purposes: colStart = " + colStart +
-                ", rowStart = " + rowStart + ", sqrt = " + Math.sqrt(length));
+                ", rowStart = " + rowStart + ", sqrt = " + ((int) Math.sqrt(length)));
 
         // box loop
         for (int r = rowStart; r < rowStart + Math.sqrt(length); r++) {

@@ -59,14 +59,20 @@ public class Controller {
      */
 	public void run() {
 		int size = this.view.getSudokuSizeFromUser();
-		int[][] board = this.view.getInputArrayFromUser(size);
-		this.model.setBoard(board);
+		if (size == 0) {
+            int[][][] boards = this.view.loadBoardFromFile();
 
-		// this may take a while, calls solving algorithms
-		Solver.solve(this.model);
+		} else {
+            int[][] board = this.view.getBoardFromUser(size);
 
-		// ends program, mvc.View closes program with isSolved() as a parameter
-		endSequence(this.model.toString(), this.model.isSolved(), (size == 0));
+            this.model.setBoard(board);
+
+            // this may take a while, calls solving algorithms
+            Solver.solve(this.model);
+
+            // ends program, mvc.View closes program with isSolved() as a parameter
+            endSequence(this.model.toString(), this.model.isSolved());
+		}
 	}
 
 
@@ -75,9 +81,8 @@ public class Controller {
      *
      * @param modelRepresentation A String representation of the puzzle
      * @param isSolved Boolean, if the puzzle got solved
-     * @param easterEgg Boolean, is a secret ;)
      */
-	public void endSequence(String modelRepresentation, boolean isSolved, boolean easterEgg) {
-		this.view.output(modelRepresentation, isSolved, easterEgg);
+	public void endSequence(String modelRepresentation, boolean isSolved) {
+		this.view.output(modelRepresentation, isSolved);
 	}
 }
